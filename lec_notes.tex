@@ -1,4 +1,4 @@
-\section{Integration of Complex Functions}
+\section{Integration of Complex Functions (Lec. 7)}
 Assume \((X, \mathfrak{B}, \mu)\) is a measure space.
 \begin{definition}
     A measurable function \(f:X\rightarrow \mathbb{C}\) is called integrable (or $\mu$-integrable) if
@@ -41,7 +41,7 @@ as
     Uniqueness is clear, as positive functions in \(\mathcal{L}^{1}(X, d\mu)\) spans the entire space. We first extend the integral to real
     integrable functions by letting
     \begin{align*}
-        \int\limits_{X}(g-h)d\mu \equiv \int\limits_{X}gd\mu - \int\limits_{X}hd\mu, 
+        \int\limits_{X}(g-h)d\mu \eqdef \int\limits_{X}gd\mu - \int\limits_{X}hd\mu, 
     \end{align*}
     for \(g,h\in \mathcal{L}^{1}(X,d\mu), \ g,h\geq0\).
 
@@ -49,5 +49,56 @@ as
     \begin{align*}
         g - h = g' - h',
     \end{align*}
-    then \(g+h' = h + g'\) and hence \(\int\limits_{X}gd\mu + \int\limits_{X}h'd\mu\)
+    then \(g+h' = h + g'\) and hence \(\int\limits_{X}gd\mu + \int\limits_{X}h'd\mu = \int\limits_{X}g'd\mu + \int\limits_{X}h'd\mu\).
+    Now we extend the integral to the entire space \(\mathcal{L}'(X,d\mu)\) by
+    \begin{align*}
+        \int\limits_{X}fd\mu \eqdef \int\limits_{X} (\text{Re}(f))d\mu + i \int\limits_{X}(\text{Im}(f))d\mu.
+    \end{align*}
+    We easily get that by definition (?):
+    \begin{align*}
+        \int\limits_{X}(f_1+f_2)d\mu = \int\limits_{X}f_1d\mu + \int\limits_{X}f_2d\mu, \ \forall f_1, f_2 \in \mathcal{L}^{1}(X, d\mu),
+    \end{align*}
+    and
+    \begin{align*}
+        \int\limits_{X}cfd\mu = c\int\limits_{X}fd\mu \ \forall f\in \mathcal{L}^{1}(X,d\mu) \ \forall c\geq 0.
+    \end{align*}
+
+    In order to prove the last property for all \(c\in\mathbb{C}\), it remains to check it for \(c=-1\) and \(c=i\).
+
+    For \(c=-1\) it follows, since if \(g,h\geq0\), then
+    \begin{eqnarray*}
+        \int\limits_{X}\left( -(g-h) \right)d\mu &=& \int\limits_{X}\left( h-g \right)d\mu \\
+        &=& \int\limits_{X} h d\mu - \int\limits_{X} gd\mu \\
+        &=& - \int\limits_{X}\left( g- h \right)d\mu.
+    \end{eqnarray*}
+    Similarly, for \(c=i\) it is proved by a simple computation:
+    \begin{eqnarray*}
+        \int\limits_{X} i fd\mu &=& \int\limits_{X} \text{Re}(if)d\mu + i\int\limits_{X}\text{Im}(if)d\mu \\
+        &=& \int\limits_{X}\left( -\text{Im}(f) \right)d\mu + i \int\limits_{X} \left( \text{Re}(f) \right)d\mu \\
+        &=& i\left( \int\limits_{X}\left( \text{Re}(f) \right) d\mu + i\int\limits_{X} \left( \text{Im}(f) \right)d\mu\right) \\
+        &=& i\int\limits_{X} fd\mu.
+    \end{eqnarray*}
+\end{proof}
+\begin{prop}[Triangle Inequality]
+    For every \(f\in \mathcal{L}^{1}(X,d\mu)\) we have
+    \begin{align*}
+        \Big|\int\limits_{X}fd\mu\Big| \leq \int\limits_{X}|f|d\mu.
+    \end{align*}
+\end{prop}
+\begin{proof}
+    Choose \(z\in \Pi\eqdef \left\{ w\in\mathbb{C} : |w|=1 \right\}\) s.t.
+    \begin{align*}
+        z\int\limits_{X}fd\mu \geq 0.
+    \end{align*}
+    Then
+    \begin{eqnarray*}
+        \Big|\int\limits_{X} fd\mu \Big| &=& \Big|z\int\limits_{X}\Big| \\
+        &=& z \int\limits_{X}fd\mu \\
+        &=& \int\limits_{X}zfd\mu \\
+        &=& \int\limits_{X}\text{Re}(zf)d\mu + i \cancel{\int\limits_{X}\text{Im}(zf)d\mu} \ (\text{since }|\int\limits_{X}fd\mu|\in\mathbb{R}) \\
+        &=& \int\limits_{X}\left(\text{Re}(zf)\right)_{+}d\mu - \int\limits_{X}\left(\text{Re}(zf)\right)_{-}d\mu \\
+        &\leq& \int\limits_{X}\left(\text{Re}(zf)\right)_{+}d\mu \\
+        &\leq& \int\limits_{X}|f|d\mu,
+    \end{eqnarray*}
+    since \(\left( \text{Re}(zf) \right)_{+} \leq |f|\).
 \end{proof}
