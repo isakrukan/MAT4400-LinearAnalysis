@@ -10,7 +10,7 @@ Denote by \(\mathcal{L}^1(X, \mathfrak{B}, d\mu)\), \(\mathcal{L}^1(X, d\mu)\) o
 functions. This is also a vector space over $\mathbb{C}$, since
 \begin{align*}
     |f + g| \leq |f| + |g|, \ |cf| = |c||f| \ (c\in \mathbb{C}), \\
-    \text{the other axioms are trivial}.
+    \text{and the other axioms are should be easy}.
 \end{align*}
 This vector space is spanned by positive functions, since
 \begin{align*}
@@ -54,7 +54,7 @@ as
     \begin{align*}
         \int\limits_{X}fd\mu \eqdef \int\limits_{X} (\text{Re}(f))d\mu + i \int\limits_{X}(\text{Im}(f))d\mu.
     \end{align*}
-    We easily get that by definition (?):
+    We easily get that by definition:
     \begin{align*}
         \int\limits_{X}(f_1+f_2)d\mu = \int\limits_{X}f_1d\mu + \int\limits_{X}f_2d\mu, \ \forall f_1, f_2 \in \mathcal{L}^{1}(X, d\mu),
     \end{align*}
@@ -95,7 +95,7 @@ as
         \Big|\int\limits_{X} fd\mu \Big| &=& \Big|z\int\limits_{X}\Big| \\
         &=& z \int\limits_{X}fd\mu \\
         &=& \int\limits_{X}zfd\mu \\
-        &=& \int\limits_{X}\text{Re}(zf)d\mu + i \cancel{\int\limits_{X}\text{Im}(zf)d\mu} \ (\text{since }|\int\limits_{X}fd\mu|\in\mathbb{R}) \\
+        &=& \int\limits_{X}\text{Re}(zf)d\mu + i \cancel{\int\limits_{X}\text{Im}(zf)d\mu} \\
         &=& \int\limits_{X}\left(\text{Re}(zf)\right)_{+}d\mu - \int\limits_{X}\left(\text{Re}(zf)\right)_{-}d\mu \\
         &\leq& \int\limits_{X}\left(\text{Re}(zf)\right)_{+}d\mu \\
         &\leq& \int\limits_{X}|f|d\mu,
