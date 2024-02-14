@@ -1,0 +1,118 @@
+\documentclass{article}
+
+
+% allows special characters (including æøå)
+\usepackage[utf8]{inputenc}
+%\usepackage[english]{babel}
+
+\usepackage{subfiles}
+\usepackage{physics,amssymb}  % mathematical symbols (physics imports amsmath)
+\include{amsmath}
+\usepackage{graphicx}         % include graphics such as plots
+\usepackage{xcolor}           % set colors
+\usepackage{hyperref}         % automagic cross-referencing (this is GODLIKE)
+\usepackage{listings}         % display code
+\usepackage{subfigure}        % imports a lot of cool and useful figure commands
+\usepackage{float}
+%\usepackage[section]{placeins}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{subfigure}
+\usepackage{tikz}
+\usepackage{cleveref} % for \cref
+\usepackage{enumitem} % to enumerate with a), b), ... : [label=(\alph*)] 
+\usepackage{cancel}
+\usepackage{slashed}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{prop}{Proposition}
+\newcommand{\eqdef}{\mathrel{\mathop:}=}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[theorem]
+\usepackage{stmaryrd}
+
+\usetikzlibrary{quantikz}
+
+% defines the color of hyperref objects
+% Blending two colors:  blue!80!black  =  80% blue and 20% black
+
+
+\newcommand{\A}{\mathscr{A}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Borel}[1]{\mathscr B(\mathbb R^{#1})}
+\newcommand{\map}[3]{#1:#2\rightarrow #3}
+
+
+
+\lstset{frame=tb,
+  language=c++,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{orange},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=4
+}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}}
+%% USEFUL LINKS:
+%%
+%%   UiO LaTeX guides:        https://www.mn.uio.no/ifi/tjenester/it/hjelp/latex/
+%%   mathematics:             https://en.wikibooks.org/wiki/LaTeX/Mathematics
+
+%%   PHYSICS !                https://mirror.hmc.edu/ctan/macros/latex/contrib/physics/physics.pdf
+
+%%   the basics of Tikz:       https://en.wikibooks.org/wiki/LaTeX/PGF/Tikz
+%%   all the colors!:          https://en.wikibooks.org/wiki/LaTeX/Colors
+%%   how to draw tables:       https://en.wikibooks.org/wiki/LaTeX/Tables
+%%   code listing styles:      https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
+%%   \includegraphics          https://en.wikibooks.org/wiki/LaTeX/Importing_Graphics
+%%   learn more about figures  https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions
+%%   automagic bibliography:   https://en.wikibooks.org/wiki/LaTeX/Bibliography_Management  (this one is kinda difficult the first time)
+%%   REVTeX Guide:             http://www.physics.csbsju.edu/370/papers/Journal_Style_Manuals/auguide4-1.pdf
+%%
+%%   (this document is of class "revtex4-1", the REVTeX Guide explains how the class works)
+
+
+%%%%%%%%%%%%% CREATING THE pdf FILE USING LINUX IN THE TERMINAL %%%%%%%%%%%%%
+%% pdflatex filename.tex && filename.tex && open filename.pdf
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% USING FOOTNOTE COMMAND: %%%%%%%%%%%%%%%%%%%%%%%%%%
+    %% pdflatex filename.tex && bibtex filename.tex && pdflatex filename.tex && pdflatex filename.tex && open filename.pdf
+
+
+
+
+
+\begin{document}
+\title{MAT4400: Notes on Linear analysis }
+\author{Morten Tryti Berg and Isak Cecil Onsager Rukan. }
+\maketitle
+\date
+
+
+
+\setcounter{section}{6}
+\setcounter{theorem}{6}
+
+\subfile{Ch_7_subfile.tex}
+\setcounter{section}{7}
+\setcounter{theorem}{7}
+
+\subfile{Ch_8_subfile.tex}
+
+\end{document}
