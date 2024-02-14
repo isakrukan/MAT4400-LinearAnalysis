@@ -1,0 +1,64 @@
+\section{Existence of Measures}
+\begin{theorem}[Carathéodory]
+    Let \(S\subset P(X)\) be a semi-ring and \(\mu:S\rightarrow[0,\infty)\) a pre-measure. Then \(\mu\) has an extension to a measure \(\mu^{*}\)
+    on \(\sigma(S)\), i.e. that \(\mu(s) = \mu^{*}(s), \ \forall \ s\in \sigma(S)\). 
+    
+    Also, if \(S\) contains an exhausting sequence, \(S_n\uparrow X\), s.t. \(\mu(S_n) < \infty\), then the extension is 
+    unique.
+\end{theorem}
+\begin{proof}[Proof (outline)]
+    Firstly, let us define an outer measure. 
+    \begin{definition}[Outer measure]
+        An outer measure is a function \(\mu^{*}: P(X) \rightarrow [0,\infty)\) with the following properties:
+        \begin{enumerate}
+            \item \(\mu^{*}(\emptyset) = 0\),
+            \item \(A\subset B \Rightarrow u^{*}(A) \leq \mu^{*}(B)\),
+            \item \(\mu^{*}\left( \bigcup\limits_{n\in\mathbb{N}} A_n \right)\leq \sum\limits_{n\in\mathbb{N}} \mu^{*}(A_n)\),
+        \end{enumerate}
+    \end{definition}
+    and define for each \(A\subset X\) the family of countable \(S\)\emph{-coverings}:
+    \begin{align*}
+        C(A) \eqdef \left\{(S_n)_{n\in\mathbb{N}} \subset S : \bigcup\limits_{n\in\mathbb{N}} S_n\supset A\right\},
+    \end{align*}
+    and the set function
+    \begin{align*}
+        \mu^{*}(A) \eqdef \text{inf}\left\{ \sum\limits_{n\in\mathbb{N}} \mu(S_n): (S_n)_{n\in\mathbb{N}}\in C(A)\right\}.
+    \end{align*}
+    \textbf{Step 1: Claim: } \(\mu^{*}(A)\)\emph{ is an outer measure.}
+    \begin{proof} \ \\
+        \begin{enumerate}
+            \item \(C(\emptyset) = \left\{ \text{any sequence in }S\text{ containing }\emptyset  \right\}\Rightarrow \mu^{*}(\emptyset) = 0\).
+            \item Assume \(A\subset B\). Then \(C(A) \subset C(B) \Rightarrow \mu^{*}(A) \leq \mu^{*}{B}\).
+            \item If \(\mu^{*}(A_n) = \infty\) for some \(n\), then there is nothing to prove. Thus, assume \(\mu^{*}(A_n) < \infty \ \forall n\).
+            Fix \(\epsilon > 0\), and for every \(n\) choose \(A_{n_k}\in S\) s.t.
+            \begin{align*}
+                A_n \subset \bigcup\limits_{k\in\mathbb{N}} A_{n_k}, \ 
+                \sum\limits_{k\in\mathbb{N}}\mu^{*}(A_{n_k}) < \mu^{*}(A_n) + \frac{\epsilon}{2^n}.
+            \end{align*}
+            Then
+            \begin{align*}
+                \bigcup\limits_{n\in\mathbb{N}} A_n \subset \bigcup\limits_{k\in\mathbb{N}}\bigcup\limits_{n\in\mathbb{N}} A_{n_k},
+            \end{align*}
+            so 
+            \begin{align*}
+                \mu^{*}\left( \bigcup\limits_{n\in\mathbb{N}} A_n\right) \leq& \sum\limits_{n\in\mathbb{N}}\sum\limits_{k\in\mathbb{N}}\mu\left(A_{n_k}\right) \\
+                <& \sum\limits_{n\in\mathbb{N}}\left( \mu^{*}(A_n) + \frac{\epsilon}{2^n}\right) \\ 
+                =& \sum\limits_{n\in\mathbb{N}}\mu^{*}(A_n) + \epsilon.
+            \end{align*}
+            As \(\epsilon\) was arbitrarily, we get that
+            \begin{align*}
+                \mu^{*}\left( \bigcup\limits_{n\in\mathbb{N}} A_n\right) \leq \sum\limits_{n\in\mathbb{N}}\mu^{*}(A_n),
+            \end{align*}
+        \end{enumerate}
+        so \(\mu^{*}\) fulfills all the conditions for being an outer measure.
+    \end{proof}
+    \textbf{Step 2:} \emph{Showing that \(\mu^{*}\) extends \(\mu\), i.e. \(\mu^{*}(s) = \mu(s) \ \forall s\in S\).}
+    
+    \textbf{Step 3:} \emph{Define \(\mu^{*}\)-measurable sets}
+    \begin{align*}
+        \Sigma^{*} \eqdef \left\{ A \subset X: \mu^{*}(Q) = \mu^{*}(Q\cap A) + \mu^{*}(Q \backslash A) \ \forall \ Q \subset X \right\}
+    \end{align*}
+
+    \textbf{Step 4:} \emph{Show that \(\mu\vert_{\Sigma^{*}}\) is a measure. In particular, \(\mu\vert_{\sigma(S)}\) is a measure which extends \(\mu\).}
+    
+\end{proof}
