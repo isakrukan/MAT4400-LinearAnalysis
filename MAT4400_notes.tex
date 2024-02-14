@@ -25,6 +25,7 @@
 \usepackage{slashed}
 \usepackage{amsthm}
 \usepackage{mathrsfs}
+\usepackage{comment}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -96,16 +97,29 @@
 
 
 
-
-
 \begin{document}
 \title{MAT4400: Notes on Linear analysis }
 \author{Morten Tryti Berg and Isak Cecil Onsager Rukan. }
 \maketitle
 \date
 
+\excludecomment{proof} % Comment this out to remove proofs
 
+\setcounter{section}{2}
+\setcounter{theorem}{2}
+\subfile{Ch_3_subfile.tex}
+\setcounter{section}{3}
+\setcounter{theorem}{3}
 
+\subfile{Ch_4_subfile.tex}
+\setcounter{section}{4}
+\setcounter{theorem}{4}
+
+\subfile{Ch_5_subfile.tex}
+\setcounter{section}{5}
+\setcounter{theorem}{5}
+
+\subfile{Ch_6_subfile.tex}
 \setcounter{section}{6}
 \setcounter{theorem}{6}
 

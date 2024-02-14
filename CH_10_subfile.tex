@@ -1,0 +1,54 @@
+\section{Chapter 10}
+\subsection{Integration of Complex Functions}
+Assume \((X, \mathfrak{B}, \mu)\) is a measure space.
+\begin{definition}
+    A measurable function \(f:X\rightarrow \mathbb{C}\) is called integrable (or $\mu$-integrable) if
+    \begin{align*}
+        \int\limits_{X}|f|d\mu < \infty.
+    \end{align*}
+\end{definition}
+Denote by \(\mathcal{L}^1(X, \mathfrak{B}, d\mu)\), \(\mathcal{L}^1(X, d\mu)\) or \(\mathcal{L}_{\mathbb{C}}^{1}\) the set of integrable
+functions. This is also a vector space over $\mathbb{C}$, since
+\begin{align*}
+    |f + g| \leq |f| + |g|, \ |cf| = |c||f| \ (c\in \mathbb{C}), \\
+    \text{the other axioms are trivial}.
+\end{align*}
+This vector space is spanned by positive functions, since
+\begin{align*}
+    f = \text{Re}(f)_{+} - \text{Re}(f)_{-} + i\text{Im}(f)_{+} - i\text{Im}(f)_{-},
+\end{align*}
+where for a function $h$ we let
+\begin{align*}
+    h_{+} = \max\left\{h,0\right\}, \ h_{-} = -\min\left\{ h,0 \right\},
+\end{align*}
+and if \(f\in \mathcal{L}^{1}(X, d\mu)\), then
+\begin{align*}
+    (\text{Re}(f))_{\pm}, (\text{Im}(f))_{\pm} \in \mathcal{L}^{1}(X, d\mu),
+\end{align*}
+as
+\begin{align*}
+    |(\text{Re}(f))_{\pm}|, |(\text{Im}(f))_{\pm}| \leq |f|.
+\end{align*}
+
+\begin{prop}
+    The integral extends uniquely from the positive integrable functions to a linear function (functional?) \(\mathcal{L}^{1}(X, d\mu) \rightarrow \mathbb{C}\),
+    that is, to a map s.t.
+    \begin{align*}
+        \int\limits_{X}(f + g)d\mu = \int\limits_{X}fd\mu + \int\limits_{X}gd\mu, \\
+        \int\limits_{X}cfd\mu = c \int\limits_{X}fd\mu, \ c\in\mathbb{C}.
+    \end{align*}
+\end{prop}
+\begin{proof}
+    Uniqueness is clear, as positive functions in \(\mathcal{L}^{1}(X, d\mu)\) spans the entire space. We first extend the integral to real
+    integrable functions by letting
+    \begin{align*}
+        \int\limits_{X}(g-h)d\mu \equiv \int\limits_{X}gd\mu - \int\limits_{X}hd\mu, 
+    \end{align*}
+    for \(g,h\in \mathcal{L}^{1}(X,d\mu), \ g,h\geq0\).
+
+    This is well-defined, since if
+    \begin{align*}
+        g - h = g' - h',
+    \end{align*}
+    then \(g+h' = h + g'\) and hence \(\int\limits_{X}gd\mu + \int\limits_{X}h'd\mu\)
+\end{proof}
