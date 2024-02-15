@@ -31,6 +31,10 @@
 
 	\end{theorem}
 
+    \begin{corollary}
+        Every continuous map betwen metric spaces is a Borel map.
+    \end{corollary}
+
     \begin{definition}
         \textbf{(and lemma)}
         Let $(T_i)_{i\in I}$, $T_I:X\rightarrow X_i$, be arbitrarily many mappings from the same space X into measurable spaces $(X_i,\mathcal A_i).$ The smallest $\sigma$-algebra on $X$ that makes all $T_i$ simultanously measurable is 
@@ -40,6 +44,19 @@
 
     \end{definition}
 	
+    \begin{corollary}
+        A function $f:(X,\mathcal B)\rightarrow \mathbb R$ is measurable if $f((a,+\infty))\in \mathcal B,\hspace{2mm}\forall a\in \mathbb R.$
+    \end{corollary}
+
+    \begin{corollary}
+        Assume $(X,\mathcal B)$ is a measurable space, $(Y,d)$ is a metric space, $(f_n:(X,\mathcal B)\rightarrow Y)_{n=1}^\infty$ is a sequence of measurable maps.
+        Assume this sequence of images $(f_n(x))_{n=1}^\infty$ is convergent in $Y$ $\forall x\in X$.
+        Define \begin{align}
+            f:X\rightarrow Y,\hspace{2mm}\text{by  } f(x)=\lim_{n\rightarrow \infty} f_n(x).
+        \end{align}
+        Then f is measurable.
+    \end{corollary}
+
     \begin{theorem}
         Let $(X,\mathcal A)$, $(X',\mathcal A')$ be measurable spaces and $T:X\rightarrow X'$ be an $\mathcal A/\mathcal A'$-measurable map. For every measurable $\mu$ on $(X,\mathcal A)$, 
         \begin{align}
