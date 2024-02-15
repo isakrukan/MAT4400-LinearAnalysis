@@ -26,11 +26,13 @@
 \usepackage{amsthm}
 \usepackage{mathrsfs}
 \usepackage{comment}
+\usepackage{bbm} % Allows for the characteristic function of a set
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}{Corollary}[theorem]
-\newtheorem{prop}{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{remark}{Remark}
 \newcommand{\eqdef}{\mathrel{\mathop:}=}
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[theorem]
@@ -46,7 +48,12 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Borel}[1]{\mathscr B(\mathbb R^{#1})}
 \newcommand{\map}[3]{#1:#2\rightarrow #3}
-
+\newcommand{\highlight}[2][yellow]{\mathchoice%
+  {\colorbox{#1}{$\displaystyle#2$}}%
+  {\colorbox{#1}{$\textstyle#2$}}%
+  {\colorbox{#1}{$\scriptstyle#2$}}%
+  {\colorbox{#1}{$\scriptscriptstyle#2$}}}
+\newcommand*{\itemtag}[1]{\hfill (\emph{#1})}
 
 
 \lstset{frame=tb,
@@ -96,6 +103,13 @@
     %% pdflatex filename.tex && bibtex filename.tex && pdflatex filename.tex && pdflatex filename.tex && open filename.pdf
 
 
+\newif\ifdetailed
+\detailedtrue % Detailed version
+% \detailedfalse % Only important stuff version
+%%%% Usage %%%%:
+% \ifdetailed
+% Detailed thing 
+% \fi 
 
 \begin{document}
 \title{MAT4400: Notes on Linear analysis }
@@ -135,7 +149,12 @@
 \setcounter{section}{9}
 \setcounter{theorem}{9}
 
-% \subfile{Ch_10_subfile.tex}
+\subfile{Ch_10_subfile.tex}
+\setcounter{section}{10}
+\setcounter{theorem}{10}
 
+\subfile{Ch_11_subfile.tex}
+\setcounter{section}{11}
+\setcounter{theorem}{11}
 
 \end{document}

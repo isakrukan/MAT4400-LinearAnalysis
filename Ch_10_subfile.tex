@@ -1,0 +1,55 @@
+\section{Integrals of Measurable Functions}
+We have defined our integral for positive measurable functions, i.e. functions in \(\mathcal{M}^{+}(\mathscr{A})\). To extend our integral
+to not only functions in \(\mathcal{M}^{+}(\mathscr{A})\) we first notice that
+\begin{align}
+    u \in \highlight[yellow]{\mathcal{M}_{\overline{\mathbb{R}}}(\mathscr{A})} \Leftrightarrow 
+    u = u^+ - u^-, \ u^+, u^-\in \highlight[yellow]{\mathcal{M}^{+}_{\overline{\mathbb{R}}}},
+\end{align}
+i.e. that every measurable function can be written as a sum of \textbf{positive} measurable functions.
+
+\begin{definition}[\(\mu\)-integrable]
+    A function \(u:X \rightarrow \overline{\mathbb{R}}\) on \((X, \mathscr{A}, \mu)\) is \(\mu\)-\emph{integrable}, if it is 
+    \(\mathscr{A}/\mathscr{B}(\overline{\mathbb{R}})\)-measurable and if \(\int u^+ d\mu, \int u^-d\mu < \infty\) (recall the definition
+    for the integral of positive measurable functions). Then
+    \begin{align}
+        \int ud\mu \eqdef \int u^+d\mu - \int u^-d\mu \in (-\infty, \infty)
+    \end{align}
+    is the (\(\mu\)-)\emph{integral} of u. We write \(\mathcal{L}^1(\mu)\) for the set of all real-valued \(\mu\)-integrable functions
+    \footnote{In words, we extend our integral to \cancel{positive} measurable functions by noticing that we can write every measurable 
+    function as a sum of positive measurable functions, something that we do know how to integrate. We don't want to run into the problem
+    of \(\infty - \infty\), thus we require the integral of the positive and negative parts to both (separately) be less than infinity.}.
+\end{definition}
+\begin{theorem}
+    Let \(u\in \mathcal{M}_{\overline{\mathbb{R}}}(\mathscr{A})\), then the following conditions are equivalent:
+    \begin{enumerate}[label=(\roman*)]
+        \item \(u \in \mathcal{L}^{1}_{\overline{\mathbb{R}}}(\mu)\).
+        \item \(u^+, u^- \in \mathcal{L}^{1}_{\overline{\mathbb{R}}}(\mu)\).
+        \item \(\vert u\vert \in \mathcal{L}^{1}_{\overline{\mathbb{R}}}(\mu)\).
+        \item \(\exists w \in \mathcal{L}^{1}_{\overline{\mathbb{R}}}(\mu)\) with \(w\geq 0\) s.t. \(\vert u \vert \leq w\).
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}[Properties the \(\mu\)-integral] The \(\mu\)-integral has the following properties: \textbf{homogeneous, additive}, and:
+    \begin{enumerate}[label=(\roman*)]
+        \item \(\min\left\{u,v\right\}, \max\left\{u,v\right\} \in \mathcal{L}^{1}_{\overline{\mathbb{R}}}(\mu)\) \itemtag{\emph{lattice property}}
+        \item \(u\leq v \Rightarrow \int ud\mu \leq \int vd\mu\) \itemtag{\emph{monotone}}
+        \item \(\Big\vert \int ud\mu \Big\vert \leq \int \vert u\vert d\mu\) \itemtag{\emph{triangle inequality}}
+    \end{enumerate}
+\end{theorem}
+\begin{remark}
+    If \(u(x) \pm v(x)\) is defined in \(\overline{\mathbb{R}}\) for all \(x\in X\) then we can exclude \(\infty - \infty\) and the theorem above just says that 
+    the integral is linear:
+    \begin{align}
+        \int (au + bv)d\mu = a\int ud\mu + b\int vd\mu.
+    \end{align}
+    This is always true for real-valued \(u,v\in\mathcal{L}^{1}(\mu) = \mathcal{L}^{1}_{\mathbb{R}}(\mu)\), making \(\mathcal{L}^{1}(\mu)\) a vector space with 
+    addition and scalar multiplication defined by
+    \begin{align}
+        (u + v)(x) \eqdef u(x) + v(x), \ (a\cdot u)(x) \eqdef a\cdot u(x),
+    \end{align}
+    and
+    \begin{align}
+        \int ... d\mu: \mathcal{L}^{1}(\mu) \rightarrow \mathbb{R}, \ u \mapsto \int ud\mu,
+    \end{align}
+    is a \textbf{positive linear functional}.
+\end{remark}
+

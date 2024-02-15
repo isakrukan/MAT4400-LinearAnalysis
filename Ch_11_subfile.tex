@@ -1,0 +1,54 @@
+\section{Null sets and the "Almost Everywhere"}
+\begin{definition}
+    A (\(\mu\)-)null set \(N\in\mathcal{N}_{\mu}\) is a measurable set \(N\in\mathscr{A}\) satisfying
+    \begin{align}
+        N\in\mathcal{\mu} \Leftrightarrow N\in\mathscr{A} \text{ and } \mu(N) = 0.
+    \end{align}
+    This can be used generally about a `statement' or `property', but we will be interested in questions like 
+    `when is \(u(x)\) equal to \(v(x)\)', and we answer this by saying
+    \begin{align}
+        u=v \ a.e. \Leftrightarrow \left\{ x: u(x) \neq v(x) \right\} \text{ is (contained in) a }\mu\text{-null set.}, 
+    \end{align}
+    i.e.
+    \begin{align}
+        \highlight[yellow]{u=v \ \  \mu\text{-a.e.} \Leftrightarrow \mu\left( \left\{ x: u(x) \neq v(x) \right\} \right) = 0}.
+    \end{align}
+    The last phrasing should of course include that the set \( \left\{ x: u(x) \neq v(x) \right\}\) is in \(\mathscr{A}\), but this can be trivially seen.
+\end{definition}
+\begin{theorem}
+    Let \(u\in \mathcal{M}_{\overline{\mathbb{R}}}(\mathscr{A})\), then:
+    \begin{enumerate}[label=(\roman*)]
+        \item \(\highlight[yellow]{\int\vert u\vert d\mu = 0 \Leftrightarrow \vert u\vert = 0 \text{ a.e. } \Leftrightarrow \mu\left\{u\neq0\right\} = 0}\),
+        \item \(\mathbbm{1}_{N}u\in \mathcal{L}^{1}_{\overline{\mathbb{R}}}(\mu)\) \ \(\forall \ N\in\mathcal{N}_{\mu}\),
+        \item \(\highlight[yellow]{\int_Nud\mu = 0}\).
+    \end{enumerate}
+\end{theorem}
+\begin{corollary}
+    Let \(\highlight[yellow]{u=v \ \mu \text{-a.e.}}\) Then
+    \begin{enumerate}[label=(\roman*)]
+        \item \(\highlight[yellow]{u,v \geq 0} \Rightarrow \int ud\mu = \int vd\mu\),
+        \item \(\highlight[yellow]{u\in\mathcal{L}^{1}_{\overline{\mathbb{R}}}(\mu)} \Rightarrow v\in\mathcal{L}^{1}_{\overline{\mathbb{R}}}(\mu)\) and \(\int ud\mu = \int vd\mu\).
+    \end{enumerate}
+\end{corollary}
+\begin{corollary}
+    If \(u\in\mathcal{M}_{\overline{\mathbb{R}}}(\mathscr{A})\), \(v\in\mathcal{L}^{1}_{\overline{\mathbb{R}}}(\mu)\) and \(v\geq0\) then
+    \begin{align}
+        \vert u\vert \leq v \text{ a.e. } \Rightarrow u\in\mathcal{L}^{1}_{\overline{\mathbb{R}}}(\mu).
+    \end{align}
+\end{corollary}
+\begin{proposition}[Markow inequality]
+    For all \(u\in\mathcal{L}^{1}_{\overline{\mathbb{R}}}(\mu), \ A\in\mathscr{A}\) and \(c>0\)
+    \begin{align}
+        u\left(\left\{ \vert u\vert \geq c \right\} \cap A\right) \leq \frac{1}{c}\int_{A}\vert u\vert d\mu,
+    \end{align}
+    if \(A=X\), then (obviosly)
+    \begin{align}
+        u\left\{ \vert u\vert \geq c \right\} \leq \frac{1}{c}\int \vert u\vert d\mu.
+    \end{align}
+\end{proposition}    
+\ifdetailed
+\begin{corollary}
+    If \(u\in\mathcal{L}^{1}_{\overline{R}}(\mu)\), then \(\mu\) is a.e. \(\mathbb{R}\)-vaued. In particular, we can find a version
+    \(\tilde{u}\in \mathcal{L}^{1}(\mu)\) s.t. \(\tilde{u}=u\) a.e. and \(\int\tilde{u}d\mu = \int ud\mu\)
+\end{corollary}
+\fi
