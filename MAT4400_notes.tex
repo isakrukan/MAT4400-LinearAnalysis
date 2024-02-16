@@ -27,15 +27,16 @@
 \usepackage{mathrsfs}
 \usepackage{comment}
 \usepackage{bbm} % Allows for the characteristic function of a set
-\newtheorem{properties}{Properties}[section]
+
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{properties}[theorem]{Properties}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem*{remark}{Remark}
 \newcommand{\eqdef}{\mathrel{\mathop:}=}
 \theoremstyle{definition}
-\newtheorem{definition}{Definition}[theorem]
+\newtheorem{definition}[theorem]{Definition}
 \usepackage{stmaryrd}
 
 \usetikzlibrary{quantikz}
@@ -119,7 +120,7 @@
 \maketitle
 \date
 
-\excludecomment{proof} % Comment this out to remove proofs
+\excludecomment{proof} % Comment this out to include proofs
 
 \setcounter{section}{2}
 \setcounter{theorem}{2}
