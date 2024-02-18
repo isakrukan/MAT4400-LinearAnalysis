@@ -1,0 +1,31 @@
+
+\section{Regularity of measures}
+
+We let $(X,d)$ be a metric space and denote by $\mathcal O$ the open, by $\mathcal C$ the closed and $\B(X)=\sigma(\mathcal O)$ the Borel set of $X$.
+
+\begin{definition}
+    A measure $\mu$ on $(X,d,\B(X))$ is called outer regular, if \begin{align}
+        \mu(B) = \inf\left\{\mu(U)\omm|\omm B\subset U,\omm U \text{ open} \right\}
+    \end{align}
+    and inner regular, if $\mu(K)<\infty$ for all compact sets $K\subset X$ and \begin{align}
+        \mu(U) = \sup\left\{\mu(K)\omm|\omm K\subset U,\omm K \text{ compact} \right\}.
+    \end{align}
+    A measure which is both inner and outer regular is called \textbf{regular}. We write $\mathfrak m_r^+(X)$ for the family of 
+    regular measures on $(X,\B(X))$.
+\end{definition}
+
+\begin{remark}
+    The space $X$ is called $\sigma$-compact if there is a sequence of compact sets $K_n\uparrow X$. A typical example of such a space 
+    is a locally compact, separable metric space.
+\end{remark}
+
+\begin{theorem}
+    Let $(X,d)$ be a metric space. Every finite measure $\mu$ on $(X,\B(X))$ is outer regular. If $X$ is $\sigma$-compact, then $\mu$ is also inner regular, hence regular.
+\end{theorem}
+\begin{theorem}
+    Let $(X,d)$ be a metric space and $\mu$ be a measure on $(X,B(X))$ such that $\mu(K)<\infty$ for all compact sets $K\subset X$.
+\end{theorem}
+\begin{itemize}
+    \item[1] If $X$ is $\sigma$-compact, then $\mu$ is inner regular.
+    \item[2] If there exists a sequence $G_n\in\mathcal O,\omm G_n\uparrow X$ such that $\mu(G_n)<\infty$, then $\mu$ is outer regular.   
+\end{itemize}

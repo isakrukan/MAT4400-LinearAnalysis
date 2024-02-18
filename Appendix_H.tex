@@ -4,8 +4,9 @@
 % allows special characters (including æøå)
 \usepackage[utf8]{inputenc}
 %\usepackage[english]{babel}
-\usepackage{dsfont}
+
 \usepackage{subfiles}
+\usepackage{dsfont}
 \usepackage{physics,amssymb}  % mathematical symbols (physics imports amsmath)
 \include{amsmath}
 \usepackage{graphicx}         % include graphics such as plots
@@ -25,12 +26,14 @@
 \usepackage{slashed}
 \usepackage{amsthm}
 \usepackage{mathrsfs}
-\usepackage{comment}
-\usepackage{bbm} % Allows for the characteristic function of a set
+
+
+
+
 
 \newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{properties}[theorem]{Properties}
+\newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem*{remark}{Remark}
@@ -48,17 +51,12 @@
 \newcommand{\A}{\mathscr{A}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
-\newcommand{\omm}{\hspace{1mm}}
-\newcommand{\tmm}{\hspace{2mm}}
 \newcommand{\B}{\mathscr{B}}
 \newcommand{\Borel}[1]{\mathscr B(\mathbb R^{#1})}
+\newcommand{\omm}{\hspace{1mm}}
+\newcommand{\tmm}{\hspace{2mm}}
 \newcommand{\map}[3]{#1:#2\rightarrow #3}
-\newcommand{\highlight}[2][yellow]{\mathchoice%
-  {\colorbox{#1}{$\displaystyle#2$}}%
-  {\colorbox{#1}{$\textstyle#2$}}%
-  {\colorbox{#1}{$\scriptstyle#2$}}%
-  {\colorbox{#1}{$\scriptscriptstyle#2$}}}
-\newcommand*{\itemtag}[1]{\hfill (\emph{#1})}
+
 
 
 \lstset{frame=tb,
@@ -108,71 +106,43 @@
     %% pdflatex filename.tex && bibtex filename.tex && pdflatex filename.tex && pdflatex filename.tex && open filename.pdf
 
 
-\newif\ifdetailed
-\detailedtrue % Detailed version
-% \detailedfalse % Only important stuff version
-%%%% Usage %%%%:
-% \ifdetailed
-% Detailed thing 
-% \fi 
+\setcounter{section}{7}
+\setcounter{theorem}{7}
+
 
 \begin{document}
-\title{MAT4400: Notes on Linear analysis }
-\author{Morten Tryti Berg and Isak Cecil Onsager Rukan. }
+\title{Regularity of measures}
 \maketitle
 \date
 
-\excludecomment{proof} % Comment this out to include proofs
+\section{Regularity of measures}
 
-\setcounter{section}{2}
-\setcounter{theorem}{2}
-\subfile{Ch_3_subfile.tex}
-\setcounter{section}{3}
-\setcounter{theorem}{3}
+We let $(X,d)$ be a metric space and denote by $\mathcal O$ the open, by $\mathcal C$ the closed and $\B(X)=\sigma(\mathcal O)$ the Borel set of $X$.
 
-\subfile{Ch_4_subfile.tex}
-\setcounter{section}{4}
-\setcounter{theorem}{4}
+\begin{definition}
+    A measure $\mu$ on $(X,d,\B(X))$ is called outer regular, if \begin{align}
+        \mu(B) = \inf\left\{\mu(U)\omm|\omm B\subset U,\omm U \text{ open} \right\}
+    \end{align}
+    and inner regular, if $\mu(K)<\infty$ for all compact sets $K\subset X$ and \begin{align}
+        \mu(U) = \sup\left\{\mu(K)\omm|\omm K\subset U,\omm K \text{ compact} \right\}.
+    \end{align}
+    A measure which is both inner and outer regular is called \textbf{regular}. We write $\mathfrak m_r^+(X)$ for the family of 
+    regular measures on $(X,\B(X))$.
+\end{definition}
 
-\subfile{Ch_5_subfile.tex}
-\setcounter{section}{5}
-\setcounter{theorem}{5}
+\begin{remark}
+    The space $X$ is called $\sigma$-compact if there is a sequence of compact sets $K_n\uparrow X$. A typical example of such a space 
+    is a locally compact, separable metric space.
+\end{remark}
 
-\subfile{Ch_6_subfile.tex}
-\setcounter{section}{6}
-\setcounter{theorem}{6}
-
-\subfile{Ch_7_subfile.tex}
-\setcounter{section}{7}
-\setcounter{theorem}{7}
-
-\subfile{Ch_8_subfile.tex}
-\setcounter{section}{8}
-\setcounter{theorem}{8}
-
-% \subfile{Ch_9_subfile.tex}
-\setcounter{section}{9}
-\setcounter{theorem}{9}
-
-\subfile{Ch_10_subfile.tex}
-\setcounter{section}{10}
-\setcounter{theorem}{10}
-
-\subfile{Ch_11_subfile.tex}
-\setcounter{section}{11}
-\setcounter{theorem}{11}
-
-
-\newpage
-\section*{Appendix}
-
-\appendix
-
-%\renewcommand{\thesection}{\Alph{section}}
-
-\setcounter{section}{7}
-\setcounter{theorem}{7}
-
-\subfile{Appendix_H_subfile.tex}
-
+\begin{theorem}
+    Let $(X,d)$ be a metric space. Every finite measure $\mu$ on $(X,\B(X))$ is outer regular. If $X$ is $\sigma$-compact, then $\mu$ is also inner regular, hence regular.
+\end{theorem}
+\begin{theorem}
+    Let $(X,d)$ be a metric space and $\mu$ be a measure on $(X,B(X))$ such that $\mu(K)<\infty$ for all compact sets $K\subset X$.
+\end{theorem}
+\begin{itemize}
+    \item[1] If $X$ is $\sigma$-compact, then $\mu$ is inner regular.
+    \item[2] If there exists a sequence $G_n\in\mathcal O,\omm G_n\uparrow X$ such that $\mu(G_n)<\infty$, then $\mu$ is outer regular.   
+\end{itemize}
 \end{document}
