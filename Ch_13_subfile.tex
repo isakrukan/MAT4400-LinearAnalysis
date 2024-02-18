@@ -1,0 +1,87 @@
+\section{The Function Spaces $\mathcal L^p$}
+Assume $V$ is a vector space over $\mathbb K\in\{\mathbb C,\mathbb R\}$.
+
+\begin{definition}
+    A seminorn on $V$ is a map $\map{p}{V}{[0,+\infty)}$ s.t. 
+    \begin{itemize}
+        \item[(1)] $p(cx)=|c|p(x)\tmm \forall x\in V,\forall c\in \mathbb K$.
+        \item[(2)] $p(x+y)\leq p(x) +p(y)\tmm \forall x,y\in V. \hspace{4mm} \textbf{triangle inequality}. $
+    \end{itemize}
+    A seminorm is called a norm if we also have \begin{align*}
+        p(x)=0\tmm \iff \tmm x=0.
+    \end{align*}
+\end{definition}
+
+A norm is commonly denoted $||x||$, and a vectorspace equipped with a norm is called a \textbf{normed space}.
+
+
+\begin{definition}
+    Assume $(X,d)$ is a measure space. Fix $1\leq p\leq \infty.$ For every measurable function $\map{f}{X}{\C}$ we define the following
+    \begin{align}
+        ||f||_p = \left( \int_X |f|^p d\mu\right)^{1/p}\in [0,+\infty].
+    \end{align} 
+    We can see that $||cf||_p=|c|||f||_p\tmm \forall c\in\C.$
+\end{definition}
+
+\begin{lemma}
+    \begin{align}
+        ||f+g||_p\leq ||f||_p+||g||_p.
+    \end{align}
+\end{lemma}
+
+\begin{definition}
+    We define
+    \begin{align}
+        \mathcal L^p(X,d\mu) = \left\{ \map{f}{X}{\C}\tmm |\tmm f\text{ is measurable and } ||f||_p<\infty \right\}.    
+    \end{align}
+    This is a vectorspace with seminorm $f\mapsto ||f||_p.$
+     And in general this is not a normed space, since $||f||_p=0 \iff f=0 \text{ a.e.}$
+\end{definition}
+
+Generally, if $p$ is a seminorm on a vectorspace $V$, then
+ \begin{align}
+    V_0 = \left\{x\in V\tmm|\tmm p(x)=0 \right\}
+\end{align}
+which is a subspace of $V$. Then we consider the quotient/factor space $V/V_0.$
+
+\begin{definition}
+    For $x,y\in V$, define \begin{align}
+        x\sim y \iff x-y\in V_0.
+    \end{align}
+    This is an equivalence relation on $V$. The representation class of $V$ is defined by $[x]$ or $x+V_0$.
+\end{definition}
+
+Then $V/V_0$ is equals the set of equivalence classes. We can show that it is a normed space. 
+
+$$[x]+[y]=[x+y]\tmm,\tmm c[x]=[cx]\tmm,\tmm ||[x]||=p(x). $$
+
+Applying this to $\mathcal L^p(X,d\mu)$ we get the normed space \begin{align}
+    L^p(X,d\mu) = \mathcal L ^p(X,d\mu)/\mathcal N.
+\end{align}
+Where $\mathcal N$ is the space of measurable functions $f$ s.t. $f=0$ a.e. We will further continue to denote the norm by $||\cdot||_p$, and we will normally \textbf{not} distinguish between $f\in \mathcal L^p(X,d\mu)$ and the vector in 
+$L^p(X,d\mu)$ that $f$ defines.
+
+\begin{definition}
+    A normed space $(X,||\cdot||)$ is called a Banach space if $V$ is complete w.r.t the metric $d(x,y)=||x-y||$.
+\end{definition}
+
+\begin{theorem}
+    If $(X,\B,\mu)$ is a measure space, $1\leq p\leq \infty$, then $L^p(X,d\mu)$ is a Banach space.
+\end{theorem}
+
+\begin{definition}
+    A measurable function $\map{f}{X}{\C}$ is called \textbf{essentially bounded} if there is $c\geq 0$ s.t. 
+    \begin{align}
+    \mu(\left\{ x\omm:\omm |f(x)|>c \right\})=0.    
+    \end{align}
+    That is $|f|\leq c$ a.e. The smallest such $c$ is called the essential supremum of $f$ and is denoted by $||f||_\infty.$
+\end{definition}
+
+\begin{definition}
+    $$\mathcal L^\infty(X,d\mu) = \left\{ \map{f}{X}{\C}\tmm|\tmm f\text{ is measurable and }||f||_\infty <\infty \right\}.$$
+    $$L^\infty (X,d\mu) =\mathcal L^\infty(X,d\mu)/\mathcal N. $$
+    Where by the previous definiton these spaces become the spaces of all essentially bounded functions. 
+\end{definition}
+\begin{theorem}
+    If $(X,\B,\mu)$ is a $\sigma$-finite measure space, then $L^\infty(X,d\mu)$ is a Banach space.
+\end{theorem}
