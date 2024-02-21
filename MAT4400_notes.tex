@@ -60,7 +60,6 @@
   {\colorbox{#1}{$\scriptscriptstyle#2$}}}
 \newcommand*{\itemtag}[1]{\hfill (\emph{#1})}
 
-
 \lstset{frame=tb,
   language=c++,
   aboveskip=3mm,
@@ -113,7 +112,10 @@
 % \detailedfalse % Only important stuff version
 %%%% Usage %%%%:
 % \ifdetailed
-% Detailed thing 
+% Detailed thing, for example:
+% \begin{align}
+%   U(t) = \int u(x,t)d\mu
+% \end{align}
 % \fi 
 
 \begin{document}
@@ -161,6 +163,8 @@
 \subfile{Ch_11_subfile.tex}
 \setcounter{section}{11}
 \setcounter{theorem}{11}
+
+\subfile{Ch_12_subfile.tex}
 \setcounter{section}{12}
 \setcounter{theorem}{12}
 \subfile{Ch_13_subfile.tex}

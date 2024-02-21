@@ -1,0 +1,132 @@
+\section{Convergence Theorems and Their Applications}
+- To interchange limits and integrals in \textbf{Riemann integrals} one typically has to assume uniform convergence. <- The set of Riemann
+integrable functions is somewhat limited, see theorem \ref{theorem:12_9}
+
+\begin{theorem}[Generalization of Beppo Levi, monotone convergence]
+    \quad
+    
+    \begin{enumerate}[label=(\roman*)]
+        \item Let \((u_n)_{n\in\mathbb{N}}\subset \mathcal{L}^{1}(\mu)\) be s.t. \(u_1\leq u_2 \leq ...\) with limit 
+        \(u\eqdef \sup_{n\in\mathbb{N}}u_n = \lim_{n\rightarrow\infty} u_n\). Then \(u\in\mathcal{L}^{1}(\mu)\) \textbf{iff} 
+        \begin{eqnarray*}
+            \sup\limits_{n\in\mathbb{N}}\int u_nd\mu <+\infty,
+        \end{eqnarray*}
+        in which case
+        \begin{eqnarray*}
+            \sup\limits_{n\in\mathbb{N}}\int u_n d\mu = \int\sup\limits_{n\in\mathbb{N}}u_n d\mu.
+        \end{eqnarray*}
+        \item Same thing only with a decreasing sequence ...\(>-\infty\) in which case
+        \begin{eqnarray*}
+            \inf\limits_{n\in\mathbb{N}}\int u_n d\mu = \int\inf\limits_{n\in\mathbb{N}}u_n d\mu.
+        \end{eqnarray*}
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Lebesgue; dominated convergence]
+    Let \((u_n)_{n\in\mathbb{N}}\subset\mathcal{L}^{1}(\mu)\) s.t.
+    \begin{enumerate}[label=(\alph*)]
+        \item \(|u_n|(x)\leq w(x)\), \(w\in\mathcal{L}^{1}(\mu)\),
+        \item \(u(x) = \lim_{n\rightarrow\infty}\) exists in \(\bar{\mathbb{R}}\),
+    \end{enumerate}
+    then \(u\in\mathcal{L}^{1}(\mu)\) and we have
+    \begin{enumerate}[label=(\roman*)]
+        \item \(\lim\limits_{n\rightarrow\infty} \int \vert u_n - u\vert d\mu = 0\);
+        \item \(\lim\limits_{n\rightarrow\infty} \int u_n d\mu = \int\lim\limits_{n\rightarrow\infty}u_n d\mu = \int ud\mu\);
+    \end{enumerate}
+\end{theorem}
+\ifdetailed
+\subsection*{Application 1: Parameter-Dependent Integrals}
+- We are interested in questions of the sort, when is 
+\begin{align*}
+    U(t) \eqdef \int u(t,x)\mu(dx), \ t\in(a,b),
+\end{align*}
+again a smooth function of t? The answer involves interchange of limits and integration. Also, it turns out to better understand Riemann
+integrability, we need the Lebesgue integral.
+\begin{theorem}[continuity lemma]
+    Let \(\emptyset \neq(a,b)\subset\mathbb{R}\) be a non-degenerate open interval and \(u:(a,b)\times X \rightarrow\mathbb{R}\) satisfy
+    \begin{enumerate}[label=(\alph*)]
+        \item \(x\mapsto u(t,x)\) is in \(\mathcal{L}^{1}(\mu)\) for every fixed \(t\in(a,b)\);
+        \item \(t\mapsto u(t,x)\) is continuous for every fixed \(x\in X\);
+        \item \(\vert u(t,x)\vert \leq w(x)\) for all \((t,x)\in (a,b)\times X\) and some \(w\in\mathcal{L}^{1}(\mu)\).
+    \end{enumerate}
+    Then the function \(U:(a,b)\rightarrow\mathbb{R}\) given by
+    \begin{align} \label{eq:U(t)_tjohei}
+        t\mapsto U(t)\eqdef \int u(t,x)\mu(dx)
+    \end{align}
+    is continuous.
+\end{theorem}
+\begin{theorem}[differentiability lemma]
+    Let \(\emptyset\leq(a,b)\subset\mathbb{R}\) be a non-degenerate open interval and \(u:(a,b)\times X\rightarrow\mathbb{R}\) satisfy
+    \begin{enumerate}[label=(\alph*)]
+        \item Same
+        \item Same 
+        \item \(\vert\partial_t u(t,x)\vert \leq w(x)\) for all \((t,x)\in(a,b)\times X\) and some \(w\in\mathcal{L}^{1}(\mu)\).
+    \end{enumerate}
+    Then the function in \ref{eq:U(t)_tjohei} is differentiable and its derivative is
+    \begin{align}
+        \frac{d}{dt}U(t) = \frac{d}{dt}\int u(t,x)\mu(dx) = \int \frac{\partial}{\partial t}u(t,x)\mu(dx).
+    \end{align}
+\end{theorem}
+\fi
+
+\subsection*{Application 2: Riemann vs Lebesgue Integration}
+Consider only \(\left(X,\mathscr{A},\mu\right) = \left(\mathbb{R},\mathscr{B}(\mathbb{R}),\lambda\right)\).
+\ifdetailed
+\begin{definition}[The Riemann Inegral]
+    Consider on the finite interval \([a,b]\subset\mathbb{R}\) the partition
+    \begin{align}
+        \Pi \eqdef \left\{ a=t_0<t_1<...<t_k<b \right\}, k=k(\Pi),
+    \end{align}
+    and introduce
+    \begin{eqnarray}
+        S_{\Pi}[u] \eqdef \sum\limits_{i=1}^{k(\Pi)}m_i(t_i-t_{i-1}), &\quad& m_i \eqdef\inf\limits_{x\in[t_{i-1}, t_i]}u(x), \\
+        S^{\Pi}[u] \eqdef \sum\limits_{i=1}^{k(\Pi)}M_i(t_i-t_{i-1}), &\quad& M_i \eqdef\sup\limits_{x\in[t_{i-1}, t_i]}u(x). \\
+    \end{eqnarray}
+    A bounded function \(u:[a,b]\rightarrow\mathbb{R}\) is said to be \textbf{Riemann integrable} if the values
+    \begin{align}
+        \int\limits_{\_} u \eqdef \sup\limits_{\Pi}S_{\Pi}[u] = \inf\limits_{\Pi}S^{\Pi}[u] =\mathrel{\mathop:} \int\limits^{\_} u
+    \end{align}
+    coincide and are finite. Their common value is called the \textbf{Riemann integral} of \(u\) and denoted by 
+    \((R)\int\limits_{a}^{b}u(x)dx\) or \(\int\limits_{a}^{b}u(x)dx\).
+\end{definition}
+\fi 
+\begin{theorem}
+    Let \(u:[a,b]\rightarrow\mathbb{R}\) be a \textbf{measurable} and \textbf{Riemann integrable} function. Then
+    \begin{align}
+        u\in\mathcal{L}^{1}(\lambda) \text{ and } \int\limits_{[a,b]}ud\lambda = \int\limits_{a}^{b}u(x)dx.
+    \end{align}
+\end{theorem}
+\begin{theorem} \label{theorem:12_9}
+    Let \(u:[a,b] \rightarrow \mathbb{R}\) be a bounded function, it is Riemann integrable \textbf{iff} the points in \(\left(a,b\right)\) where
+    \(u\) is discontinuous are a (subset of) Borel measurable null set.
+\end{theorem}
+
+\subsection*{Improper Riemann Integrals}
+- The Lebesgue integral extends the (\emph{proper}) Riemann integral. However, there is a further extension of the Riemann integral which
+cannot be captured by Lebesgue's theory. \(u\) is Lebesgue integrable \emph{iff} \(\vert u\vert\) ha finite Lebesgue integral. <- The Lebesgue
+integral does not respect sign-changes and cancellations. However, the following \emph{improper Riemann integral} does:
+\begin{eqnarray}
+    (R)\int\limits_{0}^{\infty}u(x)dx\eqdef \lim\limits_{n\rightarrow\infty}(R)\int\limits_{0}^{a}u(x)dx.
+\end{eqnarray}
+\begin{corollary}
+    Let \(u:[0,\infty) \rightarrow\mathbb{R}\) be a measurable, Riemann integrable function for every interval \([0,N], \ N\in\mathbb{N}\). 
+    Then \(u\in\mathcal{L}^{1}[0,\infty)\)
+    \textbf{iff}
+    \begin{align}
+        \lim\limits_{N\rightarrow\infty}(R)\int\limits_{0}^{N}\vert u(x)\vert dx < \infty.
+    \end{align}
+    In this case, \((R)\int_{0}^{\infty}u(x)dx = \int_{[0,\infty)}ud\lambda\)
+\end{corollary}
+\ifdetailed
+\textbf{Example} of a function which is \emph{improperly Riemann integrable} but \textbf{not} \emph{Lebesgue integrable}:
+\begin{align}
+    f(x) = \frac{\sin(x)}{x}.
+\end{align}
+\fi 
+\begin{proposition}[appearing as example 12.13 in Schilling]
+    Let \(f_{\alpha}(x)\eqdef x^{\alpha}, x>0\) and \(\alpha\in\mathbb{R}\). Then 
+    \begin{enumerate}[label=(\roman*)]
+        \item \(f_(\alpha)\in\mathcal{L}^{1}(0,1)\Leftrightarrow \alpha > -1\).
+        \item \(f_(\alpha)\in\mathcal{L}^{1}[1,\infty)\Leftrightarrow \alpha < -1\).
+    \end{enumerate}
+\end{proposition}
