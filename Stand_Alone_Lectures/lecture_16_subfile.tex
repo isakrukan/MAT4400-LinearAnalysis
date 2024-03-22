@@ -1,0 +1,109 @@
+\section*{Hahn-Banach Theorem}
+\begin{theorem}[Hahn-Banach]
+    Assume \(V\) is a real vector space, \(V_0\subset V\) a subspace, \(e:V\rightarrow\mathbb{R}\) a convex function and 
+    \(f:V_0\rightarrow\mathbb{R}\) a linear functional s.t. \(f\leq e\) on \(V_0\). Then \(f\) can be extended to a linear functional 
+    \(F\) on \(V\) s.t. \(F\leq e\).
+\end{theorem}
+\ifdetailed
+Assume first that \(V = V_0 + \mathbb{R}x\) for some \(x\in V\backslash V_0\). To define \(F\) we need to specify \(F(x)\). The condition \(F\leq e\)
+means that we need
+\begin{align*}
+    F(y\pm tx) \leq e(y\pm tx) \ \forall y\in V_0, t\geq 0,
+\end{align*}
+that is 
+\begin{align*}
+    \pm t F(x) + f(y) \leq e(y\pm tx).
+\end{align*}
+Dividing by \(t\) this is equivalent to 
+\begin{align*}
+    \begin{cases} 
+        F(x) \leq \frac{e(y+tx)-f(y)}{t}, \\
+        F(x) \geq \frac{f(y)-e(y-tx)}{t}, \\
+     \end{cases}
+\end{align*}
+\(\forall y\in V_0, t\geq0\). To show that there is a number satisfying these inequalities, we need to check that
+\begin{align*}
+    \sup\limits_{\substack{y\in V_0 \\ t>0}} \frac{f(y)-e(y-tx)}{t} \leq \inf\limits_{\substack{y\in V_0 \\ t>0}} \frac{e(y+tx)-f(y)}{t}.
+\end{align*}
+Then as \(F(x)\) we can take any number in the interval \([\sup,\inf]\). In other words, we need to check that
+\begin{align*}
+    \frac{f(y)-e(y-tx)}{t} \leq \frac{e(z+sx)-f(z)}{s},
+\end{align*}
+\(\forall y,z\in V_0, t,s\geq0\). Equivalently, 
+\begin{align*}
+    sf(y) + tf(z) \leq se(y-tx) + te(z+sx).
+\end{align*}
+We have
+\begin{align*}
+    \frac{sf(y) +tf(z)}{s+t} &= f\left(\frac{s}{s+t}y + \frac{t}{s+t}z\right) \\
+    &\leq e\left(\frac{s}{s+t}y + \frac{t}{s+t}z\right) \\
+    &\leq e\left(\frac{s}{s+t}(y-tx) + \frac{t}{s+t}(z+sx)\right) \\
+    &\leq \frac{s}{s+t}e\left(y-tx\right) + \frac{t}{s+t}e\left(z+sx\right),
+\end{align*}
+which is what we need. 
+
+The general case is deduced from this using transitive induction (Zorn's lemma), as follows. Consider the set \(X\) of pairs \((W,F)\), 
+where \(w\subset V\) is a subspace, \(F:W\rightarrow \mathbb{R}\) a linear functional, \(V_0\subset W\) and \(F\vert_{v_0} = f\). Define
+a partial order on \(X\) by \(F\leq e\) on W. 
+\begin{align*}
+    (W_1, F_1) \leq (W_2, F_2) \text{ iff } W_1\subset W_2\text{ and } F_1=F_2\vert_{W_1}.
+\end{align*}
+If \(\mathcal{C}\) is a chain in \(X\), then it has an upper bound \((W,F)\) defined by
+\begin{align*}
+    W = \bigcup\limits_{(Y,\rho)\in\mathcal{C}} Y, F(y) = \rho(y) \text{ if } y\in Y, (Y,\rho) \in\mathcal{C}.
+\end{align*}
+Hence, \(X\) has a maximal element \((W,F)\) by Zorn's lemma. If \(W\neq V\), then we can take \(x\in V\backslash W\) and extend \(F\) to
+\(W+\mathbb{R}x\) preserving the inequality \(F\leq e\). This contradicts maximality of \(W,F\) in \(X\). Hence, \(W=V\).
+\fi 
+\begin{theorem}[Hahn-Banach]
+    Assume \(V\) is a real or complex vector space, \(p\) a seminorm on \(V_0\), \(V_0\subset\), and \(f\) a linear functional on \(V_0\) s.t.
+    \begin{align*}
+        |f(x)|\leq p(x) \ \forall x\in V_0.
+    \end{align*}
+    Then \(f\) can be extended to a linear functional \(F\) on \(V\) s.t. \(|F(x)|\leq p(x) \ \forall x\in V\).
+\end{theorem}
+\begin{corollary}
+    Assume \(V\) is a normed real or complex vector space, \(V_0\subset V\) and \(f\in V_{0}^{*}\). Then there is a \(F\in V^*\) s.t. 
+    \begin{align*}
+        F\vert_{V_0} f \text{ and } ||F|| = ||f||.
+    \end{align*}
+\end{corollary}
+\ifdetailed
+\begin{proof}
+    We apply the previous theorem to \(p(x)=||f||\cdot ||x||\).
+\end{proof}
+\fi 
+\begin{corollary}
+    Assume \(V\) is a normed space and \(x\in V, x\neq0\). Then there is a \(F\in V^*\) s.t. \(||F||=1\) and \(F(x) = ||x||\).
+\end{corollary}
+
+Such an \(F\) is called a \emph{supporting functional at x}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{Figs/hanah_banach1.png}
+    \caption{Tangent space?}
+\end{figure}
+If \(V\) is a normed vector space, then every \(x\in X\) defines a bounded linear functional on \(V^*\) by 
+\begin{align*}
+    V^*\ni f\mapsto f(x).
+\end{align*}
+As \(|f(x)|\leq ||f||\cdot ||x||\), this functional has norm \(\leq ||x||\). By using a supporting functional at \(x\), we actually see that
+we get norm \(||x||\). Thus, we have an isometric embedding \(V\subset V^{**}\eqdef (V^*)^*\). We can therefor see view \(V\) as a subspace
+of \(V^{**}\).
+\begin{definition}
+    A normed space \(V\) is called reflexive if \(V^{**}=V\).
+\end{definition}
+\begin{remark}
+    This is stronger than requiring \(V\backsimeq V^{**}\).
+\end{remark}
+\begin{remark}
+    Every Hilbert space \(\mathcal{H}\) is reflexive. Indeed, \(\mathcal{H}^*=\bar{\mathcal{H}}\). By Riesz' theorem every bounded linear 
+    functional \(f\) on \(\bar{\mathcal{H}}\) has the form
+    \begin{align*}
+        f(\bar{x}) = (\bar{x}, \bar{y}) = (y,x),
+    \end{align*}
+    for some \(y\in\mathcal{H}\), which exactly means that \(f=y\) in \(\mathcal{H}^{**}\).
+
+    As we will see later, the spaces \(\mathcal{L}^{p}(X,d\mu)\), with \(\mu\) \(\sigma\)-finite and \(1<p<\infty\), are reflexive. The spaces
+    \(\mathcal{L}'(X, d\mu)\) and \(\mathcal{L}^{\infty}(X,\mu)\) are usually not reflexive.
+\end{remark}

@@ -55,7 +55,7 @@ class Stand_alone_subfiles:
                         middle_text += r"\setcounter{section}{" + f"{i}" + "}\n"
                         middle_text += r"\setcounter{theorem}{" + f"{i}" + "}\n"
                     except:
-                        middle_text = ""
+                        continue
                     
                     file.write(middle_text)
                     file.write(r"\title{" + title + "}\n")
@@ -112,5 +112,8 @@ if __name__ == "__main__":
     # kjoor.create_stand_alone_texes(sandwich=["Appendix_", "_subfile.tex"], iterable=["H"])
     kjoor.create_stand_alone_texes(sandwich=["Appendix_", "_subfile.tex"], iterable=["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", 
                                                                   "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"])
+    kjoor._read_from = "Stand_Alone_Lectures/"
+    kjoor.create_stand_alone_texes(sandwich=["lecture", "_subfile.tex"])
+
     kjoor.create_pdfs()
     kjoor.delete_auxiliary_fields()

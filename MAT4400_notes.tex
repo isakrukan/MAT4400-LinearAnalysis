@@ -37,6 +37,7 @@
 \newcommand{\eqdef}{\mathrel{\mathop:}=}
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
 \usepackage{stmaryrd}
 
 \usetikzlibrary{quantikz}
@@ -112,23 +113,27 @@
 
 
 \newif\ifdetailed
-\detailedtrue % Detailed version
-% \detailedfalse % Only important stuff version
+\detailedtrue % DETAILED VERSION
+% \detailedfalse % ONLY IMPORTANT STUFF (NO PROOFS)
 %%%% Usage %%%%:
 % \ifdetailed
-% Detailed thing, for example:
-% \begin{align}
-%   U(t) = \int u(x,t)d\mu
-% \end{align}
+% I AM DETAILED
 % \fi 
 
 \begin{document}
-\title{MAT4400: Notes on Linear analysis }
+\ifdetailed
+  % Title for detailed version
+  \title{MAT4400: Detailed Notes on Linear analysis }
+\else
+  % Title for non-detailed version
+  \title{MAT4400: Notes on Linear analysis }
+\fi
+% \title{MAT4400: Notes on Linear analysis }
 \author{Morten Tryti Berg and Isak Cecil Onsager Rukan. }
 \maketitle
 \date
 
-\excludecomment{proof} % Comment this out to include proofs
+% \excludecomment{proof} % Comment this out to include proofs
 
 \setcounter{section}{2}
 \setcounter{theorem}{2}
@@ -188,7 +193,17 @@
 % \setcounter{section}{15}
 % \setcounter{theorem}{15}
 
-\subfile{Chapters_Files/Ch_16_subfile.tex}
+% \subfile{Chapters_Files/Ch_16_subfile.tex}
+\setcounter{section}{16}
+\setcounter{theorem}{16}
+
+\subfile{Chapters_Files/Ch_17_subfile.tex}
+\setcounter{section}{17}
+\setcounter{theorem}{17}
+
+\setcounter{section}{25}
+\setcounter{theorem}{25}
+\subfile{Chapters_Files/Ch_26_subfile.tex}
 \setcounter{section}{16}
 \setcounter{theorem}{16}
 
@@ -203,5 +218,7 @@
 \setcounter{theorem}{7}
 
 \subfile{Appendix/Appendix_H_subfile.tex}
+
+\subfile{Stand_Alone_Lectures/lecture_16_subfile.tex}
 
 \end{document}

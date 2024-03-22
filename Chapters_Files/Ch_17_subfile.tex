@@ -1,0 +1,95 @@
+\section{Dense and Determining Sets (lecture 12, 19. Feb.)}
+\begin{definition}[Dense Sets]
+    A set \(\mathcal{D}\subset\mathcal{L}^p(\mu), p\in[0,\infty]\), is called \emph{dense} if for every \(u\in\mathcal{L}^p(\mu)\) there exist
+    a sequence \((f_n)_{n\in\mathbb{N}}\subset\mathcal{D}\) s.t. \(\lim_{n\rightarrow\infty}\vert\vert u-f_n\vert\vert_p=0\).
+\end{definition}
+\begin{theorem}
+    Assume \(X,d\) is a metric space and \(\mu\) is a Borel measure that is finite on every ball \(1\leq p<\infty\). Then the space of 
+    bounded continuous functions with bounded support is dense in \(\mathcal{L}^p(X,d\mu)\). Where bounded support means that \(f\) vanishes outside
+    some ball.
+\end{theorem}
+\ifdetailed
+\begin{proof}
+    We want to approximate \(f\in\mathcal{L}^p(X,d\mu)\) by bounded continuous functions with bounded support. By considering separately 
+    \((\text{Re}(f))_I\) and \((\text{Im}(f))_I\) we may assume that \(f\geq 0\). Then we can find simple functions \(f_n\) s.t. 
+    \(0\leq f_n\leq f, f_n\rightarrow f\) pointwise. As \(\vert  f- f_n\vert^p \leq \vert f\vert^p\), by the dominated convergence theorem
+    we have \(f_n\rightarrow f\in\mathcal{L}^p(X,d\mu)\). Hence, it suffices to consider simple \(f\), but then it suffices to approximate
+    \(f=\pi_A\). Note that \(\pi_A\in\mathcal{L}^p(X,d\mu)\) iff \(\mu(A)<\infty\). 
+
+    Fix \(x_0\in X\). Then \(\pi_{A\cap B_n(x_0)} \nearrow \pi_A\) pointwise, hence 
+    \(\pi_{A\cap B_n(x_0)}\rightarrow \pi_A\in\mathcal{L}^p(X,d\mu)\), again by the dominated convergence theorem. 
+
+    Therefor it suffices to consider \(A\subset B_n(x_0)\). As \(\mu\) is outer regular, we have 
+    \begin{align*}
+        \mu(A) = \inf_{\substack{A\subset U\subset B_n(x_0) \\ U \text{ is open}}} \mu(U).
+    \end{align*}
+    Note that \(\vert\vert \pi_U - \pi_A\vert\vert_p = \mu(U\backslash A)^{1/p}\). Hence, we can choose \(U_k\subset B_n(x_0)\) s.t.
+    \(A\subset U_k\), \(U_k\) is open, \(\pi_{U_k}\rightarrow \pi_A\in\mathcal{L}^p(X,d\mu)\).
+
+    Therefor it suffices to approximate \(\pi_U\) for open \(U\subset B_n(x_0)\). Consider the functions
+    \begin{align*}
+        f_k(x) = \frac{kd(x,U^c)}{1+kd(x,U^c)}.
+    \end{align*}
+    Then \(0\leq f_k\leq 1\), \(f_k\) is continuous, supported on \(\bar{U} \subset \bar{B}_n(x_0)\) and \(f_k\nearrow\pi_U\) pointwise, hence
+    \(f_k\xrightarrow[k\rightarrow \infty]{ } \pi_U\in\mathcal{L}^p(X,d\mu)\).
+\end{proof}
+\fi 
+\begin{theorem}
+    Assume \((X,d)\) is a separable locally compact metric space and \(\mu\) is a Borel Measure on \(X\) s.t. \(\mu(K)<\infty \ \forall \)
+    compact \(K\subset K\). Then the space \(C_c(X)\) of continuous compactly supported functions is dense in \(\mathcal{L}^p(X,d\mu)\).
+\end{theorem}
+
+In particular, either theorem shows that if \(\mu\) is a Borel measure on \(\mathbb{R}^n\) s.t. the measure of every ball is finite, then 
+\(C_c(\mathbb{R}^n)\) is dense in \(\mathcal{L}^p(\mathbb{R}^n, d\mu)\), \(1\leq p< \infty\). Later we will see that even 
+\(C^{\infty}_{c}(\mathbb{R}^n)\) is dense in \(L^p(\mathbb{R}^n, d\mu)\).
+\begin{remark}
+    These results do not extend to \(p=\infty\) in general. 
+
+    For \(\mu=\lambda_n\) we write simply \(\mathcal{L}^p(\mathbb{R}^n)\).
+\end{remark}
+\begin{remark}
+    Theorem 17.8 in the book is WRONG. For example, \(X=\mathbb{Q}\) with the usual metric is \(\sigma\)-compact, supports nonzero finite measure,
+    but \(C_c(\mathbb{Q})=0\).
+\end{remark}
+
+\section*{Modes of Convergence (mixture of ex. 11.12 and ch. 22 p. 258-261.)}
+\ifdetailed
+\begin{definition}[convergence in meassure]
+    A sequence of measurable functions \(u_n:X\rightarrow \bar{\mathbb{R}}\) \emph{converges in measure} if
+    \begin{align*}
+        \forall\epsilon>0\forall A\in\mathscr{A},\mu(A)<\infty:\lim\limits_{n\rightarrow\infty} 
+        \mu\left(\left\{\vert u_n - u\vert > \epsilon\right\}\cap A\right) = 0
+    \end{align*}
+    holds for some \(u\in\mathcal{M}(\mathscr{A})\). We write \(\mu\)-\(\lim_{n\rightarrow\infty u_n = u}\) or 
+    \(u_n\xrightarrow[ ]{\mu} u\).
+\end{definition}
+\fi
+Assume \(\left(X,\mathscr{B},\mu\right)\) is a measure space. Given measurable functions \(f_n,f:X\rightarrow\mathbb{C}\), recall that
+\begin{align*}
+    f_n\rightarrow f \text{ a.e.}
+\end{align*}
+means that \(f_n(x)\xrightarrow[n\rightarrow\infty]{ } f(x)\) for all x outside a set of measure zero. 
+\begin{theorem}[Egorov]
+    Assume \(\mu(X)<\infty\) and \(f_n\rightarrow f\) a.e. Then, \(\forall\epsilon>0\), there exists \(X_{\epsilon} \in\mathscr{B}\)
+    s.t. \(\mu(X_{\epsilon})<\epsilon\) and \(f_n\rightarrow f\) uniformly on \(X\backslash X_{\epsilon}\).
+\end{theorem}
+In addition to pointwise and uniform convergence we also consider the following: 
+
+\(f_n\rightarrow f\) in the \emph{p-th mean} if 
+\(\vert \vert f_n-f\vert\vert_p\xrightarrow[n\rightarrow\infty]{ } 0\). For \(p=1\) we say \emph{in mean}, for \(p=2\) we say in 
+quadratic mean. 
+
+\(f_n\rightarrow f\) \emph{in measure } if \(\forall\epsilon>0\) we have
+\begin{align*}
+    \mu\left(\left\{x:\vert f_n(x)-f(x)\vert \geq \epsilon\right\}\right) \xrightarrow[n\rightarrow \infty]{ } 0.
+\end{align*}
+\begin{theorem}[Lemma 22.4 in the book?]
+    Assume \(\left(X, \mathscr{B}, d\mu\right)\) is a measure space, \(1\leq p <\infty\), \(f_n,f:X\rightarrow \mathbb{C}\) are measurable 
+    functions. Then
+    \begin{enumerate}[label=(\roman*)]
+        \item If \(f_n\rightarrow f\) in the p-th mean, then \(f_n\rightarrow f\) in measure.
+        \item If \(f_n\rightarrow f\) in measure, then there is a subsequence \((f_{n_k})^{\infty}_{k=1}\) s.t. \(f_{n_k}\rightarrow f\) a.e.
+        \item If \(f_n\rightarrow f\) a.e. and \(\mu(X)<\infty\), then \(f_n\rightarrow f\) in measure. 
+    \end{enumerate}
+    In particular, if \(f_n\rightarrow f\) in the p-th mean, then \(f_{n_k}\rightarrow f\) a.e. for a subsequence \((f_{n_k})_k\).
+\end{theorem}
