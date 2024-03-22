@@ -56,7 +56,7 @@ The following is one of the key properties of the Hilbert space
     Assume \(\mathcal{H}\) is a Hilbert space and \(\mathcal{C}\subset H\) is a closed convex subset. Then for every \(u\in H\) there is a unique 
     \(u_0\in\mathcal{C}\) (\emph{minimizer}) s.t.
     \begin{align*}
-        ||u-u_0|| = d(u,\mathcal{C})(=\inf\limits_{v\in\mathcal{C}} ||u-x||).
+        ||u-u_0|| = d(u,\mathcal{C})(=\inf\limits_{x\in\mathcal{C}} ||u-x||).
     \end{align*}
 \end{theorem}
 \ifdetailed 
@@ -103,7 +103,7 @@ If \(\mathcal{H}_0\) is finite dimensional with an orthonormal basis \(u_1, ...,
 Orthonormal bases can be defined for arbitrary Hilbert spaces. 
 
 \begin{definition}[orthonormal system]
-    An orthonormal system in \(\mathcal{H}\) is a collection of vectors \(h_i\in H \) (\(i\in I\))s.t.
+    An orthonormal system in \(\mathcal{H}\) is a collection of vectors \(u_i\in H \) (\(i\in I\))s.t.
     \begin{align*}
         (u_i,u_j) = \delta_{ij} \ \forall i,j\in I.
     \end{align*}
@@ -111,13 +111,14 @@ Orthonormal bases can be defined for arbitrary Hilbert spaces.
     linear combinations of the vectors \(u_i\).
 \end{definition}
 \begin{definition}
-    A Hilbert space \(\mathcal{H}\) is said to be \emph{separable} if \(\mathcal{H}\) contains a countable dense subset \(G\subset\mathcal{H}\).
+    A Hilbert space \(\mathcal{H}\) is said to be \emph{separable} if \(\mathcal{H}\) contains a countable dense subset 
+    \(G\subset\mathcal{H}\).
 \end{definition}
 \begin{theorem}
     Every Hilbert space \(\mathcal{H}\) has an orthonormal basis. If \(\mathcal{H}\) is separable, then there is a countable orthonormal basis.
 \end{theorem}
 \begin{proposition}
-    Assume \(\{u_i\}_{i\in I}\) is an orthonormal system in a Hilbert space H. Take \(u\mathcal{H}\). Then 
+    Assume \(\{u_i\}_{i\in I}\) is an orthonormal system in a Hilbert space H. Take \(u\in\mathcal{H}\). Then 
     \begin{enumerate}[label=(\roman*)]
         \item \emph{Bessel's inequality}: \(\sum_{i\in I} |(u,u_i)|^2\leq ||u||^2\), in particular, \(\{i:(u,u_i)\neq 0\}\) is countable.
         \item \emph{Parseval's identity}: If \(\{u_i\}_{i\in I }\) is an orthonormal basis, then \\ \(\sum_{i\in I} |(u,u_i)|^2 = ||u||^2\).
