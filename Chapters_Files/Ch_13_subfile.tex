@@ -90,3 +90,32 @@ $L^p(X,d\mu)$ that $f$ defines.
 \begin{theorem}
     If $(X,\B,\mu)$ is a $\sigma$-finite measure space, then $L^\infty(X,d\mu)$ is a Banach space.
 \end{theorem}
+\subsection*{Convergence in \(\boldsymbol{\mathcal{L}^p}\) and completeness}
+\begin{lemma}
+    For any sequence \((u_n)_{n\in\mathbb{N}}\subset\mathcal{L}^p(\mu), p\in[1,\infty)\), of positive functions \(u_n\geq 0\) we have
+    \begin{align*}
+        \Big\vert \Big\vert \sum\limits^{\infty}_{n=1} u_n \Big\vert\Big\vert_p \leq \sum\limits_{n=1}^{\infty}\vert\vert u_n\vert\vert_p.
+    \end{align*}
+\end{lemma}
+\begin{theorem}[Riesz-Fischer]
+    The spaces \(\mathcal{L}^p(\mu), p\in[1,\infty)\), are complete, i.e. every Cauchy sequence \((u_n)_{n\in\mathbb{N}}\subset\mathcal{L}^p(\mu)\) 
+    converges to some limit \(u\in\mathcal{L}^p(\mu)\)
+\end{theorem}
+\begin{corollary}
+    Let \((u_n)_{n\in\mathbb{N}}\subset \mathcal{L}^p(\mu), p\in[1,\infty)\) with \(\mathcal{L}^p-\lim_{n\rightarrow\infty}u_n=u\). Then there 
+    exists a subsequence \((u_{n_k})_{k\in\mathbb{N}}\) s.t. \(\lim_{k\rightarrow\infty}u_{n_k}(x)=u(x)\) holds for almost every \(x\in X\).
+\end{corollary}
+\begin{theorem}
+    Let \((u_n)_{n\in\mathbb{N}}\subset\mathcal{L}^p(\mu),p\in[1,\infty)\), be a sequence of functions s.t. \(|u_n|\leq w\ \forall n\in\mathbb{N}\)
+    and some \(w\in\mathcal{L}^p(\mu)\). If \(u(x)=\lim_{n\rightarrow\infty}u_n(x)\) exists for (almost) every \(x\in X\), then
+    \begin{align*}
+        u\in\mathcal{L}^p &\text{ and } \lim\limits_{n\rightarrow\infty}||u-u_n||_p =0.
+    \end{align*}
+\end{theorem}
+\begin{theorem}[F. Riesz (convergence theorem)]
+    Let \((u_n)_{n\in\mathbb{N}}\subset\mathcal{L}^p(\mu),p\in[1,\infty)\), be a sequence s.t. \(\lim_{n\rightarrow\infty}u_n(x)=u(x)\)
+    for almost every \(x\in X\) and some \(u\in\mathcal{L}^p(\mu)\). Then
+    \begin{align*}
+        \lim\limits_{n\rightarrow\infty}||u_n-u||_p = 0 \Longleftrightarrow \lim\limits_{n\rightarrow\infty} ||u_n||_p = ||u||_p.
+    \end{align*}
+\end{theorem}
