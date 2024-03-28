@@ -2,7 +2,7 @@
 \begin{definition}
     A (\(\mu\)-)null set \(N\in\mathcal{N}_{\mu}\) is a measurable set \(N\in\mathscr{A}\) satisfying
     \begin{align}
-        N\in\mathcal{\mu} \Leftrightarrow N\in\mathscr{A} \text{ and } \mu(N) = 0.
+        N\in\mathcal{N}_{\mu} \Longleftrightarrow N\in\mathscr{A} \text{ and } \mu(N) = 0.
     \end{align}
     This can be used generally about a `statement' or `property', but we will be interested in questions like 
     `when is \(u(x)\) equal to \(v(x)\)', and we answer this by saying
@@ -11,7 +11,7 @@
     \end{align}
     i.e.
     \begin{align}
-        \highlight[yellow]{u=v \ \  \mu\text{-a.e.} \Leftrightarrow \mu\left( \left\{ x: u(x) \neq v(x) \right\} \right) = 0}.
+        u=v \ \  \mu\text{-a.e.} \Leftrightarrow \mu\left( \left\{ x: u(x) \neq v(x) \right\} \right) = 0.
     \end{align}
     The last phrasing should of course include that the set \( \left\{ x: u(x) \neq v(x) \right\}\) is in \(\mathscr{A}\).
 \end{definition}
@@ -26,10 +26,10 @@
     sequence \(u_n\) converging to \(u\) in the \(||\cdot ||_p\)-norm then \(u_n(x) = u(x)\) a.e.
 \end{theorem}
 \begin{corollary}
-    Let \(\highlight[yellow]{u=v \ \mu \text{-a.e.}}\) Then
+    Let \(u=v \ \mu \text{-a.e.}\) Then
     \begin{enumerate}[label=(\roman*)]
-        \item \(\highlight[yellow]{u,v \geq 0} \Rightarrow \int ud\mu = \int vd\mu\),
-        \item \(\highlight[yellow]{u\in\mathcal{L}^{1}_{\overline{\mathbb{R}}}(\mu)} \Rightarrow v\in\mathcal{L}^{1}_{\overline{\mathbb{R}}}(\mu)\) and \(\int ud\mu = \int vd\mu\).
+        \item \(u,v \geq 0 \Rightarrow \int ud\mu = \int vd\mu\),
+        \item \(u\in\mathcal{L}^{1}_{\overline{\mathbb{R}}}(\mu) \Rightarrow v\in\mathcal{L}^{1}_{\overline{\mathbb{R}}}(\mu)\) and \(\int ud\mu = \int vd\mu\).
     \end{enumerate}
 \end{corollary}
 \begin{corollary}
