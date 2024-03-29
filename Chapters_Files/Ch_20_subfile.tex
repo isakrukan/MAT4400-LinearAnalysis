@@ -1,0 +1,153 @@
+\section{Radon-Nikodym Theorem (lecture 17. 11. March)}
+Assume \((X,\mathscr{B}, \mu)\) is a measure space. Are there other measures on \((X,\mathscr{B})\)?
+\begin{example}
+    Take a measurable function \(f:X\rightarrow [0,+\infty]\) and define
+    \begin{align*}
+        \nu(A) = \int_A fd\mu \text{ for } A\in\mathscr{B}.
+    \end{align*}
+    This is a measure by the monotone convergence theorem. We write \(d\nu = fd\mu\).
+\end{example}
+\begin{proposition}
+    Assume \((X,\mathscr{B})\) is a measurable space, \(\mu\) and \(\nu\) are \(\sigma\)-finite measures on \((X,\mathscr{B})\). Then there
+    exist \(N\in\mathscr{B}\) and a measurable \(f:X\rightarrow[0,+\infty]\) s.t.
+    \(\mu(N)=0\) and \(\nu(A)=\nu(A\cap N) + \int_A fd\mu \ \forall A\in\mathscr{B}\). 
+\end{proposition}
+\ifdetailed 
+\begin{proof}
+    Assume first that the measure \(\nu,\mu\) are finite. Consider the measure \(\eta = \mu+\nu\) and define a linear functional \(\rho\)
+    on \(L^2(x,d\eta)\) by
+    \begin{align*}
+        \rho(g) = \int_X gd\nu.
+    \end{align*}
+    It is well-defined and bounded, since 
+    \begin{align*}
+        |\rho(g)| &\leq \underbrace{\int_X|\rho|d\nu}_{||g||_1} \underset{C.S}{\leq} (\int_X |\rho|^2 d\nu)^{\frac{1}{2}} \nu(X)^{\frac{1}{2}} \\
+        &\leq \nu(x)^{\frac{1}{2}} (\int_X |\rho|^2 d\eta)^{\frac{1}{2}}.
+    \end{align*}
+    By Riesz' theorem there exists \(h\in L^2(x,d\eta)\) s.t. \(\rho(g)=\int_X g h d\eta\) for all \(g\in L^2(x,d\eta)\). 
+
+    For \(\rho = \mathds{1}_A\) we get
+    \begin{align*}
+        \nu(A) = \int_A h d\eta \ \forall A\in\mathscr{B}.
+    \end{align*}
+    In particular, \(h\geq 0 \ (\eta-\text{a.e.})\). As \(\nu(A) \leq \eta(A)\), we also have \(h\leq 1 \ (\eta-\text{a.e.})\). From now on
+    we view \(h\) as a function on \(X\) and assume \(0\leq h\leq 1\).
+
+    For \(g=\mathds{1}_A\) (\(A\in\mathscr{B}\)) we have 
+    \begin{align*}
+        \int_Xg d\nu = \rho(g) = \int_X ghd\eta = \int_X gh d\mu + \int_X ghd\nu,
+    \end{align*}
+    hence
+    \begin{align}   \label{eq:fikj7}
+        \int_Xg(1-h)d\nu = \int_X ghd\mu.
+    \end{align}
+    By extending eq. \ref{eq:fikj7} to positive simple functions and then using the monotone convergence theorem, we conclude that 
+    eq. \ref{eq:fikj7} holds for all measurable \(g:X\rightarrow [0,+\infty]\).
+
+    We now let
+    \begin{align*}
+        N = \left\{ x : h(x) = 1\right\} \text{ and } f = \frac{h}{1 - h}\mathds{1}_{N^c}.
+    \end{align*}
+    Letting \(g=\mathds{1}_N\) in eq. \ref{eq:fikj7} we get \(0=\mu(N)\). For \(A\in\mathscr{B}\), letting 
+    \(g = \frac{\mathds{1}_{A\cap N^c}}{1-h}\) in eq. \ref{eq:fikj7} we get
+    \begin{align*}
+        \nu\left(A\cap N^c\right) = \int_X \frac{\mathds{1}_A \mathds{1}_{N^c}}{1-h}hd\mu = \int_X \mathds{1}_A fd\mu = \int_A fd\mu.
+    \end{align*}
+    Thus
+    \begin{align*}
+        \nu(A) = \nu\left(A\cap N\right) + \nu\left(A\cap N^c\right) = \nu\left(A\cap N\right) + \int_A fd\mu.
+    \end{align*}
+    This finishes the proof for finite \(\mu\) and \(\nu\).
+
+    If \(\mu\) and \(\nu\) are \(\sigma\)-finite, we can write \(X\) as disjoint unions \(X=\cup_{n\in\mathbb{N}}X_n=\cup_{m\in\mathbb{N}} Y_m\)
+    with \(X_n, Y_m\in \mathscr{B}, \mu(X_n)<\infty, \nu(Y_m)<\infty\). Applying the first part of the proof to \(X_n\cap Y_m\), we find
+    \(N_{nm}\in\mathscr{B}, N_{nm}\subset X_n\cap Y_m\), and measurable \(f_{nm}:X_n\cap Y_m\rightarrow [0,+\infty]\) s.t. 
+    \(\mu(N_{nm}) = 0 \) and 
+    \begin{align*}
+        \nu\left(A\cap X_n\cap Y_m\right) = \nu\left(A\cap N_{nm}\right) + \int_{A\cap X_n\cap Y_m} f_{nm}d\mu.
+    \end{align*}
+    We then put \(N=\cup_{n,m\in\mathbb{N}} N_{nm}\) and define \(f:X\rightarrow[0,+\infty]\) by letting \(f=f_{nm}\) on \(X_n\cap Y_m\).
+\end{proof}
+\fi 
+
+When can we discard the term \(\nu(A\cap N)\)?
+\begin{definition}
+    Given measure \(\mu\) and \(\nu\) on \(X,\mathscr{B}\), we say that \(\nu\) is \emph{absolutely continuous} with respect to \(\mu\) and
+    write \(\nu<<\mu\), if \(\nu(A)=0\) whenever \(A\in\mathscr{B}, \mu(A)=0\).
+\end{definition}
+\begin{lemma}
+    Assume \(\mu\) and \(\nu\) are measures on \((X,\mathscr{B})\), \(\nu(X)<\infty\). Then \(\nu<<\mu\) iff 
+    \(\forall \epsilon>0\exists\delta>0\) s.t. if \(A\in\mathscr{B}\), \(\mu(A)<\delta\), then \(\nu(A)<\epsilon\).
+\end{lemma}
+\begin{proof}
+    "\(\Rightarrow\)": obvious. "\(\Leftarrow\)": Assume this is not true. Then, there is a \(\epsilon>0\) s.t. \(\forall \delta>0\) we can
+    find \(A\in\mathscr{B}\) satisfying \(\mu(A)<\delta\), \(\nu(A)\geq\epsilon\). Let \(A_n\) be such a set \(A\) for \(\delta=1/2^n\). Put
+    \(A=\cap_{n\in\mathbb{N}}\cup_{k=n}A_k\). Then
+    \begin{align*}
+        \mu(A) &\leq \lim\limits_{n\rightarrow\infty}\mu\left(\bigcup_{k=n}^{\infty}A_k\right) 
+        \leq \lim\limits_{n\rightarrow\infty}\sum\limits_{k=n}^{\infty}\mu(A_k) \\ 
+        &\leq \lim\limits_{n\rightarrow\infty}\sum\limits_{k=n}^{\infty}\frac{1}{2^k} = \lim\limits_{n\rightarrow} \frac{1}{2^{n-1}} = 0.
+    \end{align*}
+    As \(\nu(X)<\infty\), we also have 
+    \begin{align*}
+        \nu(A) = \lim\limits_{n\rightarrow\infty}\nu\left(\bigcup_{k=n}^{\infty}A_k\right) \geq \epsilon.
+    \end{align*}
+    This contradicts the assumption \(\nu <<\mu\).
+\end{proof}
+\begin{remark}
+    The result is not true for infinite \(\nu\).
+\end{remark}
+\begin{theorem}[Radon-Nikodym]
+    Assume \(\mu\) and \(\nu\) are \(\sigma\)-finite measures on a measurable space \((X,\mathscr{B})\), \(\nu<<\mu\). Then there is a
+    measurable function \(f:X\rightarrow [0,+\infty)\) s.t. \(d\nu=fd\mu\) (that is, \(\nu(A) \int_Afd\mu\)). If \(\tilde{f}\) is
+    another function with the same properties, then \(f=\tilde{f}\ \mu-\text{a.e.}\)
+
+    The function is called the \emph{Radon-Nikodym derivative} at \(\nu\) w.r.t. \(\mu\) and is denoted by \(\frac{d\nu}{d\mu}\).
+\end{theorem}
+\ifdetailed
+\begin{proof}
+    By the proposition above, we can find \(N\in\mathscr{B}\) and \(f:X\rightarrow[0,+\infty)\) s.t. \(\mu(N)=0\) and
+    \begin{align*}
+        \nu(A)=\nu\left(A\cap N\right) + \int_A fd\mu.
+    \end{align*}
+    As \(\nu(A\cap N)=0\) by the assumption \(\nu<<\mu\), this proves the existence of \(f\).
+    
+    Assume we have another \(\tilde{f}\). Then 
+    \begin{align*}
+        \nu(A)=\int_Afd\mu=\int_A\tilde{f}d\mu \ \forall A\in\mathscr{B}.
+    \end{align*}
+    If \(B\in\mathscr{B}\), \(\nu(B)<\infty\), then consider 
+    \begin{align*}
+        A_1 = \left\{x\in\mathscr{B}:f(x)>\tilde{f}(x)\right\}, A_2 = \left\{x\in\mathscr{B}:f(x)<\tilde{f}(x)\right\}. 
+    \end{align*}
+    Then 
+    \begin{align*}
+        \int_{A_1}(f-\tilde{f})d\mu = 0 \text{ and } \tilde_{A_2}(\tilde{f} - f) d\mu = 0,
+    \end{align*}
+    hence \(\mu(A_1)=\mu(A_2)=0\). Therefore, \(f=\tilde{f}\) \(\mu-\text{a.e.}\) on \(\mathscr{B}\). As \(\nu\) is \(\sigma\)-finite,
+    we have \(X=\cup_{n\in\mathbb{N}}B_n\), \(\nu(B_n)<\infty\). Then \(f=\tilde{f}\) \(\mu-\text{a.e.}\) on \(B_n\) for all \(n\),
+    hence \(f=\tilde{f}\) \(\mu-\text{a.e.}\) on \(X\).
+\end{proof}
+\fi
+\begin{example}
+    Consider a real-valued function \(f\in C'[a,b]\) s.t. \(f'(t)>0 \ \forall \ t\in[a,b]\). Let \(c=f(a), d=f(b)\). We know that for every
+    Riemann integrable function \(g\) on \([c,d]\) we have
+    \begin{align*}
+        \int_{c}^{d}g(f)dt = \int_{a}^{b}g(f(t))f'(t)dt.
+    \end{align*}
+    Equivalently, 
+    \begin{align}  \label{eq:firfar}
+        \int_{c}^{d} g\circ g^{-1}dt = \int_{a}^{b}gf'(t)dt.
+    \end{align}
+    Denote by \(\lambda_{[a,b]}\), \(\lambda_{[c,d]}\) the Lebesgue measure restricted to the Borel subsets of \([a,b]\) and 
+    \([c,d]\), respectively. Then eq. \ref{eq:firfar} implies that 
+    \begin{align*}
+        d\left((f^{-1})_{*}\lambda_{[c,d]}\right) = f'd\lambda_{[a,b]},
+    \end{align*}
+    since the integration of \(g=\mathds{1}_{[\alpha,\beta]}\) gives the same results for any interval \([\alpha,\beta]\subset[a,b]\)
+    and since a finite Borel measure on \([a,b]\) is determined by its values on such intervals. Thus, 
+    \((f^{-1})_{*}\lambda_{[c,d]}<<\lambda_{[a,b]}\) and
+    \begin{align*}
+        \frac{d\left((f^{-1})_{*}\lambda_{[c,d]}\right)}{d\lambda_{[a,b]}} = f'.
+    \end{align*}
+\end{example}
