@@ -1,0 +1,129 @@
+\section{The Function Spaces \(\boldsymbol{\mathcal{L}^p}\) \protect\\ (Ch. 13 in \cite{schilling2017measures})}
+Assume $V$ is a vector space over $\mathbb K\in\{\mathbb C,\mathbb R\}$.
+
+\begin{definition}
+    A seminorn on $V$ is a map $\map{p}{V}{[0,+\infty)}$ s.t. 
+    \begin{itemize}
+        \item[(1)] $p(cx)=|c|p(x)\tmm \forall x\in V,\forall c\in \mathbb K$.
+        \item[(2)] $p(x+y)\leq p(x) +p(y)\tmm \forall x,y\in V. \hspace{4mm} \textbf{triangle inequality}. $
+    \end{itemize}
+    A seminorm is called a norm if we also have \begin{align*}
+        p(x)=0\tmm \iff \tmm x=0.
+    \end{align*}
+\end{definition}
+
+A norm is commonly denoted $||x||$, and a vectorspace equipped with a norm is called a \textbf{normed space}.
+
+
+\begin{definition}
+    Assume $(X,d)$ is a measure space. Fix $1\leq p\leq \infty.$ For every measurable function $\map{f}{X}{\C}$ we define the following
+    \begin{align}
+        ||f||_p = \left( \int_X |f|^p d\mu\right)^{1/p}\in [0,+\infty].
+    \end{align} 
+    We can see that $||cf||_p=|c|||f||_p\tmm \forall c\in\C.$ 
+    
+    Notice that by Theorem \ref{th:11.2}(i) we have that \(||f||_p=0\Rightarrow 
+    f=0\) a.e. Consider for example \(\lim_{n\rightarrow\infty}||f_n-f||_p=0\), then we can find a subsequence s.t. 
+    \(\lim_{k\rightarrow\infty}|f_{n(k)}-f|=0\) a.e., i.e.
+    \(\lim_{k\rightarrow\infty}f_{n(k)} = f\) a.e. 
+\end{definition}
+
+\begin{lemma}
+    \begin{align}
+        ||f+g||_p\leq ||f||_p+||g||_p.
+    \end{align}
+\end{lemma}
+
+\begin{definition}
+    We define
+    \begin{align*}
+        \mathcal L^p(X,d\mu) = \left\{ \map{f}{X}{\C}\tmm |\tmm f\text{ is measurable and } ||f||_p<\infty \right\}. 
+    \end{align*}
+    This is a vectorspace with seminorm $f\mapsto ||f||_p.$
+     And in general this is not a normed space, since $||f||_p=0 \iff f=0 \text{ a.e.}$
+\end{definition}
+
+Generally, if $p$ is a seminorm on a vectorspace $V$, then
+ \begin{align}
+    V_0 = \left\{x\in V\tmm|\tmm p(x)=0 \right\}
+\end{align}
+which is a subspace of $V$. Then we consider the quotient/factor space $V/V_0.$
+
+\begin{definition}
+    For $x,y\in V$, define \begin{align}
+        x\sim y \iff x-y\in V_0.
+    \end{align}
+    This is an equivalence relation on $V$. The representation class of $V$ is defined by $[x]$ or $x+V_0$.
+\end{definition}
+
+Then $V/V_0$ is equals the set of equivalence classes. We can show that it is a normed space. 
+
+$$[x]+[y]=[x+y]\tmm,\tmm c[x]=[cx]\tmm,\tmm ||[x]||=p(x). $$
+
+Applying this to $\mathcal L^p(X,d\mu)$ we get the normed space \begin{align}
+    L^p(X,d\mu) \eqdef \mathcal L ^p(X,d\mu)/\mathcal N = \mathcal{L}^p(X,d\mu)/_{\sim}.
+\end{align}
+Where $\mathcal N$ is the space of measurable functions $f$ s.t. $f=0$ a.e. The equivalence relation \(\sim\) is defined by 
+\begin{align*}
+    u\sim v \Longleftrightarrow \left\{u\neq v\right\} \in \mathcal{N}_{\mu} \Longleftrightarrow \mu\left\{u\neq v\right\} = 0,
+\end{align*}
+and so \(L^p(X,d\mu)\) consists of \emph{all equivalence classes \([u]_p = \left\{v\in\mathcal{L}^p| u\sim v\right\}\).} So for every
+\(u\in L^p\) there is no \(v\in L^p\) such that \(\mu\{u\neq v\} \neq 0\).
+
+We will further continue to denote the norm by 
+$||\cdot||_p$, and we will normally \textbf{not} distinguish between $f\in \mathcal L^p(X,d\mu)$ and the vector in 
+$L^p(X,d\mu)$ that $f$ defines.
+
+\begin{definition}
+    A normed space $(X,||\cdot||)$ is called a Banach space if $V$ is complete w.r.t the metric $d(x,y)=||x-y||$.
+\end{definition}
+
+\begin{theorem}
+    If $(X,\B,\mu)$ is a measure space, $1\leq p\leq \infty$, then $L^p(X,d\mu)$ is a Banach space.
+\end{theorem}
+
+\begin{definition}
+    A measurable function $\map{f}{X}{\C}$ is called \textbf{essentially bounded} if there is $c\geq 0$ s.t. 
+    \begin{align}
+    \mu(\left\{ x\omm:\omm |f(x)|>c \right\})=0.    
+    \end{align}
+    That is $|f|\leq c$ a.e. The smallest such $c$ is called the essential supremum of $f$ and is denoted by $||f||_\infty.$
+\end{definition}
+
+\begin{definition}
+    $$\mathcal L^\infty(X,d\mu) = \left\{ \map{f}{X}{\C}\tmm|\tmm f\text{ is measurable and }||f||_\infty <\infty \right\}.$$
+    $$L^\infty (X,d\mu) =\mathcal L^\infty(X,d\mu)/\mathcal N. $$
+    Where by the previous definiton these spaces become the spaces of all essentially bounded functions. 
+\end{definition}
+\begin{theorem}
+    If $(X,\B,\mu)$ is a $\sigma$-finite measure space, then $L^\infty(X,d\mu)$ is a Banach space.
+\end{theorem}
+\subsection*{Convergence in \(\boldsymbol{\mathcal{L}^p}\) and completeness}
+\begin{lemma}
+    For any sequence \((u_n)_{n\in\mathbb{N}}\subset\mathcal{L}^p(\mu), p\in[1,\infty)\), of positive functions \(u_n\geq 0\) we have
+    \begin{align*}
+        \Big\vert \Big\vert \sum\limits^{\infty}_{n=1} u_n \Big\vert\Big\vert_p \leq \sum\limits_{n=1}^{\infty}\vert\vert u_n\vert\vert_p.
+    \end{align*}
+\end{lemma}
+\begin{theorem}[Riesz-Fischer]
+    The spaces \(\mathcal{L}^p(\mu), p\in[1,\infty)\), are complete, i.e. every Cauchy sequence \((u_n)_{n\in\mathbb{N}}\subset\mathcal{L}^p(\mu)\) 
+    converges to some limit \(u\in\mathcal{L}^p(\mu)\)
+\end{theorem}
+\begin{corollary}
+    Let \((u_n)_{n\in\mathbb{N}}\subset \mathcal{L}^p(\mu), p\in[1,\infty)\) with \(\mathcal{L}^p-\lim_{n\rightarrow\infty}u_n=u\). Then there 
+    exists a subsequence \((u_{n_k})_{k\in\mathbb{N}}\) s.t. \(\lim_{k\rightarrow\infty}u_{n_k}(x)=u(x)\) holds for almost every \(x\in X\).
+\end{corollary}
+\begin{theorem}
+    Let \((u_n)_{n\in\mathbb{N}}\subset\mathcal{L}^p(\mu),p\in[1,\infty)\), be a sequence of functions s.t. \(|u_n|\leq w\ \forall n\in\mathbb{N}\)
+    and some \(w\in\mathcal{L}^p(\mu)\). If \(u(x)=\lim_{n\rightarrow\infty}u_n(x)\) exists for (almost) every \(x\in X\), then
+    \begin{align*}
+        u\in\mathcal{L}^p &\text{ and } \lim\limits_{n\rightarrow\infty}||u-u_n||_p =0.
+    \end{align*}
+\end{theorem}
+\begin{theorem}[F. Riesz (convergence theorem)]
+    Let \((u_n)_{n\in\mathbb{N}}\subset\mathcal{L}^p(\mu),p\in[1,\infty)\), be a sequence s.t. \(\lim_{n\rightarrow\infty}u_n(x)=u(x)\)
+    for almost every \(x\in X\) and some \(u\in\mathcal{L}^p(\mu)\). Then
+    \begin{align*}
+        \lim\limits_{n\rightarrow\infty}||u_n-u||_p = 0 \Longleftrightarrow \lim\limits_{n\rightarrow\infty} ||u_n||_p = ||u||_p.
+    \end{align*}
+\end{theorem}

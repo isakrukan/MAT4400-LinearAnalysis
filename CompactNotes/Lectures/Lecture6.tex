@@ -1,0 +1,115 @@
+\section{Integration of measurable functions \protect\\ (Ch. 9 in \cite{schilling2017measures})}
+Through this chapter $(X,\A,\mu)$ will be some measure space. Recall that $\mathcal M^+(\A)$
+$[\mathcal M^+_{\bar\R}(\A)]$ are the
+$\A$-measurable positive functions and $\mathcal E(\A)$ $[\mathcal E^+_{\bar\R}(\A)]$ are the positive and simple functions.
+
+The fundamental idea of \textit{Integration} is to measure the area between the graph
+of the function and the abscissa. For positive simple functions $f\in\mathcal E^+(\A)$ in standard 
+representation, this is done easily
+\begin{align}
+    \text{if  } f=\sum_{i=0}^M y_i \mathds{1}_{A_i}\in \E^+(\A)\hspace{4mm} \text{then  } \sum_{i=0}^{M}y_i\mu(A_i)
+\end{align}
+would be the $\mu$-area enclosed by the graph and the abscissa. We note that 
+the representation of $f$ should not impact the integral of $f$.
+
+\begin{lemma}
+    Let $\sum_{i=0}^{M} y_i\one_{A_i} =\sum_{k=0}^{N} z_k\one_{B_k} $ be two standard representations
+    of the same function $f\in\E^+(\A)$. Then 
+    \begin{align}
+        \sum_{i=0}^{M} y_i\mu(A_i) =\sum_{k=0}^{N} z_k\mu(B_k).
+    \end{align}
+\end{lemma}
+
+
+\begin{definition}
+    Let $f=\sum_{i=0}^{M} y_i\one_{A_i}\in\E^+(\A)$ be a simple function in standard representation.
+    Then the number
+    \begin{align}
+    I_\mu(f) = \sum_{i=0}^{M} y_i\mu(A_i)\in[0,\infty]    
+    \end{align}
+    (which is independent of the representation of $f$) is called the $\mu$-integral of $f$.
+\end{definition}
+
+\begin{proposition}
+    Let $f,g\in\E^+(\A)$. Then
+    \begin{enumerate}
+        \item[(i)] $I_\mu(\one_A)=\mu(A)\hspace{3mm}\forall A\in\A.$
+        \item[(ii)] $I_\mu(\lambda f)=\lambda I_\mu(f)\hspace{3mm} \forall \lambda\geq 0.$
+        \item[(iii)] $I_\mu(f+g) = I_\mu(f)+I_\mu(g).$
+        \item[(iv)]  $f\leq g\Rightarrow I_\mu(f)\leq I_\mu(g).$
+    \end{enumerate}
+\end{proposition}
+
+In theorem 8.8 we saw that we could for every $u\in\M^+(\A)$ write it as an increasing limit
+of simple functions. By corollary 8.10, the suprema of simple functions are again measurable, so that 
+\begin{align*}
+    u\in\M^+(\A)\Leftrightarrow u=\sup_{n\in\N} f_n, f\in\E^+(\A), \\f_n\leq f_{n+1}\leq\ldots.
+\end{align*}
+We will use this to "inscribe" simple functions (which we know how to integrate) below the graph of a 
+positive measurable function $u$ and exhaust the $\mu$-area below $u$.
+\begin{definition}
+    Let $(X,\A,\mu)$ be a measure space. The $(\mu)$-integral of a positive function $u\in\M_{\bar\R}^+(\A)$ is given by 
+
+    \begin{equation}
+        \label{eq:int}
+        \int ud\mu=\sup\left\{ I_\mu(g):g\leq u,\omm g\in\E^+(\A) \right\},
+    \end{equation}
+    with \(\int ud\mu\in[0,+\infty]\).
+    If we need to emphasize the \textit{integration variable}, we write $\int u(x)\mu(dx).$
+    The key observation is that the integral $\int\ldots d\mu$ extends $I_\mu.$
+
+\end{definition}
+\begin{lemma}
+    For all $f\in\E^+(\A)$ we have $\int fd\mu = I_\mu(f).$
+\end{lemma}
+
+The next theorem is one of many convergence theorems. It shows that we could have defined \ref*{eq:int} using any increasing
+sequence $f_n\uparrow u$ of simple functions $f_n\in\E^+(\A).$
+
+\begin{theorem}(\underline{Beppo Levi})
+    Let $(X,\A,\mu)$ be a measure space. For an increasing sequence of functions 
+    $(u_n)_{n\in\N}\subset \M_{\bar\R}^+(\A)$, $0\leq u_n\leq u_{n+1}\leq\ldots$, we have for the supremum $u=\sup_{n\in\N} u_n\in\M_{\bar\R}^+(\A)$
+    and 
+
+    \begin{align}
+        \int \sup_{n\in\N} u_nd\mu =\sup_{n\in\N} \int  u_nd\mu.
+    \end{align}
+Note we can write $\lim_{n\rightarrow \infty}$ instead of $\sup_{n\in\N}$ as the supremum of an increasing sequence
+is its limit. Moreover, this theorem holds in $[0,+\infty]$, so the case $+\infty = +\infty$ is possible. 
+\end{theorem}
+
+\begin{corollary}
+    Let $u\in \M_{\bar\R}^+(\A)$. Then \begin{align*}
+        \int ud\mu = \lim_{n\rightarrow \infty} \int f_n d\mu
+    \end{align*}
+    holds for every sequence $(f_n)_{n\in\N}\subset \E^+(\A)$ with $\lim_{n\rightarrow\infty} f_n=u.$
+
+\end{corollary}
+
+
+\begin{proposition} (of integral)
+    Let $u,v\in\M_{\bar\R}^+(\A)$. Then
+    \begin{enumerate}
+        \item[(i)] $\int \one_A d\mu = \mu(A)\hspace{3mm}\forall A\in\A.$
+        \item[(ii)] $\int \alpha ud\mu = \alpha\int u d\mu \hspace{3mm} \forall \alpha\geq 0.$
+        \item[(iii)] $\int u+v d\mu = \int u d\mu +\int v d\mu.$
+        \item[(iv)]  $u\leq v\Rightarrow \int u d\mu\leq \int v d\mu.$
+    \end{enumerate}
+\end{proposition}
+
+\begin{corollary}
+    Let $(u_n)_{n\in\N}\subset \M_{\bar\R}^+(\A).$ Then $\sum_{n=1}^\infty u_n$ is measurable and we have
+    \begin{align*}
+        \int \sum_{n=1}^\infty u_n d\mu = \sum_{n=1}^\infty \int u_nd\mu
+    \end{align*}
+    (including the possibility $+\infty = +\infty.$)
+\end{corollary}
+
+\begin{theorem}(\underline{Fatou})
+    Let $(u_n)_{n\in\N}\subset \M_{\bar\R}^+(\A)$ be a sequence of positive measurable functions. Then 
+$u=\liminf_{n\rightarrow\infty} u_n$ is measurable and 
+
+\begin{align}
+    \int\liminf_{n\rightarrow\infty}u_n d\mu =\liminf_{n\rightarrow\infty}\int u_n d\mu 
+\end{align}
+\end{theorem} 

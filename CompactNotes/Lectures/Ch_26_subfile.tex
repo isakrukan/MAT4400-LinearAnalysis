@@ -1,0 +1,231 @@
+\section{Abstract Hilbert Spaces \protect\\ (Ch. 26 in \cite{schilling2017measures})}
+Assume \(\mathcal{H}\) is a vector space over \(\mathbb{C}\).
+\begin{definition}
+    A pre-inner product on \(\mathcal{H}\) is a map \((\cdot,\cdot):H\times H\rightarrow\mathbb{C}\) which is
+    \begin{enumerate}[label=(\roman*)]
+        \item Sesquilinear: linear in the first variable and antilinear in the second:
+        \begin{align*}
+            (\alpha u + \beta v, w) &= \alpha(u,w) + \beta(v,w), \\
+            (w, \alpha u + \beta v) &= \bar{\alpha}(w,u) + \bar{\beta}(w,v), \ u,v,w\in H \text{ and } \alpha,\beta\in\mathbb{C}.
+        \end{align*}
+        \item Hermitian: \((u,v)=\overline{(u,v)}\).
+        \item Positive semidefinite: \((u,v)\geq 0\).
+    \end{enumerate}
+    It is called an \textbf{inner product}, or a scalar product, if instead of (iii) the map is positive definite; \((u,v)>0\). This definition
+    also works for \(\mathbb{R}\) instead of \(\mathbb{C}\).
+\end{definition}
+\textbf{Cauchy-Schwartz inequality} If \((\cdot, \cdot)\) is a pre-inner product, then \(\vert (u,v)\vert \leq (u,u)^{1/2}(v,v)^{1/2}\).
+\begin{corollary}
+    Assume we have a seminorm \(||u||\eqdef (u,u)^{1/2}\). It is a norm iff \((\cdot,\cdot)\) is an inner product.
+\end{corollary}
+\begin{definition}[Hilbert space]
+    A Hilbert space is a complex vector space \(\mathcal{H}\) with an inner product \((\cdot,\cdot)\) s.t. \(\mathcal{H}\) is complete with respect to the norm
+    \(||u|| = (u,u)^{1/2}\).
+\end{definition}
+
+\begin{enumerate}
+    \item The norm on a Hilbert space is determined by the inner product, but the inner product can also be recovered by the norm by the 
+    \emph{polarization identity}: \((u,v) = \frac{||u+v||^2 - ||u-v||^2}{4}+ i\frac{||u+iv||^2 - ||u-iv||^2}{4}\).
+    \item \emph{Parallelogram law}: \(||u+v||^2 + ||u-v||^2 = 2||u||^2 + 2||v||^2\).
+    \item A norm on a vector space is given by an inner product iff it satisfies the parallelogram law, and then the scalar product is 
+    uniquely determined by the polarization identity. 
+\end{enumerate}
+\ifdetailed
+\begin{example}
+    Assume \(\left(X,\mathscr{B}, \mu\right)\) is a measure space. Then \(\mathcal{L}^2(X,d\mu)\) is a Hilbert space with inner product
+    \begin{align*}
+        (f,g) = \int_X f\bar{g}d\mu.
+    \end{align*}
+    This is well-defined, as \(|f\bar{g}|\leq \frac{1}{2}(|f|^2 + |g|^2)\). 
+
+    In particular, if \(\mathscr{B} = \mathcal{P}(X)\) and \(\mu\) is the counting measure, then \(L^2(X,d\mu)\) is denoted by \(l^2(X)\);
+    for \(X=\mathbb{N}\) we write simply \(l^2\). Note that in this case for \(f:X\rightarrow [0,+\infty]\) we have
+    \begin{align*}
+        \int_X fd\mu = \sum\limits_{x\in X} f(x) \eqdef \sup\limits_{\substack{F\subset X \\ F\text{ is finite}}} \sum\limits_{x\in F} f(x),
+    \end{align*}
+    and if \(\sum_{x\in X}f(x)<\infty\), then \(\left\{x:f(x)>0\right\}\) is at most countable, so \(\sum_{x\in X}f(x) = \sum_{x:f(x)>0}f(x)\)
+    is the usual sum of a series. 
+\end{example}
+\fi
+Recall that a subset \(\mathcal{C}\) of a vector space is called \emph{convex} if 
+\begin{align*}
+    u,w\in\mathcal{C} \rightarrow tu + (1-t)w\in\mathcal{C} \ \forall t\in(0,1).
+\end{align*}
+The following is one of the key properties of the Hilbert space
+\begin{theorem}[projection theorem]
+    Assume \(\mathcal{H}\) is a Hilbert space and \(\mathcal{C}\subset H\) is a closed convex subset. Then for every \(u\in H\) there is a unique 
+    \(u_0\in\mathcal{C}\) (\emph{minimizer}) s.t.
+    \begin{align*}
+        ||u-u_0|| = d(u,\mathcal{C})(=\inf\limits_{x\in\mathcal{C}} ||u-x||).
+    \end{align*}
+\end{theorem}
+\ifdetailed 
+\begin{proof}
+    Let \(d=d(u,\mathcal{C})\). Choose \(u_n\in\mathcal{C}\) s.t. \(||u-u_n||\rightarrow d\). We claim that \((u_n)^{\infty}_{n=1}\) is a 
+    Cauchy sequence. As \(\frac{u_n+u_2}{2}\in\mathcal{C}\), we have 
+    \begin{align*}
+        d^2\leq ||u-\frac{u_n+u_m}{2}||^2 &= \frac{1}{4}||(u-u_m)+(u-u_m)||^2 \\
+        &\underset{\text{parallelogram law}}{=} = \frac{1}{4}\left(2||u-u_n||^2 + 2||u-u_m||^2 - ||u_n-u_m||^2\right),
+    \end{align*}
+    so 
+    \begin{align*}
+        ||u_n-u_m||^2 \leq 2\left( ||u-u_n||^2 - d^2 \right) + 2\left( ||u-u_m||^2 - d^2 \right).
+    \end{align*}
+    Thus, \((u_n)_{n\in\mathbb{N}}\) is indeed Cauchy, hence \(u_n\rightarrow u_0\in\mathcal{C}\) for some \(u_0\) and
+    \begin{align*}
+        ||u-u_0|| = \lim\limits_{n\rightarrow\infty} ||u-u_m|| = d = d(u,\mathcal{C}).
+    \end{align*}
+    If \(u'_0\) is another such point, we can take \(u_{2n}=u_0, u_{2n+1}=u'_0\) and conclude that \(u_0 = u'_0\).
+\end{proof}
+\fi 
+\section{Orthogonal Projections \protect\\ (Ch. 26 in \cite{schilling2017measures})}
+For a Hilbert space \(\mathcal{H}\) and a subset \(A\subset H\), let
+\begin{align*}
+    A^{\bot} \eqdef \left\{x\in H: x\bot y\ \forall y \in A\right\},
+\end{align*}
+where \(x\bot y\) means that \((x,y) = 0\). \(A^{\bot}\) is a closed subspace of \(\mathcal{H}\).
+\begin{proposition}
+    Assume \(\mathcal{H}_0\) is a closed subspace of a Hilbert space \(\mathcal{H}\). Then every \(u\in H\) uniquely decomposes as
+    \begin{align*}
+        u = u_0 + u_1, \text{ with } u_0\in H \text{ and } u_1 \in \mathcal{H}_{0}^{\bot}.
+    \end{align*}
+    Moreover, \(||u - u_0||= d(u,\mathcal{H}_0)\) and \(||u||^2 = ||u_0||^2 + ||u_1||^2\).
+\end{proposition}
+
+For a closed subspace \(\mathcal{H}_0\subset \mathcal{H}\), consider the map \(P:H\rightarrow \mathcal{H}_0\) s.t.
+\(Pu\in \mathcal{H}_0\) is the unique element satisfying \(u-Pu = H_{0}^{\bot}\). The operator \(P\) is linear. It is also contractive, meaning that
+\(||Pu||\leq ||u||\), since \(||u||^2 = ||Pu||^2 + ||u-Pu||^2\). It is called the orthogonal projection onto \(\mathcal{H}_0\).
+
+If \(\mathcal{H}_0\) is finite dimensional with an orthonormal basis \(u_1, ..., u_n\) then 
+\begin{align*}
+    Pu = \sum\limits^{n}_{k=1} (u,u_k)u_k.
+\end{align*}
+Orthonormal bases can be defined for arbitrary Hilbert spaces. 
+
+\begin{definition}[orthonormal system]
+    An orthonormal system in \(\mathcal{H}\) is a collection of vectors \(u_i\in H \) (\(i\in I\))s.t.
+    \begin{align*}
+        (u_i,u_j) = \delta_{ij} \ \forall i,j\in I.
+    \end{align*}
+    It is called an \emph{orthonormal basis} if \(\text{span}\{u_i\}_{i\in I}\) denotes the linear span of \(\{u_i\}_{i\in I}\), the space of finite
+    linear combinations of the vectors \(u_i\).
+\end{definition}
+\begin{definition}
+    A Hilbert space \(\mathcal{H}\) is said to be \emph{separable} if \(\mathcal{H}\) contains a countable dense subset 
+    \(G\subset\mathcal{H}\).
+\end{definition}
+\begin{theorem}
+    Every Hilbert space \(\mathcal{H}\) has an orthonormal basis. If \(\mathcal{H}\) is separable, then there is a countable orthonormal basis.
+\end{theorem}
+\begin{proposition}
+    Assume \(\{u_i\}_{i\in I}\) is an orthonormal system in a Hilbert space H. Take \(u\in\mathcal{H}\). Then 
+    \begin{enumerate}[label=(\roman*)]
+        \item \emph{Bessel's inequality}: \(\sum_{i\in I} |(u,u_i)|^2\leq ||u||^2\), in particular, \(\{i:(u,u_i)\neq 0\}\) is countable.
+        \item \emph{Parseval's identity}: If \(\{u_i\}_{i\in I }\) is an orthonormal basis, then \\ \(\sum_{i\in I} |(u,u_i)|^2 = ||u||^2\).
+    \end{enumerate}
+\end{proposition}
+
+If \((u_i)_{i\in I }\) is an orthonormal basis, then the numbers \((u,u_i)\) are called the \textbf{Fourier coefficients} of \(u\) with 
+respect to \((u_i)_{i\in I}\). The Parseval identity then suggests that \(u\) is determined by its Fourier coefficients. This is true, 
+and even more, we have:
+\begin{proposition}
+    Assume \((u_i)_{i\in I}\) is an orthonormal basis in a Hilbert space \(\mathcal{H}\). Then for every vector \((c_i)_{i\in I}\in l^2(I)\)
+    there is a unique vector \(u\in \mathcal{H}\) with Fourier coefficients \(c_i\), and we write
+    \begin{align*}
+        u = \sum\limits_{i\in I} c_i u_i.
+    \end{align*}
+\end{proposition}
+\begin{remark}
+    Equivalently, the element \(u=\sum_{i\in I}c_i u_i\) can be described as the unique element in \(\mathcal{H}\) s.t. \(\forall \epsilon>0\)
+    there is a finite \(F_0\subset I\) s.t. \(||u - \sum_{i\in F}c_i u_i || < \epsilon \ \forall \text{ finite } F\supset F_0\).
+\end{remark}
+\begin{corollary}
+    We have a linear isomorphism \(U:l^2(I)\xrightarrow[ ]{\sim}\mathcal{H}, \ U\left((c_i)_{i\in I}\right) = \sum_{i\in I}c_i u_i\).
+    By Parseval's identity this isomorphism is \emph{isometric}, that is, \(||Ux|| = ||x|| \ \forall x\in l^2(I)\). By the polarization identity
+    this is equivalent to 
+    \begin{align*}
+        (Ux,Uy) = (x,y) \ \forall x,y\in l^2(I).
+    \end{align*}
+    Therefor \(U\) is unitary.
+\end{corollary}
+\begin{corollary}
+    Up to a unitary isomorphism, there is only one infinite dimensional separable Hilbert space, namely, \(l^2\).
+\end{corollary}
+
+\section{Dual spaces \protect\\ (Ch. 26 in \cite{schilling2017measures})}
+\ifdetailed 
+Given two orthonormal bases \((u_i)_{i\in I}\) and \((v_i)_{i\in I}\) in a Hilbert space \(\mathcal{H}\), we can decompose
+\begin{align*}
+    u_i = \sum\limits_{j\in I} (u_i,v_j)v_j
+\end{align*}
+and using that the sets \(\{j:(u_i,v_j)\neq 0\}\) are countable proove the following:
+
+\emph{Claim}: Any two orthonormal bases in a Hilbert space have the same cardinality.
+\begin{example}[classical Fourier series]
+    Consider \(\mathcal{H} = L^2(0,2\bar{\mu}) = L^2((0,2\bar{\mu}), d\lambda)\). For \(n\in\mathbb{Z}\), define
+    \(e_n(t) = \frac{1}{\sqrt{2}\bar{\mu}}e^{int}\). By a version of Weierstrass' theorem it is known that 
+    \(\text{span}\{e_n\}_{n\in\mathbb{Z}}\) is dense in the supremum-norm in 
+    \begin{align*}
+        \left\{f\in C[0,2\bar{\mu}]: f(0)=f(2\bar{\mu})\right\}.
+    \end{align*}
+    As \(C[0,2\bar{\mu}]\) is dense in \(L^2(0,2\bar{\mu})\), from this one can deduce that \(\text{span}\{e_n\}_{n\in\mathbb{Z}}\) is dense
+    in \(L^2(0,2\bar{\mu})\). We then see that \((e_n)_{n\in\mathbb{Z}}\) is an orthonormal basis in \(L^2(0,2\bar{\mu})\). We therefor
+    have a unitary isomorphism
+    \begin{align*}
+        l^2(\mathbb{Z}) \xrightarrow[ ]{\sim}L^2(0,2\bar{\mu}), (c_n)_{n\in\mathbb{Z}} \mapsto \sum\limits_{n\in\mathbb{Z}}c_n e_n.
+    \end{align*}
+    The Fourier coefficients at \(f\in L^2(0,2\bar{\mu})\) are denoted by \(\hat{f}(n)\), so 
+    \begin{align*}
+        \hat{f}(n) = \frac{1}{\sqrt{2\bar{\mu}}}\int_{0}^{2\bar{\mu}} f(t) e^{-int}dt,
+    \end{align*}
+    more practically
+    \begin{align*}
+        \hat{f}(n) = \frac{1}{\sqrt{2\bar{\mu}}}\int_{[0,2\bar{\mu})} f(t) e^{-int}d\lambda(t).
+    \end{align*}
+    Therefor we have \(f=\sum_{n\in\mathbb{Z}} \hat{f}(n)e_n\) in \(L^2(0,2\bar{\mu})\).
+
+    \emph{Fact}: For every \(f\in L^2(0,2\bar{\mu})\), we have \(\frac{1}{\sqrt{2\bar{\mu}}} \sum_{n=-N}^{N} \hat{f}(n)e^{int}
+    \xrightarrow[N\rightarrow\infty]{ } f(t)\) for a.e. t.
+\end{example}
+\fi 
+\begin{lemma}
+    Assume V is a normed space over \(K=\mathbb{R}\) or \(K=\mathbb{C}\). Consider a linear functional \(f:V\rightarrow K\). The following
+    are equivalent (TFAE):
+    \begin{enumerate}[label=(\roman*)]
+        \item \(f\) is continuous;
+        \item \(f\) is continuous at 0;
+        \item There is a \(c\geq0\) s.t. \(|f(x)|\leq c ||x|| \ \forall x\in V\).
+    \end{enumerate}
+\end{lemma}
+
+If (i)-(iii) are satisfied, then \(f\) is called a \emph{bounded linear functional}. The constant \(c\) in (iii) is denoted by \(||f||\).
+We have \(||f||=\sup_{x\neq0} \frac{|f(x)|}{||x||} = \sup_{||x||=1} |f(x)| = \sup_{||x||\leq 1}|f(x)|\).
+
+\begin{proposition}
+    For every normed vector space \(V\) over \(K=\mathbb{R}\) or \(K=\mathbb{C}\), the bounded linear functionals on \(V\) form a 
+    Banach space \(V^*\).
+\end{proposition}
+\begin{remark}
+    The sequence \(\{||f_n - f_m ||\}^{\infty}_{m=1}\) actually converges, since
+    \begin{align*}
+        \Big\vert ||f_n-f_m|| \Big\vert \leq ||f_m-f_n||.
+    \end{align*}
+    When we study/use normed spaces, it is often important to understand the dual spaces. For Hilbert spaces this is particularly easy:
+\end{remark}
+\begin{theorem}[Riesz]
+    Assume \(\mathcal{H}\) is a Hilbert space. Then every \(f\in\mathcal{H}^*\) has the form 
+    \begin{align*}
+        f(x) = (x,y),
+    \end{align*}
+    for a uniquely defined \(y\in\mathcal{H}\). Moreover, we have \(||f||=||y||\).
+\end{theorem}
+
+For every Hilbert space \(\mathcal{H}\) we can define the \emph{conjugate Hilbert space} \(\bar{\mathcal{H}}\), which has its elements as 
+the symbols \(\bar{x}\) for \(x\in\mathcal{H}\), with the linear structure and inner product defined by 
+\begin{align*}
+    \bar{x} + \bar{y} = \overline{x+y}, c\cdot \bar{x} = \overline{\bar{c}x}, (\bar{x}, \bar{y}) = \overline{(x,y)} = (y,x).
+\end{align*}
+\begin{corollary}
+    For every Hilbert space \(\mathcal{H}\), we have an isometric isomorphism \(\bar{\mathcal{H}} \xrightarrow[ ]{ \sim} \mathcal{H}^*\), 
+    \(\bar{x}\mapsto (\cdot, x)\).
+\end{corollary}

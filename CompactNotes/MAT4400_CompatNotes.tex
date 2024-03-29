@@ -27,6 +27,8 @@
 \usepackage{mathrsfs}
 \usepackage{comment}
 \usepackage{bbm} % Allows for the characteristic function of a set
+\usepackage{multicol}
+\usepackage{a4wide}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -87,15 +89,76 @@
     citecolor={blue!50!black},
     urlcolor={blue!80!black}}
 
+\setlength{\columnseprule}{0.8pt}
+%% USEFUL LINKS:
+%%
+%%   UiO LaTeX guides:        https://www.mn.uio.no/ifi/tjenester/it/hjelp/latex/
+%%   mathematics:             https://en.wikibooks.org/wiki/LaTeX/Mathematics
+
+%%   PHYSICS !                https://mirror.hmc.edu/ctan/macros/latex/contrib/physics/physics.pdf
+
+%%   the basics of Tikz:       https://en.wikibooks.org/wiki/LaTeX/PGF/Tikz
+%%   all the colors!:          https://en.wikibooks.org/wiki/LaTeX/Colors
+%%   how to draw tables:       https://en.wikibooks.org/wiki/LaTeX/Tables
+%%   code listing styles:      https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
+%%   \includegraphics          https://en.wikibooks.org/wiki/LaTeX/Importing_Graphics
+%%   learn more about figures  https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions
+%%   automagic bibliography:   https://en.wikibooks.org/wiki/LaTeX/Bibliography_Management  (this one is kinda difficult the first time)
+%%   REVTeX Guide:             http://www.physics.csbsju.edu/370/papers/Journal_Style_Manuals/auguide4-1.pdf
+%%
+%%   (this document is of class "revtex4-1", the REVTeX Guide explains how the class works)
+
+
+%%%%%%%%%%%%% CREATING THE pdf FILE USING LINUX IN THE TERMINAL %%%%%%%%%%%%%
+%% pdflatex filename.tex && filename.tex && open filename.pdf
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% USING FOOTNOTE COMMAND: %%%%%%%%%%%%%%%%%%%%%%%%%%
+    %% pdflatex filename.tex && bibtex filename.tex && pdflatex filename.tex && pdflatex filename.tex && open filename.pdf
+
+
 \newif\ifdetailed
-\detailedtrue % Detailed version
-% \detailedfalse % Only important stuff version
+\detailedtrue % DETAILED VERSION
+\detailedfalse % ONLY IMPORTANT STUFF (NO PROOFS)
 %%%% Usage %%%%:
 % \ifdetailed
-% Detailed thing, for example:
-% \begin{align}
-%   U(t) = \int u(x,t)d\mu
-% \end{align}
+% I AM DETAILED
 % \fi 
-	
+\usepackage{titlesec}
+\titleformat*{\section}{\large\bfseries}
+\begin{document}
+\ifdetailed
+  % Title for detailed version
+  \title{MAT4400: Detailed Notes on Linear analysis }
+\else
+  % Title for non-detailed version
+  \title{MAT4400: Notes on Linear analysis \protect\\ (Proofs excluded)}
+\fi
+\maketitle
 
+\begin{multicols}{2}
+  \subfile{Lectures/Lecture1.tex}
+  
+  \setcounter{section}{2}
+  \setcounter{theorem}{2}
+  \subfile{Lectures/Lecture3.tex}
+  \setcounter{section}{3}
+  \setcounter{theorem}{3}
+
+  \subfile{Lectures/Lecture4.tex}
+  \subfile{Lectures/Lecture5_1.tex}
+  \subfile{Lectures/Lecture5_2.tex}
+  \subfile{Lectures/Lecture6.tex}
+  \subfile{Lectures/Lecture7.tex}
+  \subfile{Lectures/Lecture8.tex}
+  \subfile{Lectures/Lecture9.tex}
+  \subfile{Lectures/Lecture10.tex}
+  \subfile{Lectures/Lecture11.tex}
+  \subfile{Lectures/Lecture12.tex}
+  \subfile{Lectures/Ch_26_subfile.tex}
+  \subfile{Lectures/Lecture16.tex}
+  \subfile{Lectures/Lecture17.tex}
+\end{multicols}
+
+\bibliography{references.bib}
+\bibliographystyle{aasjournal}
+\end{document}
