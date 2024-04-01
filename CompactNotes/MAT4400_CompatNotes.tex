@@ -28,7 +28,11 @@
 \usepackage{comment}
 \usepackage{bbm} % Allows for the characteristic function of a set
 \usepackage{multicol}
-\usepackage{a4wide}
+% Ultrawide:
+\usepackage[left=0.25cm, right=0.25cm, top=0.50cm, bottom=0.50cm, margin=0.5cm]{geometry}
+\usepackage{titlesec} % For bar under section
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\thesection}{1em}{}[{\titlerule[0.8pt]}]
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -118,7 +122,7 @@
 
 \newif\ifdetailed
 \detailedtrue % DETAILED VERSION
-\detailedfalse % ONLY IMPORTANT STUFF (NO PROOFS)
+% \detailedfalse % ONLY IMPORTANT STUFF (NO PROOFS)
 %%%% Usage %%%%:
 % \ifdetailed
 % I AM DETAILED
@@ -131,7 +135,7 @@
   \title{MAT4400: Detailed Notes on Linear analysis }
 \else
   % Title for non-detailed version
-  \title{MAT4400: Notes on Linear analysis \protect\\ (Proofs excluded)}
+  \title{MAT4400: Notes on Linear analysis \protect\\ (ONLY IMPORTANT STUFF)}
 \fi
 \maketitle
 
