@@ -1,0 +1,141 @@
+\section{Complex and Signed Measures \tiny{(4.3, \cite{Gerald_Teschl})}}
+\begin{definition}
+    A \textbf{complex measure} on \(\left(X,\mathscr{B}\right)\) is a map \(\nu:\mathscr{B}\rightarrow \mathbb{C}\) s.t. 
+    \(\nu(\emptyset)=0\) and
+    \begin{align*}
+        \nu\left(\bigcup\limits_{n=1}^{\infty}A_n\right) = \sum\limits_{n=1}^{\infty}\nu(A_n)
+    \end{align*}
+    for any disjoint \(A_n\in\mathscr{B}\), where the series is assumed to be absolutely convergent. If \(\nu\) takes values in \(\mathbb{R}\) then \(\nu\) is called a \textbf{finite signed value}.
+\end{definition}
+\begin{remark}
+    More generally, a signed measure is allowed to take values in \(\mathbb{R}\cup\{+\infty\}\) or \(\mathbb{R}\cup\{-\infty\}\).
+\end{remark}
+
+    Given a complex measure \(\nu\) on \((X,\mathscr{B})\), its \textbf{total variation} is the map \(|\nu|:\mathscr{B}\rightarrow[0,+\infty]\) defined by
+    \begin{align*}
+        |\nu|(A) = \sup\left\{\sum\limits_{n=1}^{N}|\nu(A_n)|:A=\bigcup\limits_{n=1}^{N}A_n, A_n\in\mathscr{B}, A_n\cap A_m = \emptyset\right\}.
+    \end{align*}
+
+\begin{proposition}
+    \(|\nu|\) is a finite measure on \((X,\mathscr{B})\).
+\end{proposition}
+\ifdetailed
+\begin{proof}
+    Let us first show that \(|\nu|\) is a measure. As \(\nu(\emptyset)=0\), we have \(|\nu|(\emptyset)=0\). For \(\sigma\)-addiativity, take \(A=\cup_{n\in\mathbb{N}}A_n\), \(A_n\in\mathscr{B}\), \(A_n\cap A_m = \emptyset\). If \(A=\cup_{k=1}^{N}B_n\), \(B_k\in\mathscr{B}\), \(B_k\cap B_l = \emptyset\) then
+    \begin{align*}
+        \sum\limits_{k=1}^{N}|\nu(B_k)| &= \sum\limits_{k=1}^{N}\vert \sum\limits_{n=1}^{\infty}\nu\left(B_k\cap A_n\right)\vert \\
+        &\leq \sum\limits_{n=1}^{\infty}\sum\limits_{k=1}^{N} \vert \nu\left(B_k\cap A_n\right) \vert \\ 
+        &\leq \sum\limits_{n=1}^{\infty}\vert \nu\vert(A_n).
+    \end{align*}
+    Taking the supremum over ll such decompositions \(A_n\in\mathscr{B}\) we get
+    \begin{align*}
+        |\nu|(A) \leq \sum\limits_{n=1}^{\infty}|\nu|(A_n).
+    \end{align*}
+    To prove the opposite inequality we may assume \(|\nu|(A)<\infty\). Then \(|\nu|(A_n)\leq |\nu|(A)<\infty\). It suffices to show that \(\sum_{n=1}^{N}|\nu|(A_n)\leq |\nu|(A)\).
+
+    Fix \(\epsilon>0\) and choose decompositions \(A_n=\cup_{k=1}^{M_n}B_{n_k}\), \(B_{n_k}\in\mathscr{B}\), \(B_{n_k}\cap B_{n_l}=\emptyset\) s.t. \(\sum_{k=1}^{M_n}|\nu(B_{n_k})| > |\nu|(A_n) - \epsilon\). Then
+    \begin{align*}
+        |\nu|(A) &\geq \sum\limits_{n=1}^{N}\sum\limits_{k=1}^{M_n}|\nu(B_{n_k})| + |\nu\left(A\backslash \bigcup\limits_{n=1}^{N}A_n\right)| \\
+        &> \sum\limits_{n=1}^{N} \left(|\nu|(A_n) - \epsilon\right)
+        = \sum\limits_{n=1}^{N}|\nu|(A_n) - N\epsilon.
+    \end{align*}
+    As \(\epsilon>0\) was arbitrary, we conclude that \(|\nu|(A)\geq \sum_{n=1}^{N}|\nu|(A_n)\).
+
+    It remains to check that \(|\nu|(X)<\infty\). As \(|\nu|(X) \leq |\text{Re}\nu|(X) + |\text{Im}\nu|(X)\), we can consider Re\(\nu\) and Im\(\nu\) separately. In other words, it is enough to consider finite signed measures.
+
+    Assume \(|\nu|(X)=\pm\infty\). We have that there exists \(A,B\in\mathscr{B}\) s.t.
+    \begin{align*}
+        X = A\cup B, \ A\cap B= \emptyset, \ |\nu|(A) = +\infty, \ |\nu|(B)\geq 1.
+    \end{align*}
+    To see this, find a decomposition
+    \begin{align*}
+        X = \bigcup_{n=1}^{N}A_n, \ A_n\in\mathscr{B}, \ A_n\cap A_m = \emptyset
+    \end{align*}
+    s.t.
+    \begin{align*}
+        \sum\limits_{n=1}^{N}|\nu(A_n)| \geq |\nu(X)| + 2 = \Big\vert \sum\limits_{n=1}^{N}\nu(A_n)\Big\vert +2.
+    \end{align*}
+    Consider \(I\eqdef \{i:1\leq i\leq N, \nu(A_i)\geq0\}\) and \(J\eqdef \{i:1\leq i\leq N, \nu(A_i)<0\}\). We then have 
+    \begin{align*}
+        \sum\limits_{k\in I}\nu(A_k) - \sum\limits_{k\in J} \nu(A_k) \geq \Big\vert \sum\limits_{k\in I}\nu(A_k) - \sum\limits_{k\in J} \nu(A_k)\Big\vert + 2,
+    \end{align*}
+    which implies that 
+    \begin{align*}
+        \sum\limits_{k\in I} \nu(A_k) \geq 1 \text{ and } \sum\limits_{k\in J} \nu(A_k) \leq -1.
+    \end{align*}
+    Let \(B_0 = \cup_{k\in I}A_k\), \(B_1 = \cup_{k\in J}A_k\). Then
+    \begin{align*}
+        X = B_0 \cup B_1, \ B_0\cap B_1 = \emptyset, \ |\nu(B_0)|\geq 1, \ |\nu(B_1)| \geq 1.
+    \end{align*}
+    As \(|\nu|(X) = |\nu|(B_0) + |\nu|(B_1)\), we must have \(|\nu|(B_0) = + \infty\) or \(|\nu|(B_1) = + \infty\). If \(|\nu|(B_0)=+\infty\), we let \(A=B_0, \ B=B_1\). If \(|\nu|(B_0)<\infty\), we let \(A=B_1, \ B=B_0\). This proves the claim.
+
+    We can apply the claim to the restriction of \(\nu\) to \(A\), and so on. Therefor by induction we can construct disjoint measurable sets \(B_1, B_2, ...\) s.t. 
+    \begin{align*}
+        |\nu|(B_n) \geq 1 \ \forall n \text{ and } |\nu|\left(X\backslash\bigcup\limits_{n=1}^{N}B_n\right) = +\infty \ \forall N.
+    \end{align*}
+    But then \(\nu(\cup_{n\in\mathbb{N}}B_n) = \sum_{n\in\mathbb{N}}\), which does not make sense, as the series is not absolutely convergent. Hence \(|\nu|(X)<\infty\).
+\end{proof}
+\fi 
+\begin{example}
+    Consider a measure space \((X,\mathscr{B},\mu)\) and take \(f\in L^1(X,d\mu)\). Define 
+    \begin{align*}
+        \nu(A) = \int_{A}fd\mu.
+    \end{align*}
+    Then \(\nu\) is a complex measure on \((X,\mathscr{B})\), sinche this is true for \(f\geq 0\) and a general \(f\) can be written as a linear combination of positive ones. We write \(d\nu = fd\mu\). 
+
+    We then have \(d|\nu|=|f|d\mu\), that is,
+    \begin{align*}
+        |\nu|(A) = \int_{A}|f|d\mu.
+    \end{align*}
+\end{example}
+\ifdetailed
+\begin{proof}
+    To see this, consider the measure \(\omega\) defined by \(d\omega = |f|d\mu\). We want to show that \(|\nu|=\omega\).
+
+    If \(A=\cup_{n=1}^{N}A_n, \ A_n\cap A_m=\emptyset\), then
+    \begin{align*}
+        \sum\limits_{n=1}^{N} |\nu(A_n)| &= \sum\limits_{n=1}^{N}\Big\vert \int_{A_n}fd\mu\Big\vert \leq \sum\limits_{n=1}^{N}\int_{A_n}|f|d\mu \\
+        &= \sum\limits_{n=1}^{N}\omega(A_n) = \omega(A). 
+    \end{align*}
+    Therefore, \(|\nu|\leq \omega\).
+
+    To prove the equality, assume first that \(f\) is simple, so \(f=\sum_{n=1}^{N}c_n\vmathbb{1}_{A_n}\), \(c_n\in\mathbb{C}, \ A_n\in\mathscr{B}, \ A_n\cap A_m=\emptyset\). Then, for every \(A\in\mathscr{B}\),
+    \begin{align*}
+        |\nu|(A) &\geq \sum\limits_{n=1}^{N}|\nu\left(A\cap A_n\right)| = \sum\limits_{n=1}^{N}|c_n|\mu\left(A\cap A_n\right) \\
+        &= \sum\limits_{n=1}^{N}\int_{A\cap A_n} |f|d\mu = \int_A |f|d\mu = \omega(A).
+    \end{align*}
+    Thus, \(|\nu|\geq \omega\), hence \(|\nu| = \omega\).
+
+    For general \(f\), choose measures \(\nu_n\), \(d\nu_n = f_nd\mu\). Fix \(A\in\mathscr{B}\). For every \(B\in\mathscr{B}\), we have
+    \begin{align*}
+        |\nu(B)| \leq |(\nu-\nu_n)|(A) 0 |\nu_n|(A).
+    \end{align*}
+    Similarly, \(|\nu_n|(A)\leq|\nu-\nu_n|(A) + |\nu|(A)\). Therefore,
+    \begin{align*}
+        \Big\vert|\nu|(A) - |\nu_n|(A) \Big\vert &\leq |\nu-\nu_n|(A) \leq \int_A |f-f_n|d\mu \\
+        &\leq ||f-f_n||_1\xrightarrow[n\rightarrow\infty]{ }\infty.
+    \end{align*}
+    It follows that
+    \begin{align*}
+        |\nu|(A) = \lim\limits_{n\rightarrow\infty}|\nu_n|(A) = \lim\limits_{n\rightarrow\infty}\int_A|f_n|d\mu = \int_A|f|d\mu 
+    \end{align*}
+    (since \(||f|-|f_n|| \leq |f - f_n|\).) This completes the proof.
+\end{proof}
+\fi
+\begin{definition}
+    If \((X,\mathscr{B},\mu)\) is a measure space, \(\nu\) is a complex measure on \((X,\mathscr{B})\), then we say that \(\nu\) is \textbf{absolutely continuous} w.r.t. \(\mu\) and write \(\nu<<\mu\), if \(\nu(A)=0\) whenever \(A\in\mathscr{B}, \mu(A)=0\). Equivalently, \(|\nu|<<\mu\).
+\end{definition}
+\begin{theorem}[Radon-Nikodym theorem for complex measures]
+    Assume \((X,\mathscr{B}, \mu)\) is a measure space, \(\nu\) is a complex measure on \((X,\mathscr{B})\), \(\nu<<\mu\). Then there is a unique \(f\in L^1(X,d\mu)\) s.t. \(d\nu = fd\mu\).
+\end{theorem}
+\ifdetailed
+\begin{proof}
+    \textbf{Existence}: By considering separately Re\(\nu\) and Im\(\nu\), we may assume that \(\nu\) is a finite signed measure. Then 
+    \begin{align*}
+        \nu = \nu_{+} - \nu_{-}, \text{ where } \nu_{\pm} = \frac{|\nu|\pm\nu}{2}
+    \end{align*}
+    are positive measures, since \(|\nu(A)| \leq |\nu|(A)\). Clearly, \(\nu_{\pm}<<\mu\). Therefor the proof reduces to the case when \(\nu\) is positive, in which case we already know the result: we take \(f=d\nu/d\mu\); note that \(\int_x fd\mu=\nu(X)<\infty\), so \(f\in L^1(X,d\mu)\).
+
+    \textbf{Uniqueness}: It suffices to show that if \(\nu=0\) and \(d\nu=fd\mu\), then \(f=0\) (\(\mu-\)a.e.). This is true, for example, because \(\int_X|f|d\mu = |\nu|(X)=0\).
+\end{proof}
+\fi 
