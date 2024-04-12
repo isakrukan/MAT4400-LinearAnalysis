@@ -3,9 +3,11 @@ Assume \((X,\mathscr{B}, \mu)\) is a measure space. Are there other measures on 
 \begin{example}
     Take a measurable function \(f:X\rightarrow [0,+\infty]\) and define
     \begin{align*}
-        \nu(A) = \int_A fd\mu \text{ for } A\in\mathscr{B}.
+        \nu(A) \eqdef \int_A fd\mu \text{ for } A\in\mathscr{B}.
     \end{align*}
-    This is a measure by the monotone convergence theorem. We write \(d\nu = fd\mu\).
+    This is a measure by the monotone convergence theorem. We write \(d\nu = fd\mu\). Furthermore, we say that \(f\) is the 
+    \textbf{\emph{Radon-Nikodym}} derivative, and we denote it by \(f = d\nu/d\mu\). If \(\mu=\lambda^1\) we get
+    \(f(x) = d\nu(x)/dx\).
 \end{example}
 \begin{proposition}
     Assume \((X,\mathscr{B})\) is a measurable space, \(\mu\) and \(\nu\) are \(\sigma\)-finite measures on \((X,\mathscr{B})\). Then there
@@ -21,12 +23,12 @@ Assume \((X,\mathscr{B}, \mu)\) is a measure space. Are there other measures on 
     \end{align*}
     It is well-defined and bounded, since 
     \begin{align*}
-        |\rho(g)| &\leq \underbrace{\int_X|\rho|d\nu}_{||g||_1} \underset{C.S}{\leq} (\int_X |\rho|^2 d\nu)^{\frac{1}{2}} \nu(X)^{\frac{1}{2}} \\
-        &\leq \nu(x)^{\frac{1}{2}} (\int_X |\rho|^2 d\eta)^{\frac{1}{2}}.
+        |\rho(g)| &\leq \underbrace{\int_X|g|d\nu}_{||g||_1} \underset{C.S}{\leq} (\int_X |g|^2 d\nu)^{\frac{1}{2}} \nu(X)^{\frac{1}{2}} \\
+        &\leq \nu(x)^{\frac{1}{2}} (\int_X |g|^2 d\eta)^{\frac{1}{2}}.
     \end{align*}
     By Riesz' theorem there exists \(h\in L^2(x,d\eta)\) s.t. \(\rho(g)=\int_X g h d\eta\) for all \(g\in L^2(x,d\eta)\). 
 
-    For \(\rho = \mathds{1}_A\) we get
+    For \(g = \mathds{1}_A\) we get
     \begin{align*}
         \nu(A) = \int_A h d\eta \ \forall A\in\mathscr{B}.
     \end{align*}
@@ -99,7 +101,7 @@ When can we discard the term \(\nu(A\cap N)\)?
 \end{remark}
 \begin{theorem}[Radon-Nikodym]
     Assume \(\mu\) and \(\nu\) are \(\sigma\)-finite measures on a measurable space \((X,\mathscr{B})\), \(\nu<<\mu\). Then there is a
-    measurable function \(f:X\rightarrow [0,+\infty)\) s.t. \(d\nu=fd\mu\) (that is, \(\nu(A) \int_Afd\mu\)). If \(\tilde{f}\) is
+    measurable function \(f:X\rightarrow [0,+\infty)\) s.t. \(d\nu=fd\mu\) (that is, \(\nu(A) = \int_Afd\mu\)). If \(\tilde{f}\) is
     another function with the same properties, then \(f=\tilde{f}\ \mu-\text{a.e.}\)
 
     The function is called the \emph{Radon-Nikodym derivative} at \(\nu\) w.r.t. \(\mu\) and is denoted by \(\frac{d\nu}{d\mu}\).
