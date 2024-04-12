@@ -1,0 +1,115 @@
+\section{Decomposition Theorems \tiny{(20, \cite{schilling2017measures} and 4.3, \cite{Gerald_Teschl})}}
+\begin{definition}
+    Two measures \(\nu\) and \(\mu\) on a measurable space \((X,\mathscr{B})\) are called \textbf{mutually singular}, or we say that \(\nu\) is \textbf{singular} w.r.t. \(\mu\), if there is a \(N\in\mathscr{B}\) s.t. \(\nu(N^c)=0, \ \mu(N)=0\). We then write \(\nu \perp \mu\).
+\end{definition}
+\begin{theorem}[Lebesgue Decomposition Theorem]
+    Assume \(\nu,\ \mu\) are \(\sigma\)-finite measures in \((X,\mathscr{B})\). Then there exist unique measures \(\nu_a\) and \(\nu_s\) s.t. \(\nu = \nu_a + \nu_s\), \(\nu_a << \mu\), \(\nu_s \perp \mu\).
+\end{theorem}
+\ifdetailed
+\begin{proof}
+    As we showed earlier, there exist \(N\in\mathscr{B}\) and measurable \(f:X\rightarrow[0,+\infty]\) s.t. \(\mu(N)=0\) and 
+    \begin{align*}
+        \nu(A) = \nu(A\cap N) + \int_A fd\mu \ \forall \ A\in\mathscr{B}.
+    \end{align*}
+    We then define
+    \begin{align*}
+        \nu_a(A)\eqdef \int_A fd\mu, \ \nu_s(A) = \nu(A\cap N).
+    \end{align*} 
+    Assume we have another such decomposition \(\nu = \tilde{\nu}_a + \tilde{\nu}_s\). Let \(\tilde{N}\in\mathscr{B}\) be s.t. \(\mu(\tilde{N})=0\) and \(\tilde{\nu}_s(\tilde{N}^c)=0\). Then \(\mu(N\cup\tilde{N})=0\) and \(\nu_s((N\cup\tilde{N})^c)=0\), \(\tilde{\nu}_s((N\cup\tilde{N})^c)=0\). Hence, for every \(A\in\mathscr{B}\), 
+    \begin{align*}
+        \nu_s(A) &= \nu_s\left(A\cap\left(N\cup\tilde{N}\right)\right) \\ 
+        &= \nu_s\left(A\cap\left(N\cup\tilde{N}\right)\right) + \nu_a\left(a\cap\left(N\cup\tilde{N}\right)\right) \\
+        &= \nu\left(A\cap\left(N\cup\tilde{N}\right)\right),
+    \end{align*}
+    and for the same reasons
+    \begin{align*}
+        \tilde{\nu}_s(A) = \nu\left(A\cap\left(N\cup\tilde{N}\right)\right).
+    \end{align*}
+    Thus, \(\nu_s=\tilde{\nu}_s\). 
+
+    In a similar way,
+    \begin{align*}
+        \nu_a(A) &= \nu_a\left(A\cap\left(N\cup\tilde{N}\right)^c\right) \\
+        &= \nu_a\left(A\cap\left(N\cup\tilde{N}\right)^c\right) + \nu_s\left(A\cap\left(N\cup\tilde{N}\right)^c\right) \\
+        &= \nu\left(A\cap\left(N\cup\tilde{N}\right)^c\right), \\
+        \tilde{\nu}_a(A) &= \nu\left(A\cap\left(N\cup\tilde{N}\right)^c\right).
+    \end{align*}
+    Hence \(\nu_a = \tilde{\nu}_a\).
+\end{proof}
+\fi
+\begin{theorem}[Polar Decomposition of Complex Measure]
+    Assume \(\nu\) is a complex measure on \((X,\mathscr{B})\). Then there exist a finite measure \(\mu\) on \((X,\mathscr{B})\) and a measurable function \(f:X\rightarrow \Pi\) s.t. \(d\nu=fd\mu\). If \((\tilde{\mu},\tilde{f})\) is another such pair, then \(\tilde{\mu}=\mu\) and \(\tilde{f}=f\)  \(\mu\)-a.e.
+\end{theorem}
+\ifdetailed
+\begin{proof}
+    Take \(\mu = |\nu|\). Then \(\nu<<|\nu|\). Hence, by the Radon-Nikodyn theorem for complex measures we have \(d\nu=fd\mu\) for a unique \(f\in L^1(X,d\mu)\). Then \(d|\nu| = |f|d\mu = |f|d|\nu|\). Hence, \(|f| = 1\) (\(\mu\)-a.e.). By viewing \(f\) as a function, we can therefore assume that \(f:X\rightarrow \Pi\).
+
+    Assume we have another such decomposition \(d\nu = \tilde{f}d\tilde{\mu}\). Then \(d|\nu|=|\tilde{f}|d\tilde{\mu}=d\tilde{\mu}\), that is, \(\tilde{\mu}=\mu=|\nu|\). Then \(d\nu = fd\mu = \tilde{f}d\mu\), hence \(f=\tilde{f}\) \(\mu\)-a.e.
+\end{proof}
+\fi 
+For signed measures this leads to the following.
+\begin{theorem}[Hahn Decomposition Theorem]
+    Assume \(\nu\) is a finite signed measure on \((X,\mathscr{B})\). Then there exist \(P,N\in\mathscr{B}\) s.t. 
+    \begin{align*}
+        X = P\cup N &, \ P\cap N = \emptyset, \\
+        \nu\left(A\cap P\right) &\geq 0, \ \nu\left(A\cap N\right) \leq 0 \ \forall A\in\mathscr{B}.
+    \end{align*}
+    Moreover, then \(|\nu|(A) = \nu\left(A\cap P\right) - \nu\left(A\cap N\right)\), and if \(X = \tilde{P}\cup \tilde{N}\) is another such decomposition, then 
+    \begin{align*}
+        |\nu|\left(P\Delta \tilde{P}\right) = |\nu|\left(N\Delta\tilde{N}\right) = 0.
+    \end{align*}
+\end{theorem}
+\ifdetailed
+\begin{proof}
+    Consider the polar decomposition \(d\nu = fd|\nu|, \ f:X\rightarrow\Pi\). Since \(\nu\) is real-valued, we have Im\(f=0\) \(|\nu|\)-a.e. We may therefore assume that \(f\) takes values in \(\Pi\cap\mathbb{R}=\{-1,1\}\). Let \(P\eqdef\{x:f(x)=1\}\), \(N\eqdef\{x:f(x)=-1\}\). Then
+    \begin{align*}
+        \nu\left(A\cap P\right) &= \int_{A\cap P}fd|\nu| = \int_{A\cap P}1d|\nu| = |\nu|\left(A\cap P\right) \geq 0, \\
+        \nu\left(A\cap N\right) &= \int_{A\cap N} fd|\nu| = \int_{A\cap N}(-1)d|\nu| = -|\nu|\left(A\cap N\right) \leq 0.
+    \end{align*}
+    This gives the required decomposition. Moreover, we see that
+    \begin{align*}
+        \nu\left(A\cap P\right) - \nu\left(A\cap N\right) &= |\nu|\left(A\cap P\right) + |\nu|\left(A\cap N\right) \\
+        &= |\nu|(A).
+    \end{align*}
+
+    Assume \(X=\tilde{P}\cup\tilde{N}\) another decomposition as in the statement of the theorem. For \(A\subset P\backslash\tilde{P}\) \((A\in\mathscr{B})\) we have
+    \begin{align*}
+        \nu(A) &= \nu\left(A\cap P\right) \geq 0,\\
+        \nu(A) &= \nu\left(A\cap\tilde{N}\right)\leq 0.
+    \end{align*}
+    It follows that \(\nu(A)=0\). Hence, \(|\nu|(P\backslash\tilde{P})=0\). Similarly, \(|\nu|(\tilde{P}\backslash P)=0\). Hence, \(|\nu|(P\Delta\tilde{P}) = |\nu|(P\backslash\tilde{P}) + |\nu|(\tilde{P}\backslash P) = 0\), \(|\nu|(N\Delta\tilde{N})=|\nu|(N^c\Delta\tilde{N}^c) = |\nu|(P\Delta\tilde{P})=0\).
+\end{proof}
+\fi 
+\begin{corollary}[Jordan Decomposition Theorem]
+    Assume \(\nu\) is a finite signed measure on \((X,\mathscr{B})\). Then there exist unique finite measures \(\nu_+,\nu_{-}\) on \((X,\mathscr{B})\) s.t. 
+    \begin{align*}
+        \nu = \nu_+ - \nu_{-} \text{ and } \nu_+ \perp \nu_-.
+    \end{align*}
+    Moreover, then \(|\nu| = \nu_+ + \nu_-\), hence 
+    \begin{align*}
+        \nu_+ = \frac{|\nu| + \nu}{2}, \nu_- = \frac{|\nu| - \nu}{2}.
+    \end{align*}
+\end{corollary}
+\ifdetailed
+\begin{proof}
+    Consider the Hahn decompositions \(X = P \cup N\). Define
+    \begin{align*}
+        \nu_+(A) = \nu(A\cap P), \ \nu_-(A) = -\nu(A\cap N).
+    \end{align*}
+    Then by the properties of the Hahn decomposition we have
+    \begin{align*}
+        \nu = \nu_+ - \nu_-, \ \nu_+,\nu_-\geq 0, \ |\nu| = \nu_+ + \nu_-,
+    \end{align*}
+    and \(\nu_+ \perp \nu_-\) by definition. 
+
+    Assume we have another such decomposition \(\nu=\tilde{\nu}_+ - \tilde{\nu}_-\), \(\tilde{\nu}_+\perp \tilde{\nu}_-\). Let \(\tilde{N}\in\mathscr{B}\) be such that \(\tilde{\nu}_+(\tilde{N})=0\), \(\tilde{\nu}_-(\tilde{N}^c)=0\). Put \(\tilde{P}=X\backslash \tilde{N}\). Then \(X = \tilde{P}\cup \tilde{N}\) is again a Hahn decomposition. In particular, 
+    \begin{align*}
+        |\nu|(A) &= \nu(A\cap \tilde{P})-\nu(A\cap\tilde{N}) \\
+        &=\tilde{\nu}_+(A\cap\tilde{P}) + \tilde{\nu}_-(A\cap\tilde{N}) = \tilde{\nu}_+(A) - \tilde{\nu}_-(A).
+    \end{align*}
+    Thus \(|\nu|=\tilde{\nu}_+ - \tilde{\nu}_-\). It follows that 
+    \begin{align*}
+        \tilde{\nu}_+ = \frac{|\nu|+\nu}{2} = \nu_+, \ \tilde{\nu}_- = \frac{|\nu| - \nu}{2} = \nu_-.
+    \end{align*}
+\end{proof}
+\fi 

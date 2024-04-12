@@ -29,9 +29,15 @@
 \usepackage{bbm} % Allows for the characteristic function of a set
 \usepackage{multicol}
 % Ultrawide:
-\usepackage[left=0.25cm, right=0.25cm, top=0.50cm, bottom=0.50cm, margin=0.5cm]{geometry}
+\usepackage[left=0.25cm, right=0.25cm, top=0.5cm, bottom=0.50cm, margin=0.2cm,includeheadfoot]{geometry}
 \usepackage{titlesec} % For bar under section
 \usepackage{newtxmath} % For \vmathbb{1}
+
+\usepackage{stmaryrd}
+\usepackage{fancyhdr} % To get page number in the top right corner
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
 
 \titleformat{\section}
   {\normalfont\Large\bfseries}{\thesection}{1em}{}[{\titlerule[0.8pt]}]
@@ -46,7 +52,6 @@
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{example}[theorem]{Example}
-\usepackage{stmaryrd}
 
 \usetikzlibrary{quantikz}
 
@@ -164,6 +169,7 @@
   \subfile{Lectures/Lecture16.tex}
   \subfile{Lectures/Lecture17.tex}
   \subfile{Lectures/Lecture18.tex}
+  \subfile{Lectures/Lecture19.tex}
   \subfile{TipsnTricks.tex}
   \subfile{Questions.tex}
 \end{multicols}

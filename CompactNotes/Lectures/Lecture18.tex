@@ -5,7 +5,7 @@
     \begin{align*}
         \nu\left(\bigcup\limits_{n=1}^{\infty}A_n\right) = \sum\limits_{n=1}^{\infty}\nu(A_n)
     \end{align*}
-    for any disjoint \(A_n\in\mathscr{B}\), where the series is assumed to be absolutely convergent. If \(\nu\) takes values in \(\mathbb{R}\) then \(\nu\) is called a \textbf{finite signed value}.
+    for any disjoint \(A_n\in\mathscr{B}\), where the series is assumed to be absolutely convergent. If \(\nu\) takes values in \(\mathbb{R}\) then \(\nu\) is called a \textbf{finite signed measure}.
 \end{definition}
 \begin{remark}
     More generally, a signed measure is allowed to take values in \(\mathbb{R}\cup\{+\infty\}\) or \(\mathbb{R}\cup\{-\infty\}\).
@@ -27,7 +27,7 @@
         &\leq \sum\limits_{n=1}^{\infty}\sum\limits_{k=1}^{N} \vert \nu\left(B_k\cap A_n\right) \vert \\ 
         &\leq \sum\limits_{n=1}^{\infty}\vert \nu\vert(A_n).
     \end{align*}
-    Taking the supremum over ll such decompositions \(A_n\in\mathscr{B}\) we get
+    Taking the supremum over all such decompositions \(A_n\in\mathscr{B}\) we get
     \begin{align*}
         |\nu|(A) \leq \sum\limits_{n=1}^{\infty}|\nu|(A_n).
     \end{align*}
@@ -106,9 +106,13 @@
     \end{align*}
     Thus, \(|\nu|\geq \omega\), hence \(|\nu| = \omega\).
 
-    For general \(f\), choose measures \(\nu_n\), \(d\nu_n = f_nd\mu\). Fix \(A\in\mathscr{B}\). For every \(B\in\mathscr{B}\), we have
+    For general \(f\), choose simple functions \(f_n\in L^1(X,d\mu)\) s.t. \(||f-f_n||_1\xrightarrow[n\rightarrow\infty]{ }0\). Consider the corresponding complex measures \(\nu_n\), \(d\nu_n = f_nd\mu\). Fix \(A\in\mathscr{B}\). For every \(B\in\mathscr{B}\), we have
     \begin{align*}
-        |\nu(B)| \leq |(\nu-\nu_n)|(A) 0 |\nu_n|(A).
+        |\nu(B)| \leq |(\nu - \nu_n)(B)| + |\nu_n(B)|.
+    \end{align*}
+    This implies that 
+    \begin{align*}
+        |\nu(A)| \leq |\nu-\nu_n |(A) + |\nu_n|(A).
     \end{align*}
     Similarly, \(|\nu_n|(A)\leq|\nu-\nu_n|(A) + |\nu|(A)\). Therefore,
     \begin{align*}
