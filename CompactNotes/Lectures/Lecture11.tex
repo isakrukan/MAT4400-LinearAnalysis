@@ -28,6 +28,13 @@ A norm is commonly denoted $||x||$, and a vectorspace equipped with a norm is ca
     \(\lim_{k\rightarrow\infty}f_{n(k)} = f\) a.e. 
 \end{definition}
 
+\begin{theorem}[Hölder's inequality]
+    Assume that \(u\in\mathcal{L}^p(\mu)\) and \(v\in\mathcal{L}^q(\mu)\), where \(1/p+1/q=1\). Then \(uv\in\mathcal{L}^1(\mu)\), and the following inequality holds:
+    \begin{align*}
+        \Big\vert \int uv d\mu \Big\vert \leq \int |uv| d\mu=||uv||_1 \leq||u||_p\cdot ||v||_q.
+    \end{align*}
+    
+\end{theorem}
 \begin{lemma}
     \begin{align}
         ||f+g||_p\leq ||f||_p+||g||_p.
