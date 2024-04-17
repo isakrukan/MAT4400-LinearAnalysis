@@ -1,0 +1,88 @@
+\section{More on Duals of \(\boldsymbol{L^p}\)-spaces \tiny{(21, p. 241, \cite{schilling2017measures} )}}
+- What is the dual of \(L^p(X,d\mu)\)? When does a measurable function \(g:X\rightarrow\mathbb{C}\) define a bounded linear functional on \(L^p(X,d\mu)\) by 
+\begin{align*}
+    \rho(f) = \int_X fgd\mu?
+\end{align*}
+\begin{theorem}[Young's inequality]
+    Assume \(f:[0,a]\rightarrow[0,b]\) is a strictly increasing continuous function, \(f(0)=0\), \(f(a)=b\). Then, for all \(s\in[0,a]\) and \(t\in[0,b]\), we have 
+    \begin{align*}
+        st \leq \int_{0}^{s}f(x)dx + \int_{0}^{t}f^{-1}(y)dy,
+    \end{align*}
+    and the equality holds iff \(t= f(s)\).
+\end{theorem}
+With Holder's inequality it follows that every \(g\in L^q(X,d\mu)\) defines a bounded linear functional 
+\begin{align*}
+    l_g : L^p(X,d\mu) \rightarrow \mathbb{C}, l_q(f) = \int_X fgd\mu,
+\end{align*}
+and \(||l_q||\leq ||g||_q\).
+
+The same makes sense for \(p=1, q=\infty\) and \(p=\infty, q= 1\), when \(\mu\) is \(\sigma\)-finite, as
+\begin{align*}
+    \int_X |fg|d\mu\leq \int_X|f|d\mu \cdot ||g||_{\infty} = ||f||_1\cdot ||g||_{\infty}.
+\end{align*}
+\begin{lemma}
+    Assume \(1\leq p\leq \infty\), \(1/p+1/q=1\), and \(\mu\) is \(\sigma\)-finite if \(p=1\) or \(p=\infty\). For \(g\in L^q(X,d\mu)\) consider \(l_q \in L^p(X,d\mu)^*\). Then 
+    \begin{align*}
+        ||l_g|| = ||g||_q.
+    \end{align*}
+\end{lemma}
+\ifdetailed
+\begin{proof}
+    We may assume \(||g||_q>0\), otherwise \(l_q=0\). Consider three cases:
+
+    (i) \(1<p<\infty\), so \(1<q<\infty\). We already know that \(||l_g||\leq ||g||_q\). To prove the opposite inequality, consider
+    \begin{align*}
+        f = \frac{\bar{g}}{|g|} |g|^{q-1}.
+    \end{align*}
+    Then
+    \begin{align*}
+        |f|^p = |g|^{(q-1)p} = |g|^{q(1-\frac{1}{q})p} = |g|^q,
+    \end{align*}
+    so \(||f||_{p}^{p}= ||g||_{p}^{p}\). We have 
+    \begin{align*}
+        l_q(f) = \int_X|g|^qd\mu = ||g||^{q}_{q}.
+    \end{align*}
+    Hence
+    \begin{align*}
+        ||l_g||&\geq \frac{|l_g(f)|}{||f||_p} = \frac{||g||^{q}_{q}}{||g||_{q}^{q/p}} = ||g||_{q}^{q-q/p} \\
+        &= ||g||_{q}^{q(1-1/p)} = ||g||_q.
+    \end{align*}
+
+    (ii) \(p=1\), so \(q=\infty\). Take \(0<c<||g||_{\infty}\). Then \(\mu\{x:|g(x)|>c\} > 0\). As \(\mu\) is \(\sigma\)-finite, so \(X=\cup_{n\in\mathbb{N}}X_n\), \(\mu(X_n)<\infty\), we can find \(A=X_n\cap \{x:|g(x)|>c\}\) s.t. \(\mu(A)>0\) and \(\mu(A)<\infty\). Consider \(f= \bar{g}/|g|\vmathbb{1}_A\). Then \(||f||_1= \mu(A)\),
+    \begin{align*}
+        l_g(f) = \int_X |g|\vmathbb{1}_A d\mu = \int_A|g|d\mu>c\mu(A).
+    \end{align*}
+    Hence, \(||l_g||\geq |l_g(f)|/||f||_1>c\). It follows that \(||l_g||\geq ||g||_{\infty}\).
+
+    (iii) \(p=\infty\), so \(q=1\). Define
+    \begin{align*}
+        f(x) = \begin{cases}
+            \frac{\bar{g}(x)}{|g(x)|}, \text{ if } g(x) \neq 0, \\
+            0, \text{ otherwise}.
+        \end{cases}
+    \end{align*}
+    Then \(||f||_{\infty}\) and
+    \begin{align*}
+        l_g(f) = \int_X|g|d\mu = ||g||_1.
+    \end{align*}
+    Hence, \(||l_g||\geq||g||_1\).
+\end{proof}
+\fi 
+Therefor we can view \(L^q(X,d\mu)\) as a subspace of \(L^p(X,d\mu)^*\) using the isometric embedding
+\begin{align*}
+    L^q(X,d\mu) \rightarrow L^p(X,d\mu)^*, \ g\mapsto l_g.
+\end{align*}
+\begin{theorem}
+    Assume \((X,\mathscr{B},d\mu)\) is a \(\sigma\)-finite measure space, \(1\leq p< \infty\), \(1/p+1/q=1\). Then 
+    \begin{align*}
+        L^p(X,d\mu)^* = L^q(X,d\mu).
+    \end{align*}
+\end{theorem}
+\begin{remark}
+    This is usually not true for \(p=\infty\).
+\end{remark}
+\ifdetailed
+\begin{proof}
+    Proof can be found in lec. notes.
+\end{proof}
+\fi 

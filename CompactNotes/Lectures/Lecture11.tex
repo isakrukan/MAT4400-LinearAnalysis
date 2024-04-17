@@ -39,6 +39,21 @@ A norm is commonly denoted $||x||$, and a vectorspace equipped with a norm is ca
     \end{align*}
     
 \end{theorem}
+\ifdetailed
+\begin{proof}
+    Assume \(||f||_p>0\), \(||g||_q>0\), otherwise \(fg=0\) (\(\mu\)-a.e.). We have
+    \begin{align*}
+        \frac{|fg|}{||f||_p||g||_q} \leq \frac{1}{p}\frac{|f|^p}{||f||_{p}^{p}} + \frac{1}{q}\frac{|g|^1}{||g||_{q}^{q}}.
+    \end{align*}
+    Integrating over \(X\) we get 
+    \begin{align*}
+        \frac{||fg||_1}{||f||_p||g||_q} &\leq \frac{1}{p}\int_X \frac{|f|^p}{||f||_{p}^{p}}d\mu + \frac{1}{q}\int_X \frac{|g|^p}{||g||_{p}^{p}}d\mu \\ 
+        &= \frac{1}{p}\frac{||f||_{p}^{p}}{||f||_{p}^{p}} + \frac{1}{q}\frac{||g||_{q}^{q}}{||g||_{q}^{q}} \\
+        &= \frac{1}{p} + \frac{1}{q} = 1,
+    \end{align*}
+    so \(||gf||_1\leq ||f||_p||g||_q\)
+\end{proof}
+\fi
 \begin{lemma}
     \begin{align}
         ||f+g||_p\leq ||f||_p+||g||_p.
