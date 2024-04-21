@@ -35,6 +35,8 @@
 
 \usepackage{stmaryrd}
 \usepackage{fancyhdr} % To get page number in the top right corner
+\usepackage{scalerel,lipsum}
+
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[R]{\thepage}
@@ -77,6 +79,10 @@
   {\colorbox{#1}{$\scriptstyle#2$}}%
   {\colorbox{#1}{$\scriptscriptstyle#2$}}}
 \newcommand*{\itemtag}[1]{\hfill (\emph{#1})}
+
+\newcommand\marquis[3][1]{%
+\scalebox{#1}{$\scaleleftright{(}{\parbox{#2}{\centering #3}}{)}$}%
+}
 
 \lstset{frame=tb,
   language=c++,
@@ -171,6 +177,12 @@
   \subfile{Lectures/Lecture18.tex}
   \subfile{Lectures/Lecture19.tex}
   \subfile{Lectures/Lecture20.tex}
+  \setcounter{section}{21}
+  \setcounter{theorem}{21}
+  \subfile{Lectures/Lecture21_22.tex}
+  \setcounter{section}{23}
+  \setcounter{theorem}{23}
+  \subfile{Lectures/Lecture23.tex}
   \subfile{TipsnTricks.tex}
   \subfile{Questions.tex}
 \end{multicols}

@@ -3,6 +3,12 @@
     A set \(\mathcal{D}\subset\mathcal{L}^p(\mu), p\in[0,\infty]\), is called \emph{dense} if for every \(u\in\mathcal{L}^p(\mu)\) there exist
     a sequence \((f_n)_{n\in\mathbb{N}}\subset\mathcal{D}\) s.t. \(\lim_{n\rightarrow\infty}\vert\vert u-f_n\vert\vert_p=0\).
 \end{definition}
+\begin{definition}[Support]
+    The support of a function \(f\) is the set of points in \(X\) where \(f\) is non-zero:
+    \begin{align*}
+        \text{supp}(f) \eqdef \left\{x\in X:f(x)\neq0\right\}.
+    \end{align*}
+\end{definition}
 \begin{theorem}
     Assume \(X,d\) is a metric space and \(\mu\) is a Borel measure that is finite on every ball \(1\leq p<\infty\). Then the space of 
     bounded continuous functions with bounded support is dense in \(\mathcal{L}^p(X,d\mu)\). Where bounded support means that \(f\) vanishes outside
