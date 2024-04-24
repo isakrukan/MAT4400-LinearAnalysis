@@ -1,1 +1,135 @@
-\section{Hi}
+\section{Product Measures and Fubini's Theorem \protect\\ \tiny{(14, \cite{schilling2017measures})}}
+Throughout this chapter we assume that \((X,\mathscr{A},\mu)\) and \((Y,\mathscr{B}, \nu)\) are \(\sigma\)-finite measure spaces.
+
+Recall the Cartesian product of sets (assume \(A\subset X, B\subset Y\)):
+\begin{align*}
+    A \times B = \left\{(a,b)|a\in A \text{ and } b\in B\right\}.
+\end{align*}
+
+\ifdetailed
+\else
+(there are hidden properties  here.)
+\fi 
+
+\ifdetailed 
+\begin{align*}
+    \bigl(\bigcup_i A_i\bigr) \times B &= \bigcup_i\left(A_i\times B\right), \\
+    \bigl(\bigcap_i A_i\bigr) \times B &= \bigcap_i\left(A_i\times B\right), \\
+    \left(A\times B\right) \cap \left(A'\times B'\right) &= \left(A\cap A'\right) \times \left(B\cap B'\right), \\
+    A^c\times B &= \left(X\times B\right)\backslash \left(A\times B\right), \\
+    A\times B \subset A'\times B' &\Longleftrightarrow A\subset A' \text{ and } B\subset B'.
+\end{align*}
+\fi 
+
+
+The Lebesgue measure on \(\mathbb{R}^n\) has the following property for \(n>d\geq1\):
+\begin{align*}
+    \lambda^n[a_1,b_1) \times  ... \times [a_n, b_n) = 
+    \lambda^d[a_1,b_1) \times  ... \times [a_d, b_d) \cdot 
+    \lambda^{n-d}[a_{d+1}, b_{d+1})  \times  ... \times [a_n, b_n),
+\end{align*}
+which means that
+\begin{align*}
+    \lambda^n(E) = 
+    \int\vmathbb{1}_{E}(x,y)\lambda^n(d(x,y))=
+    \int\left(\int \vmathbb{1}_{E}(x_0,y)\lambda^{n-d}(dy)\right) \lambda^d(dx_0).
+\end{align*}
+\textbf{Goal}: we want to define a measure \(\rho\) on rectangles on the form \(A\times B\) s.t. \(\rho(A\times B)=\mu(A)\nu(B)\).
+\begin{lemma}
+    Let \(\mathscr{A}\) and \(\mathscr{B}\) be two \(\sigma\)-algebras (or semi-rings), then \(\mathscr{A}\times\mathscr{B}\) is a semi-ring.
+\end{lemma}
+\begin{proof}
+    The proof is straight forwards. Recall that a semi-ring \(\mathcal{S}\) has \(\emptyset\in\mathcal{S}\) (\(S_1\)), \(S,T\in \mathcal{S}\rightarrow S\cap T\in\mathcal{S}\) (\(S_2\)), and for \(S,T\in\mathcal{S}\) there exist finitely many disjoint \(S_1, S_2, ..., S_M\in\mathcal{S}\) s.t. \(S\backslash T = \cup_{i=1}^{M}S_i\).
+\end{proof}
+\begin{definition}[product \(\sigma\)-algebra]
+    The \(\sigma\)-algebra \(\mathscr{A}\otimes \mathscr{B}\eqdef \sigma\left(A\times B\right)\) is called a \textbf{product} \(\boldsymbol{\sigma}\)\textbf{-algebra}, and \(\left(X\times Y, \mathscr{A}\otimes\mathscr{B}\right)\) is the product of measurable spaces.
+\end{definition}
+When considering \(\mathscr{A}\otimes\mathscr{B}\), the following lemma shows that we can instead work with their generators.
+\begin{lemma}   \label{lemma:generator_product_sigma}
+    If \(\mathscr{A}=\sigma(\mathscr{F})\) and \(\mathscr{B}=\sigma(\mathscr{G})\) and if \(\mathscr{F}\) and \(\mathscr{G}\) contain exhausting sequences \((F_n)_{n\in\mathbb{N}}\subset \mathscr{F}, \ F_n\uparrow X\) and \((G_n)_{n\in\mathbb{N}}\subset \mathscr{G}, \ G_n\uparrow X\), then
+    \begin{align*}
+        \sigma\left(\mathscr{F}\times \mathscr{G}\right) = \sigma\left(\mathscr{A}\times\mathscr{B}\right) \eqdef \mathscr{A}\otimes\mathscr{B}.
+    \end{align*}
+\end{lemma}
+\ifdetailed
+\begin{proof}
+    Since \(\mathscr{F}\times\mathscr{G}\subset \mathscr{A}\times \mathscr{B}\), we have \(\sigma(\mathscr{F}\times\mathscr{G})\subset \mathscr{A}\otimes\mathscr{B}\), On the other hand, the system 
+    \begin{align*}
+        \Sigma\eqdef \left\{A\in\mathscr{A}: A\times G \in \sigma(\mathscr{F}\times\mathscr{G}) \forall G\in\mathscr{G}\right\}
+    \end{align*}
+    is a \(\sigma\)-algebra. This can be shown, but is more or less straightforward. Furthermore, clearly, \(\mathscr{F}\subset\Sigma\subset \mathscr{A}\), but \(\mathscr{A}\subset \Sigma\) by construction, and so \(\Sigma = \mathscr{A}\). We conclude that \(\mathscr{A}\times\mathscr{G}\subset \sigma(\mathscr{F}\times\mathscr{G})\). This means that for all \(A\in\mathscr{A}\) and \(B\in\mathscr{B}\) 
+    \begin{align*}
+        A\times B = \left(A\times Y\right)\cap \left(X\times B\right) = \bigcup\limits_{k,n\in\mathbb{N}}\underbrace{\left(A\times G_k\right)}_{\in\sigma(\mathscr{F}\times\mathscr{G})} \cap \underbrace{\left(F_n\times B\right)}_{\in\sigma(\mathscr{F}\times\mathscr{G})},
+    \end{align*}
+    so that \(\mathscr{A}\times\mathscr{B}\subset\sigma(\mathscr{F}\times\mathscr{G})\) and thus \(\mathscr{A}\otimes\mathscr{B}\subset\sigma(\mathscr{F}\times\mathscr{G})\).
+\end{proof}
+\fi 
+\begin{theorem}[uniqueness of product measures]
+    Assume that \(\mathscr{A}=\sigma(\mathscr{F})\) and \(\mathscr{B}=\sigma(\mathscr{G})\). If
+    \begin{itemize}
+        \item \(\mathscr{F}, \mathscr{G}\) is \(\cap\)-stable (stable under finite intersections),
+        \item \(\mathscr{F}, \mathscr{G}\) contain exhausting sequences \(F_k\uparrow X\) and \(G_k\uparrow Y\) with \(\mu(F_k)<\infty\) and \(\nu(G_n)<\infty\),
+    \end{itemize}
+    then there is at most one measure \(\rho\) on \((X\times Y, \mathscr{A}\otimes\mathscr{B})\) satisfying
+    \begin{align*}
+        \rho\left(F\times G\right) = \mu(F)\nu(G) \ \forall F\in\mathscr{F}, G\in\mathscr{G}.
+    \end{align*}
+\end{theorem}
+\ifdetailed
+By Lemma \ref{lemma:generator_product_sigma} \(\mathscr{F}\times\mathscr{G}\) generates \(\mathscr{A}\otimes\mathscr{B}\). Moreover, \(\mathscr{F}\times \mathscr{G}\) inherits the \(\cap\)-stability of \(\mathscr{F}\) and \(\mathscr{G}\) (not obvious), the sequence \(F_n\times G_n\) increases towards \(X\times Y\) and \(\rho(F_n\times G_n) = \mu(F_n)\nu(G_n)<\infty\). These are the assumptions of the uniqueness theorem for measures (Theorem \ref{theorem:uniqueness_measures}).
+\fi 
+\begin{theorem}[existence of product measures]  \label{theorem:existence_prod_measure}
+    The set function
+    \begin{align*}
+        \rho:\mathscr{A}\times \mathscr{B} \rightarrow [0,\infty], \ \rho(A\times B) \eqdef \mu(A)\nu(B),
+    \end{align*}
+    extends uniquely to a \(\sigma\)-finite measure on \((X\times Y, \mathscr{A}\otimes\mathscr{B})\) s.t.
+    \begin{align*}
+        \rho(E) = \int\int \vmathbb{1}_{E}(x,y) \mu(dx)\nu(dy) = \int\int \vmathbb{1}_{E}(x,y)\nu(dy)\mu(dx)
+    \end{align*}
+    holds for all \(E\in\mathscr{A}\otimes\mathscr{B}\) (the parenthesis in the expression above are left out). In particular, the functions
+    \begin{align*}
+        x\mapsto \vmathbb{1}_{E}(x,y)&, x\mapsto\int\vmathbb{1}_{E}(x,y)\nu(dy), \\
+        y\mapsto \vmathbb{1}_{E}(x,y)&, y\mapsto\int\vmathbb{1}_{E}(x,y)\mu(dx),
+    \end{align*}
+    are \(\mathscr{A}\), \(\mathscr{B}\)-measurable (respectively) for every fixed \(y\in Y\), \(x\in X\) (respectively).
+\end{theorem}
+
+\subsection*{Lecture 24}
+\setcounter{section}{24}
+\setcounter{theorem}{24}
+\begin{definition}[product measure \(\mu\times\nu\)]
+    The unique measure \(\rho\) constructed in Theorem \ref{theorem:existence_prod_measure} is called the \textbf{product} of the measures \(\mu\) and \(\nu\), denoted \(\mu\times\nu\). \((X,Y,\mathscr{A}\otimes \mathscr{B}, \mu\times\nu)\) is called the \textbf{product measure space}
+\end{definition}
+We can now finally construct the \(n\)-dimensional Lebesgue measure:
+\begin{corollary}
+    If \(n>d\geq 1\),
+    \begin{align*}
+        (\mathbb{R}^n, \mathscr{B}(\mathbb{R}^n), \lambda^n) = \left(\mathbb{R}^d\times\mathbb{R}^{n-d}, \mathscr{B}(\mathbb{R}^d)\otimes \mathscr{B}(\mathbb{R}^{n-d}), \lambda^d\times\lambda^{n-d}\right).
+    \end{align*}
+\end{corollary}
+
+Great. The next step is to see how we can integrate w.r.t. to \(\mu\times\nu\). The following two results are often stated together as the Fubini or Fubini-Tonelli theorem. 
+
+\begin{theorem}[Tonelli]    \label{theorem:Tonelli}
+    Let \((X,\mathscr{A},\mu)\) \((Y,\mathscr{B},\nu)\) be \(\sigma\)-finite measure spaces and let \(u:X\times Y\rightarrow[0,\infty]\) be \(\mathscr{A}\otimes\mathscr{B}\)-measurable. Then
+    \begin{enumerate}[label=(\roman*)]
+        \item \(x\mapsto u(x,y), \ y\mapsto u(x,y)\) are \(\mathscr{A}\)-resp. \(\mathscr{B}\)-measurable for fixed \(y\) resp. \(x\);
+        \item \(x\mapsto \int_Y u(x,y)\nu(dy), \ y\mapsto\int_X u(x,y) \mu(dx)\) are \(\mathscr{A}\)-resp. \(\mathscr{B}\)-measurable;
+        \item \(\int\limits_{X\times Y}ud(\mu\times \nu) = \int\limits_Y\int\limits_X u(x,y)\mu(dx)\nu(dy = \int\limits_X\int\limits_Yu(x,y)\nu(dy)\mu(dx))\) which is in \([0,\infty]\).
+    \end{enumerate}
+\end{theorem}
+\begin{corollary}[Fubini's theorem] \label{corollary:fubini_theorem}
+    Let \((X,\mathscr{A},\mu)\) \((Y,\mathscr{B},\nu)\) be \(\sigma\)-finite measure spaces and let \(u:X\times Y\rightarrow\bar{\mathbb{R}}\) be \(\mathscr{A}\otimes\mathscr{B}\)-measurable. If at least one of the three integrals
+    \begin{align*}
+        \int\limits_{X\times Y}|u|d(\mu\times\nu), \int_Y\int_X |u(x,y)|\mu(dx)\nu(dy), \int_X\int_Y |u(x,y)|\nu(dy)\mu(dx)
+    \end{align*}
+    is finite, then all three integrals are finite, \(u\in\mathcal{L}^1(\mu\times\nu)\), and
+    \begin{enumerate}[label=(\roman*)]
+        \item \(x\mapsto u(x,y)\) is in \(\mathcal{L}^1(\mu)\) for \(\nu\)-a.e. \(y\in Y\);
+        \item \(y\mapsto u(x,y)\) is in \(\mathcal{L}^1(\nu)\) for \(\mu\)-a.e. \(x\in X\);
+        \item \(y\mapsto\int_Xu(x,y)\mu(dx)\) is in \(\mathcal{L}^1(\nu)\);
+        \item \(x\mapsto\int_Yu(x,y)\nu(dx)\) is in \(\mathcal{L}^1(\mu)\);
+        \item \(\int\limits_{X\times Y}ud(\mu\times\nu)=\int\limits_Y\int\limits_X u(x,y)\mu(dx)\nu(dy)=\int\limits_X\int\limits_Y u(x,y)\nu(dy)\mu(dx)\).
+    \end{enumerate}
+\end{corollary}
