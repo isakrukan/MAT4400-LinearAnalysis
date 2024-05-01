@@ -1,0 +1,125 @@
+\section{Regularization \tiny{(15 \& 19, \cite{schilling2017measures})}}
+\begin{lemma}
+    Assume \(f\in L^1(\mathbb{R}^n)\), \(g\in L^p(\mathbb{R}^n)\) (\(1\leq p\leq \infty\)). Then the function \(g\mapsto f(g)g(x-y)\) is integrable for a.e. \(x\), \(f\ast g\in L^p(\mathbb{R}^n)\) and \(||f\ast g||_p \leq ||f||_1 ||g||_p\).
+\end{lemma}
+\ifdetailed 
+\begin{proof}
+    For \(p=\infty\) the proof is easy, since for every \(x\in\mathbb{R}^n\),
+    \begin{align*}
+        |f(y)g(x-y)|\leq |f(y)| ||g||_{\infty   } \text{ for a.e. }y.
+    \end{align*} 
+
+    Assume \(1<p<\infty\) (for \(p=1\) we already know the lemma). For everything except the last inequality we may assume that \(f,g\geq 0\). If \(f=0\) a.e., there is nothing to prove, so we may assume that \(||f||_1>0\) and then replacing \(f\) by \(\frac{f}{||f||_1}\), that \(||f||_1 = 1\). By Tensen's inequality,
+    \begin{align*}
+        \left(\int_{\mathbb{R}^n}f(y)g(x-y)dy\right)^p &\leq \int_{\mathbb{R}^n} f(y)g(x-y)^pdy \\
+        &=(f\ast g^p)(x).
+    \end{align*}
+    As \(g^p\in L^1(\mathbb{R}^n)\), it follows that \(\int_{\mathbb{R}^n} f(y) g(x-y)dy<\infty\) for a.e. \(x\) and
+    \begin{align*}
+        ||f\ast g||_p &\leq \left(\int_{\mathbb{R}^n}(f\ast g^p)(x)dx\right)^{1/p} \\
+        &= \left(||f||_1 ||g^p||_1\right)^{1/p} = ||g^p||_{1}^{1/p} = ||g||_p.
+    \end{align*} 
+    Finally, for general \(f\in L^1(\mathbb{R}^n)\), \(g\in L^p(\mathbb{R}^n)\) we have
+    \begin{align*}
+        |f\ast g| \leq |f|\ast |g|,
+    \end{align*}
+    so 
+    \begin{align*}
+        ||f\ast g||_p &\leq || |f| \ast |g| ||_p \leq || |f| ||_1 \cdot || |g| ||_p\\
+        &= ||f||_1 \cdot ||g||_p.
+    \end{align*}
+\end{proof}
+\fi 
+Note that 
+\begin{align*}
+    \int_{\mathbb{R}^n}f(y)g(x-y)dy = \int_{\mathbb{R}^n} f(x-y)g(y)dy,
+\end{align*}
+so \(f\ast g= g\ast f\).
+\begin{remark}
+    More generally, for \(\mu\in M(\mathbb{R}^n)\) and \(g\in L^p(\mathbb{R}^n)\), we can define \(\mu\ast g = g\ast\mu\in L^p(\mathbb{R}^n)\) by 
+    \begin{align*}
+        (\mu\ast g)(x) = \int_{\mathbb{R}^n} g(x-y)d\mu(y).
+    \end{align*}
+    Then \(||\mu\ast g||_p\leq |\mu|(\mathbb{R}^n)||g||_p\).
+\end{remark}
+\begin{proposition}
+    If \(f,g\in L^1(\mathbb{R}^n)\), then \(\hat{f\ast g} = (2\pi)^n\hat{f}\hat{g}\).
+\end{proposition}
+\ifdetailed 
+\begin{proof}
+    \begin{align*}
+        \hat{f\ast g}(x) &= \frac{1}{(2\pi)^n}\int_{\mathbb{R}^n} (f\ast g)(y) e^{-i\langle x,y\rangle}dy \\
+        &= \frac{1}{(2\pi)^n}\int_{\mathbb{R}^n}\left(\int_{\mathbb{R}^n} f(z)g(y-z)e^{-i\langle x,y\rangle}dz\right)dy \\
+        &= \frac{1}{(2\pi)^n}\int_{\mathbb{R}^n}\left(\int_{\mathbb{R}^n} f(z)e^{-i\langle x,z\rangle}g(y-z)e^{-i\langle x, y-z\rangle}dy\right)dz \\
+        &= (2\pi)^n \hat{f}\hat{g}.
+    \end{align*}
+\end{proof}
+\fi 
+What are convolutions good for?
+\begin{example}
+    Consider
+    \begin{align*}
+        f = \frac{1}{\lambda_n(B_r(0))} \vmathbb{1}_{B_r(0)}.
+    \end{align*}
+    Then
+    \begin{align*}
+        (f\ast g)(x) &= \frac{1}{\lambda_n(B_r(0))}\int_{B_r(0)}g(x-y)dy \\
+        &= \frac{1}{\lambda_n(B_r(x))}\int_{B_r(x)} g(y)dy.
+    \end{align*}
+\end{example}
+
+For a multi-index \(\alpha = (\alpha_1, ..., \alpha_n)\in\mathbb{Z}^{n}_{+}\), write \(\partial^{\alpha}\) for 
+\begin{align*}
+    \frac{\partial^{\alpha_1 + ... + \alpha_n}}{\partial x^{\alpha_1}_{1}...\partial x^{\alpha_n}_{n}}.
+\end{align*}
+Denote by \(L^{1}_{\text{loc}}(\mathbb{R}^n)\) the space of Lebesgue measurable functions that are independent on every ball. We identify functions that coincide a.e. (so, \(L^{1}_{\text{loc}}(\mathbb{R}^n)\) is a space of equivalence classes of functions). We have \(L^p(\mathbb{R}^n) \subset L^{1}_{\text{loc}}(\mathbb{R}^n)\) for all \(1\leq p\leq \infty\).
+
+\begin{lemma}
+    If \(\phi\in C^{\infty}_{c}(\mathbb{R}^n)\) and \(f\in L^{1}_{\text{loc}}(\mathbb{R}^n)\), then \(\phi \ast f\in C^{\infty}(\mathbb{R}^n)\) and \(\partial^{\alpha}(\phi\ast f) = (\partial^{\alpha}\phi)\ast f\). 
+\end{lemma}
+\ifdetailed 
+\begin{proof}
+    If suffices to show that \(\frac{\partial}{\partial x_i}(\phi\ast f)= \frac{\partial\phi}{\partial x_i}\ast f\). Let \(e_i = (0,...,0,1,0,...,0)\in\mathbb{R}^n\). Then
+    \begin{align*}
+        \frac{\partial (\phi\ast f)}{\partial x_i}(x) &= \frac{d}{df} (\phi\ast f)(x + te_i) \\
+        &= \frac{d}{df}\int_{\mathbb{R}^n}\phi(x+te_i-y)f(y)dy \\ 
+        &= \int_{\mathbb{R}^n}\frac{\partial\phi}{\partial x_i}(x-y)f(y)dy = \left(\frac{\partial\phi}{\partial x_i}\ast f\right)(x),
+    \end{align*}
+    where we used theorem on differentiability of integrals depending depending on parameters. 
+\end{proof}
+\fi 
+By choosing suitable \(\phi\) we can make \(\phi\ast f\) close to \(f\), as we will see shortly.
+\begin{definition}
+    A positive `modifier' (?) is a function \(\phi\in C_c(\mathbb{R}^n)\) s.t. \(\phi\geq 0\) and \(\int_{\mathbb{R}^n}\phi(x)dx=1\).
+\end{definition}
+For a function \(\phi\) on \(\mathbb{R}^n\) and \(\epsilon>0\), define \(\phi^{\epsilon}(x) \eqdef \epsilon^{-n}\phi(x/\epsilon)\). Note that if \(\phi\in L^1(\mathbb{R}^n)\), \(\int_{\mathbb{R}^n}\phi dx=1\), then \(\int_{\mathbb{R}^n}\phi^{\epsilon}=1\).
+\begin{example}[positive modifier]
+    Consider the function \(h\) in \(\mathbb{R}\) defined by,
+    \begin{align*}
+        h(t) = \begin{cases}
+            e^{-\frac{1}{1-t^2}}, \ |t| < 1, \\
+            0, \ |t|\geq 1
+        \end{cases}.
+    \end{align*}
+    Then \(g\in C^{\infty}_{c}(\mathbb{R}^n)\). Hence, \(\phi(x)= c_n h(|x|)\) is a modifier, where \(c_n = \left(\int_{\mathbb{R}^n}h(|x|)dx\right)^{-1}\).
+\end{example}
+\begin{proposition}
+    Let \(\phi\in L^1(\mathbb{R}^n)\) be s.t. \(\phi\geq 0\) and \(\int_{\mathbb{R}^n}\phi dx=1\). Then we have
+    \begin{enumerate}[label=(\roman*)]
+        \item If \(f\in C_0(\mathbb{R}^n)\) (continuous functions vanishing at infinity (?)), then \(\phi^{\epsilon}\ast f\in C_0(\mathbb{R}^n)\) and \(||\phi^{\epsilon}\ast f||\xrightarrow[\epsilon\downarrow 0]{ } 0\) (uniform norm);
+        \item If \(f\in L^p(\mathbb{R}^n)\), \(1\leq p\leq\infty\), then \(||\phi^{\epsilon}\ast f -f||_p\xrightarrow[\epsilon\downarrow 0]{ }\).
+    \end{enumerate}
+\end{proposition}
+\ifdetailed 
+\begin{proof}
+    Can be found in lecture.
+\end{proof}
+\fi 
+\begin{corollary}
+    For any Radon measure \(\mu\) on \(\mathbb{R}^n\), \(C^{\infty}_{c}(\mathbb{R}^n)\) is dense in \(L^p(\mathbb{R}^n, d\mu)\) for \(1\leq p <\infty\).
+\end{corollary}
+\ifdetailed 
+\begin{proof}
+    Can be found in lecture.
+\end{proof}
+\fi 

@@ -1,0 +1,86 @@
+\section{Fourier Inverse \tiny{(19, \cite{schilling2017measures})}}
+\begin{corollary}
+    If \(f\in L^1(\mathbb{R}^n)\), then \(\hat{f} \in C_0(\mathbb{R}^n)\).
+\end{corollary}
+\ifdetailed 
+\begin{proof}
+    We already know that \(\hat{f}\in C_b(\mathbb{R}^n)\) (the space of bounded continuous functions) and \(||\hat{f}||_{\infty} \leq ||f||_1\). Consider \( \phi(x)=1/(2\pi)^{n/2} e^{-\frac{|x|^2}{2}}\), so \(\int_{\mathbb{R}^n}\phi(x)dx = 1\). We know that \(\hat{\phi}= 1/(2\pi)^{n/2} \phi\in C_0(\mathbb{R}^n)\). Then \(\widehat{\phi^{\epsilon}} = \hat{\phi}(\epsilon x) = 1/(2\pi)^{n/2}\phi(\epsilon x)\), \(\hat{\phi^{\epsilon}} \in C_0(\mathbb{R}^n)\). As \(\phi^{\epsilon}\ast f\xrightarrow[\epsilon\downarrow 0]{ }f\) in \(L^1(\mathbb{R}^n)\), we have 
+    \begin{align*}
+        ||\widehat{\phi^{\epsilon}\ast f} - \hat{f}||_{\infty} \xrightarrow[\epsilon\downarrow 0]{ } 0.
+    \end{align*}
+    But \(\widehat{\phi^{\epsilon}\ast f} = (2\pi)^n \widehat{\phi^{\epsilon}}\hat{f}\in C_0(\mathbb{R}^n)\), hence \(\hat{f}\in C_0(\mathbb{R}^n)\).
+\end{proof}
+\fi 
+\begin{remark}
+    Another possibility is to approximate \(f\) by its linear combinations of \(\vmathbb{1}_{[a_1, b_1] \times ...\times [a_n, b_n]}\). Note that for \(\vmathbb{1}_{[a,b]}\in L^1(\mathbb{R})\) we have \(\hat{\vmathbb{1}}_{a,b}(x) = 1/(2\pi) \int_{a}^{b}e^{-ixy}dy \underset{x\neq 0}{=} \frac{e^{-iax - e^{-ixb}}}{2\pi ix}\xrightarrow[x\rightarrow \infty]{ }0\).
+\end{remark}
+\begin{theorem}[Fourier Inversion Theorem]
+    Assume \(f\in L^1{\mathbb{R}^n}\) is s.t. \(\hat{f}\in L^1(\mathbb{R}^n)\). Then, for a.e. \(x\), we have
+    \begin{align*}
+        f(x) = \int_{\mathbb{R}^n}\hat{f}(y)e^{i\langle x,y\rangle} dy.
+    \end{align*}
+    Equivalently, 
+    \begin{align*}
+        \hat{\hat{f}}(x) = \frac{1}{(2\pi)^n}f(-x).
+    \end{align*}
+\end{theorem}
+\begin{lemma}
+    For any \(f,g\in L^1(\mathbb{R}^n)\), we have 
+    \begin{align*}
+        \int_{\mathbb{R}^n} \hat{f}gdx = \int_{\mathbb{R}^n}f\hat{g}dx. 
+    \end{align*}
+    (Note that \(\hat{f}g\in L^1(\mathbb{R}^n)\), as \(\hat{f}\) is bounded.)
+\end{lemma}
+\ifdetailed 
+\begin{proof}
+    This follows by Fubini's theorem:
+    \begin{align*}
+        \int_{\mathbb{R}^n} \hat{f}(x)g(x) dx &= \frac{1}{(2\pi)^n}\int_{\mathbb{R}^n}\left(\int_{\mathbb{R}^n}f(y)g(x)e^{-i\langle x,y\rangle}dy\right) dx \\
+        &=\frac{1}{(2\pi)^n}\int_{\mathbb{R}^n}\left(\int_{\mathbb{R}^n}f(y)g(x)e^{-i\langle x,y\rangle}dx\right) dy \\
+        &= \frac{1}{(2\pi)^n}\int_{\mathbb{R}^n}f(y)\hat{g}(y)dy.
+    \end{align*}
+\end{proof}
+\begin{proof}[proof of Fourier Inversion Theorem]
+    We already know that the theorem is ture for \(\phi(x) = 1/(2\pi)^{n/2}e^{-\frac{|x|^2}{2}}\), hence also for \(\phi^{\epsilon}\) (so \(\phi^{\epsilon}(x) = \epsilon^{-n}\phi(x/\epsilon)\)). Consider the function \(I_{\epsilon}\) defined by 
+    \begin{align*}
+        I_{\epsilon}(x) &= \int_{\mathbb{R}^n} \widehat{\phi^{\epsilon\ast f}}(y)e^{i\langle x,y\rangle}dy \\
+        &= (2\pi)^n\int_{\mathbb{R}^n} \widehat{\phi^{\epsilon}} (y) \hat{f}(y) e^{i\langle x,y \rangle}dy.
+    \end{align*}
+    On the other hand, 
+    \begin{align*}
+        (2\pi)^n\widehat{\phi^{\epsilon}}(y) = (2\pi)^n\hat{\phi}(\epsilon y) = e^{-\frac{\epsilon^2|y|^2}{2}}.
+    \end{align*}
+    As \(\hat{f}\in L^1(\mathbb{R}^n)\) by assumption, by the dominated convergence theorem we conclude that 
+    \begin{align*}
+        I_{\epsilon}(x) \rightarrow \int_{\mathbb{R}^n} \hat{f}(y)e^{i\langle x,y\rangle}dy \ \forall x\in\mathbb{R}^n.
+    \end{align*}
+    On the other hand, applying the previous lemma to \(g(y) = \widehat{\phi\epsilon} e^{i\langle x,y\rangle}\) (with \(x\) fixed) we have 
+    \begin{align*}
+        I_{\epsilon}(x) &= (2\pi)^n\int_{\mathbb{R}^n} g(y)\hat{f}(y)dy \\
+        &= (2\pi)^n\int_{\mathbb{R}^n} \hat{g}(y)f(y)dy \\
+        &= (2\pi)^n \int_{\mathbb{R}^n} \widehat{\widehat{\phi\epsilon}}(y-x)f(y)dy \\
+        &= \int_{\mathbb{R}^n} \phi^{\epsilon}(y-x)f(y)dy \\
+        &= (\phi^{\epsilon}\ast f)(x).
+    \end{align*}
+    Therefore \(I_{\epsilon} = \phi^{\epsilon}\ast f\xrightarrow[\epsilon\downarrow 0]{ }f\) in \(L^1(\mathbb{R}^n)\). In particular \(I_{1/n}\xrightarrow[n\rightarrow\infty]{ }f\) in \(L^1(\mathbb{R}^n)\), hence, \(I_{1/n_k}\xrightarrow[k\rightarrow\infty]{ }f\) a.e. for some subsequence. It follows that for a.e. \(x\) we have \(f(x) = \int_{\mathbb{R}^n} \hat{f}(y)e^{i\langle x,y\rangle}dy\). 
+\end{proof}
+\fi 
+\begin{corollary}
+    If \(f\in L^1(\mathbb{R}^n)\) and \(\hat{f}=0\), then \(f=0\) (a.e.)
+\end{corollary}
+
+Recall that a linear operator \(U:H\rightarrow K\) between Hilbert spaces is called an \textbf{isometry} if 
+\begin{align*}
+    ||Ux|| = ||x|| \ \forall x\in H.
+\end{align*}
+Equivalently, by the polarization identity, 
+\begin{align*}
+    (Ux,Uy) = (x,y) \ \forall x,y\in H.
+\end{align*}
+If \(U\) is in addition surjective, then it is called a \textbf{unitary}.
+\begin{theorem}[Plancherel]
+    There is a unique unitary \(U:L^2(\mathbb{R}^n)\rightarrow L^2(\mathbb{R}^n)\) s.t. \(Uf=(2\pi)^{n/2} \hat{f}\) for all \(f\in L^1(\mathbb{R}^n)\cap L^2(\mathbb{R}^n)\).
+\end{theorem}
+\ifdetailed 
+Can be found in lecture.
+\fi 

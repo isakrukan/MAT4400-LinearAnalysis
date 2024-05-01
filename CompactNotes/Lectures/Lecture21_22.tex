@@ -44,14 +44,14 @@ For the proof we need two auxiliary results.
 \begin{proof}[Proof of the Riesz-Markov Theorem]
     Assume \(\phi:C_c(X)\rightarrow\mathbb{C}\) is positive for open \(U\subset X\), define
     \begin{align*}
-        \mu(U) \eqdef \sup\left\{\phi(f): 0\leq f\leq 1, \text{supp}(f) \subset Y\right\}.
+        \mu(U) \eqdef \sup\left\{\phi(f): 0\leq f\leq 1, \text{supp}(f) \subset U\right\}.
     \end{align*}
     For a set \(A\subset X\), define then 
     \begin{align*}
-        \mu^*(A) \eqdef \inf_{\substack{A\subset U \\ U\text{ open}}}.
+        \mu^*(A) \eqdef \inf_{\substack{A\subset U \\ U\text{ open}}}\mu(U).
     \end{align*}
 
-    \textbf{Step 1}. \(\mu^*\) is an outer measure on \(X\) and \(\mu^*(U)=\mu(U)\) for open \(U\). Observe first that if \(V\subset U\) is open, then \(\mu(V)\leq\mu(U)\). This implies that \(\mu^*(V)=V\) for all open \(V\). Obviously, \(\mu^*(\emptyset)=\mu(\emptyset)=0\). We need to show that 
+    \textbf{Step 1}. \(\mu^*\) is an outer measure on \(X\) and \(\mu^*(U)=\mu(U)\) for open \(U\). Observe first that if \(V\subset U\) is open, then \(\mu(V)\leq\mu(U)\). This implies that \(\mu^*(V)=\mu(V)\) for all open \(V\). Obviously, \(\mu^*(\emptyset)=\mu(\emptyset)=0\). We need to show that 
     \begin{align*}
         \mu^*\left(\bigcup\limits_{n=1}^{\infty}A_n\right) \leq \sum\limits_{n=1}^{\infty} \mu^*(A_n).
     \end{align*}
@@ -126,7 +126,7 @@ For the proof we need two auxiliary results.
     \setcounter{section}{22}
     \setcounter{theorem}{22}
 
-    \textbf{Step 3}. If \(K\subset X\) is compact, then \(\mu(K)<\infty\) and \(\mu(K)=\inf\{\phi(f):\vmathbb{1}_(K\leq f)\}\). Also, if \(0\leq f\leq \vmathbb{1}_K\), then \(\phi(f)\leq\mu(K)\).
+    \textbf{Step 3}. If \(K\subset X\) is compact, then \(\mu(K)<\infty\) and \\ \(\mu(K)=\inf\{\phi(f):\vmathbb{1}_K\leq f\}\). Also, if \(0\leq f\leq \vmathbb{1}_K\), then \(\phi(f)\leq\mu(K)\).
 
     Assume \(\vmathbb{1}_K\leq f\). Fix \(\epsilon>0\) and consider the open set \(U=\{x:f(x)>1-\epsilon\}\). Assume \(0\leq g\leq 1\), supp\((g)\subset U\). Then \(g\leq f/(1-\epsilon)\), hence \(\phi(g)\leq \phi(f)/(1-\epsilon)\). Taking the supremum over all such \(g\), we get \(\mu(U)\leq \phi(f)/(1-\epsilon)\). Hence
     \begin{align*}
