@@ -1,0 +1,65 @@
+\section{Schwartz Space \tiny{19, \cite{schilling2017measures}}}
+\begin{proposition}
+    Assume \(f\in L^1(\mathbb{R}^n)\) and \(x_j f\in L^{1}(\mathbb{R}^n)\) (\(x_j f\) means \(x\mapsto x_j f(x)\)) for some \(1\leq j\leq n\). Then 
+    \begin{align*}
+        \partial_j \hat{f} = -i\widehat{x_j F}
+    \end{align*}
+\end{proposition}
+\begin{proposition}
+    Assume \(f\in C(\mathbb{R}^n)\cap L^{1}(\mathbb{R}^n)\) is such that \(\partial_j f\in L^{1}(\mathbb{R}^n)\). Then 
+    \begin{align*}
+        \widehat{\partial_j f} = i x_j f
+    \end{align*}
+\end{proposition}
+\begin{corollary}
+    If \(f,\partial_j f\in L^{1}(\mathbb{R}^n)\), then 
+    \begin{align*}
+        x_j \hat{f}(x) \xrightarrow[x\rightarrow\infty]{ } 0.
+    \end{align*}
+\end{corollary}
+\begin{corollary}
+    \begin{enumerate}
+        \item If \(x^{\alpha}f\in L^{1}(\mathbb{R}^n)\) for all \(|\alpha|\leq N\), then \(\hat{f}\in C^N(\mathbb{R}^n)\) and \(\partial^{\alpha}\hat{f} = (-i)^{|\alpha|} \widehat{x^{\alpha f}}\).
+        \item If \(f\in C^N(\mathbb{R}^n)\) and \(\partial^{\alpha}f\in L^1(\mathbb{R}^n)\) for all \(|\alpha|\leq N\), then \(\widehat{\partial^{\alpha} f} = i^{|\alpha|}x^{\alpha}\hat{f}\) and hence \((1 + |x|)^N \hat{f}(x)\xrightarrow[x\rightarrow\infty]{ } 0.\)
+    \end{enumerate}
+    (here \(\alpha = (\alpha_1, ..., \alpha_n)\in \mathbb{N}_{0}^{n}\): n-dim positive integers, and \(|\alpha|= \alpha_1 + ...+ \alpha_n\), \(x^{\alpha} = x_{1}^{\alpha_1}\cdot ...\cdot x_{n}^{\alpha_n}\).)
+\end{corollary}
+\begin{definition}
+    A function \(f\) on \(\mathbb{R}^n\) is called a \textbf{Schwartz function} if \(f\in C^{\infty}(\mathbb{R}^n)\) and \(x^{\alpha}\partial^{\beta}f\) is bounded for all multi-indices \(\alpha,\beta\). The space \(\mathcal{S}(\mathbb{R}^n)\) of Schwartz functions is called \textbf{Schwartz space}. 
+\end{definition}
+
+Note that for every \(f\in C^{\infty}(\mathbb{R}^n)\) the following conditions are equivalent:
+\begin{enumerate}
+    \item \(x^{\alpha}\partial^{\beta}f\) is bounded for all \(\alpha,\beta\);
+    \item \(x^{\alpha}(\partial^{\beta}f)(x)\xrightarrow[x\rightarrow\infty]{ }0\) for all \(\alpha,\beta\);
+    \item \((1+|x|)^N\partial^{\beta}f\) is bounded for all \(N\geq 1\) and all \(\beta\).
+\end{enumerate}
+\begin{example}
+    \(C^{\infty}_{c}(\mathbb{R}^n)\subset \mathcal{S}(\mathbb{R}^n)\), \(e^{-a|x|^2}\in\mathcal{S}(\mathbb{R}^n)\) for \(a>0\). If \(f\in \mathcal{S}(\mathbb{R}^n)\), then \(x^{\alpha}\partial^{\beta}f\in\mathcal{S}(\mathbb{R}^n)\). The product of two Schwartz functions is a Schwartz function. 
+\end{example}
+
+Clearly, \(\mathcal{S}(\mathbb{R}^n)\subset L^{1}(\mathbb{R}^n)\) for all \(1\leq p\leq\infty\). From the Corollary above we conclude that if \(f\in\mathcal{S}(\mathbb{R}^n)\), then \(\hat{f}\in\mathcal{S}(\mathbb{R}^n)\). By the Fourier inversion theorem we then get:
+\begin{theorem}
+    The Fourier transform maps \(\mathcal{S}(\mathbb{R}^n)\) onto \(\mathcal{S}(\mathbb{R}^n)\).
+\end{theorem}
+\begin{remark}
+    This gives another proof of the fact that the image of the Fourier transform \(L^1(\mathbb{R}^n)\cap L^2(\mathbb{R}^n)\rightarrow L^2(\mathbb{R}^n)\) is dense, which we needed to prove Plancherel's theorem.
+\end{remark}
+\begin{remark}
+    If \(f\in C^{\infty}_{c}(\mathbb{R}^n)\), \(f\neq 0\), then \(\hat{f}\in\mathcal{S}(\mathbb{R}^n)\), but \(\hat{f}\) is never compactly supported, since it extends to an analytic function on \(\mathbb{C}^n: \hat{f}(z)=\frac{1}{(2\pi)^n}\int_{\mathbb{R}^n}f(y)e^{-i\langle z,y\rangle}dy\).
+\end{remark}
+\begin{theorem}[Kolmogorov extension theorem]
+    Assume \(X\) is a set and \((\mathcal{B}_n)_{n\in\mathbb{N}}\) is an increasing sequence of \(\sigma\)-algebras of subsets of \(X\). Assume \(\mu_n\) if a measure on \((X,\mathcal{B}_n)\) and 
+    \begin{align*}
+        \mu_{n+1} |vert_{\mathcal{B}_n} = \mu_n \ \forall n.
+    \end{align*}
+\end{theorem}
+Can we define a measure \(\mu\) on \((X,\mathcal{B})\), where \(\mathcal{B}=\sigma\left(\cup_{n\in\mathbb{N}}\mathcal{B}_n\right)\) s.t. \(\mu\vert_{\mathcal{B}_n}=\mu_n \ \forall n\)? - In general, no. But we have the following:
+\begin{theorem}
+    In the above settings, assume in addition that \(\mu_n(X)=1\ \forall n\) and there is a collection of subesets \(\mathcal{C}\subset\mathcal{B}\) s.t.:
+    \begin{enumerate}[label=(\roman*)]
+        \item \(\mu_n(A)=\sup\left\{ \mu_n(C): C\subset A, C\in\mathcal{C}\cap \mathcal{B}_n \right\}\) \(\forall A\in\mathcal{B}_n\);
+        \item If \((C_n)_{n\in\mathbb{N}}\) is a sequence in \(\mathcal{C}\) and \(\cap_{n\in\mathbb{N}}C_n=\emptyset\), then \(\cap_{n=1}^{N}C_n=\emptyset\) for some \(N\). 
+    \end{enumerate}
+    Then there is a unique measure \(\mu\) on \((X,\mathcal{B})\) s.t. \(\mu\vert_{\mathcal{B}_n} = \mu\).
+\end{theorem}

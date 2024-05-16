@@ -81,21 +81,23 @@ When can we discard the term \(\nu(A\cap N)\)?
     Assume \(\mu\) and \(\nu\) are measures on \((X,\mathscr{B})\), \(\nu(X)<\infty\). Then \(\nu<<\mu\) iff 
     \(\forall \epsilon>0\exists\delta>0\) s.t. if \(A\in\mathscr{B}\), \(\mu(A)<\delta\), then \(\nu(A)<\epsilon\).
 \end{lemma}
-\begin{proof}
-    "\(\Rightarrow\)": obvious. "\(\Leftarrow\)": Assume this is not true. Then, there is a \(\epsilon>0\) s.t. \(\forall \delta>0\) we can
-    find \(A\in\mathscr{B}\) satisfying \(\mu(A)<\delta\), \(\nu(A)\geq\epsilon\). Let \(A_n\) be such a set \(A\) for \(\delta=1/2^n\). Put
-    \(A=\cap_{n\in\mathbb{N}}\cup_{k=n}A_k\). Then
-    \begin{align*}
-        \mu(A) &\leq \lim\limits_{n\rightarrow\infty}\mu\left(\bigcup_{k=n}^{\infty}A_k\right) 
-        \leq \lim\limits_{n\rightarrow\infty}\sum\limits_{k=n}^{\infty}\mu(A_k) \\ 
-        &\leq \lim\limits_{n\rightarrow\infty}\sum\limits_{k=n}^{\infty}\frac{1}{2^k} = \lim\limits_{n\rightarrow} \frac{1}{2^{n-1}} = 0.
-    \end{align*}
-    As \(\nu(X)<\infty\), we also have 
-    \begin{align*}
-        \nu(A) = \lim\limits_{n\rightarrow\infty}\nu\left(\bigcup_{k=n}^{\infty}A_k\right) \geq \epsilon.
-    \end{align*}
-    This contradicts the assumption \(\nu <<\mu\).
-\end{proof}
+\ifdetailed
+    \begin{proof}
+        "\(\Rightarrow\)": obvious. "\(\Leftarrow\)": Assume this is not true. Then, there is a \(\epsilon>0\) s.t. \(\forall \delta>0\) we can
+        find \(A\in\mathscr{B}\) satisfying \(\mu(A)<\delta\), \(\nu(A)\geq\epsilon\). Let \(A_n\) be such a set \(A\) for \(\delta=1/2^n\). Put
+        \(A=\cap_{n\in\mathbb{N}}\cup_{k=n}A_k\). Then
+        \begin{align*}
+            \mu(A) &\leq \lim\limits_{n\rightarrow\infty}\mu\left(\bigcup_{k=n}^{\infty}A_k\right) 
+            \leq \lim\limits_{n\rightarrow\infty}\sum\limits_{k=n}^{\infty}\mu(A_k) \\ 
+            &\leq \lim\limits_{n\rightarrow\infty}\sum\limits_{k=n}^{\infty}\frac{1}{2^k} = \lim\limits_{n\rightarrow} \frac{1}{2^{n-1}} = 0.
+        \end{align*}
+        As \(\nu(X)<\infty\), we also have 
+        \begin{align*}
+            \nu(A) = \lim\limits_{n\rightarrow\infty}\nu\left(\bigcup_{k=n}^{\infty}A_k\right) \geq \epsilon.
+        \end{align*}
+        This contradicts the assumption \(\nu <<\mu\).
+    \end{proof}
+\fi
 \begin{remark}
     The result is not true for infinite \(\nu\).
 \end{remark}

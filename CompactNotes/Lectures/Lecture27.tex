@@ -24,6 +24,12 @@
         \hat{\hat{f}}(x) = \frac{1}{(2\pi)^n}f(-x).
     \end{align*}
 \end{theorem}
+\begin{theorem}[convolution theorem]
+    If \(\mu,\nu\) are finite measures on (\(\mathbb{R}^n, \mathscr{B}(\mathbb{R}^n)\)), then
+    \begin{align*}
+        \widehat{\mu\ast \nu}(\xi) = (2\pi)^n \hat{\mu}(\xi)\hat{\nu}(\xi) \text{ and } \mathcal{F}^{-1} \mu\ast\nu(\xi) = \mathcal{F}^{-1}\mu(\xi)\mathcal{F}^{-1}\nu(\xi).
+    \end{align*}
+\end{theorem}
 \begin{lemma}
     For any \(f,g\in L^1(\mathbb{R}^n)\), we have 
     \begin{align*}
@@ -79,7 +85,12 @@ Equivalently, by the polarization identity,
 \end{align*}
 If \(U\) is in addition surjective, then it is called a \textbf{unitary}.
 \begin{theorem}[Plancherel]
-    There is a unique unitary \(U:L^2(\mathbb{R}^n)\rightarrow L^2(\mathbb{R}^n)\) s.t. \(Uf=(2\pi)^{n/2} \hat{f}\) for all \(f\in L^1(\mathbb{R}^n)\cap L^2(\mathbb{R}^n)\).
+    There is a unique unitary \(U:L^2(\mathbb{R}^n)\rightarrow L^2(\mathbb{R}^n)\) s.t. \(Uf=(2\pi)^{n/2} \hat{f}\) for all \(f\in L^1(\mathbb{R}^n)\cap L^2(\mathbb{R}^n)\). 
+
+    In the book: If \(u\in L^2_{\mathbb{C}}(\lambda^n)\cap L^{1}_{\mathbb{C}}(\lambda^n)\), then 
+    \begin{align*}
+        ||\hat{u}||_2 = (2\pi)^{-n/2}||u||_2.
+    \end{align*}
 \end{theorem}
 \ifdetailed 
 Can be found in lecture.

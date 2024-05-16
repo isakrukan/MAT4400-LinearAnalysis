@@ -24,7 +24,14 @@
     is called \textbf{Borel $\sigma$-algebra}, and its members are called \textbf{Borel sets} or
     \textbf{Borel measurable sets}.
 \end{definition}
-
+\begin{definition}[\(\sigma\)-algebra]
+    A measure \(\mu\) on \(X\) is a map \(u:\mathcal{A}\rightarrow [0,\infty]\) satisfying 
+    \begin{enumerate}[label=(\roman*)]
+        \item \(\mathcal{A}\) is a \(\sigma\)-algebra in \(X\),
+        \item \(\mu(\emptyset)=0\),
+        \item \((A_n)_{n\in\mathbb{N}}\subset \mathcal{A}\) pairwise disjoint \(\Longleftrightarrow \mu\left(\cup_{n\in\mathbb{N}} A_n\right) = \sum_{n\in\mathbb{N}}\mu(A_n)\).
+    \end{enumerate}
+\end{definition}
 \begin{definition}[\(\sigma\)-finite/sigma-finite]
     A measure \(\mu\) is said to be \(\sigma\)-finite and \(\left(X,\mathcal{A},\mu\right)\) is called a \(\sigma\)-finite measure space,
     if \(\mathcal{A}\) contains a sequence \((A_n)_{n\in\mathbb{N}}\) s.t. \(A_n\uparrow X\) and \(\mu(A_n)<\infty\).

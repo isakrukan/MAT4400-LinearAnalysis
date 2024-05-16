@@ -30,7 +30,6 @@ Assume \(\mathcal{H}\) is a vector space over \(\mathbb{C}\).
     \item A norm on a vector space is given by an inner product iff it satisfies the parallelogram law, and then the scalar product is 
     uniquely determined by the polarization identity. 
 \end{enumerate}
-\ifdetailed
 \begin{example}
     Assume \(\left(X,\mathscr{B}, \mu\right)\) is a measure space. Then \(\mathcal{L}^2(X,d\mu)\) is a Hilbert space with inner product
     \begin{align*}
@@ -38,7 +37,14 @@ Assume \(\mathcal{H}\) is a vector space over \(\mathbb{C}\).
     \end{align*}
     This is well-defined, as \(|f\bar{g}|\leq \frac{1}{2}(|f|^2 + |g|^2)\). 
 
-    In particular, if \(\mathscr{B} = \mathcal{P}(X)\) and \(\mu\) is the counting measure, then \(L^2(X,d\mu)\) is denoted by \(l^2(X)\);
+    In particular, if \(\mathscr{B} = \mathcal{P}(X)\) and \(\mu\) is the counting measure, i.e.
+    \begin{align*}
+        \mu(A) = \begin{cases}
+            \# \text{ if } A \text{ is finite}, \\
+            +\infty \text{ if } A \text{ is infinite},
+        \end{cases}
+    \end{align*}
+    then \(L^2(X,d\mu)\) is denoted by \(l^2(X)\);
     for \(X=\mathbb{N}\) we write simply \(l^2\). Note that in this case for \(f:X\rightarrow [0,+\infty]\) we have
     \begin{align*}
         \int_X fd\mu = \sum\limits_{x\in X} f(x) \eqdef \sup\limits_{\substack{F\subset X \\ F\text{ is finite}}} \sum\limits_{x\in F} f(x),
@@ -46,7 +52,7 @@ Assume \(\mathcal{H}\) is a vector space over \(\mathbb{C}\).
     and if \(\sum_{x\in X}f(x)<\infty\), then \(\left\{x:f(x)>0\right\}\) is at most countable, so \(\sum_{x\in X}f(x) = \sum_{x:f(x)>0}f(x)\)
     is the usual sum of a series. 
 \end{example}
-\fi
+
 Recall that a subset \(\mathcal{C}\) of a vector space is called \emph{convex} if 
 \begin{align*}
     u,w\in\mathcal{C} \rightarrow tu + (1-t)w\in\mathcal{C} \ \forall t\in(0,1).
