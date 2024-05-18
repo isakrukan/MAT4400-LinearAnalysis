@@ -1,5 +1,5 @@
 \section{Complex and Signed Measures \tiny{(4.3, \cite{Gerald_Teschl})}}
-\begin{definition}
+\begin{definition}[\colordefinition{complex and fintie signed measure}]
     A \textbf{complex measure} on \(\left(X,\mathscr{B}\right)\) is a map \(\nu:\mathscr{B}\rightarrow \mathbb{C}\) s.t. 
     \(\nu(\emptyset)=0\) and
     \begin{align*}
@@ -126,9 +126,9 @@
     (since \(||f|-|f_n|| \leq |f - f_n|\).) This completes the proof.
 \end{proof}
 \fi
-\begin{definition}
-    If \((X,\mathscr{B},\mu)\) is a measure space, \(\nu\) is a complex measure on \((X,\mathscr{B})\), then we say that \(\nu\) is \textbf{absolutely continuous} w.r.t. \(\mu\) and write \(\nu<<\mu\), if \(\nu(A)=0\) whenever \(A\in\mathscr{B}, \mu(A)=0\). Equivalently, \(|\nu|<<\mu\).
-\end{definition}
+% \begin{definition}
+%     If \((X,\mathscr{B},\mu)\) is a measure space, \(\nu\) is a complex measure on \((X,\mathscr{B})\), then we say that \(\nu\) is \textbf{absolutely continuous} w.r.t. \(\mu\) and write \(\nu<<\mu\), if \(\nu(A)=0\) whenever \(A\in\mathscr{B}, \mu(A)=0\). Equivalently, \(|\nu|<<\mu\).
+% \end{definition}
 \begin{theorem}[Radon-Nikodym theorem for complex measures]
     Assume \((X,\mathscr{B}, \mu)\) is a measure space, \(\nu\) is a complex measure on \((X,\mathscr{B})\), \(\nu<<\mu\). Then there is a unique \(f\in L^1(X,d\mu)\) s.t. \(d\nu = fd\mu\).
 \end{theorem}
