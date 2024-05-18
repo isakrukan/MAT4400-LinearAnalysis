@@ -23,7 +23,7 @@ Moreover from a lemma from chapter 7, we actually only need to show that \begin{
     \end{itemize}
 \end{proposition}
 
-\begin{definition}
+\begin{definition}[\colordefinition{simple function}]
     Given a measurable space $(X,\B)$, a measurable function $f:(X,\B)\rightarrow \C$ is called simple if 
     \begin{align*}
     f(x) = \sum_{k=1}^{N}c_k\mathds 1_{A_k}(x),    
@@ -82,12 +82,12 @@ The set of simple functions is denoted $\mathcal E(\A)$ of $\mathcal E$.
     \end{align*}
 \end{corollary}
 
-\begin{definition}
-    If $f:X\rightarrow [0,+\infty)$ is measurable, then we define 
-    \begin{align*}
-        \int\limits_{X} fd\mu = \sup\left\{  \int_X gd\mu : f\geq g\geq 0,\hspace{2mm} g\text{ is simple}\right\}
-    \end{align*}
-\end{definition}
+% \begin{definition}[]
+%     If $f:X\rightarrow [0,+\infty)$ is measurable, then we define 
+%     \begin{align*}
+%         \int\limits_{X} fd\mu = \sup\left\{  \int_X gd\mu : f\geq g\geq 0,\hspace{2mm} g\text{ is simple}\right\}
+%     \end{align*}
+% \end{definition}
 \begin{remark}
     This means that any measurable function can be approximated by simple functions.
 \end{remark}
@@ -107,8 +107,8 @@ To advance in measure theory we consider measurable functions $$f:X\rightarrow [
     Hence $f:X\rightarrow [0,+\infty]$ is measurable iff $f^{-1}(A)$ is measurable $\forall A\in \B([0,+\infty))$.
 \end{remark}
 
-\begin{definition}
-    For measurable functions $f_X\rightarrow [0,+\infty]$, we define \begin{align*}
+\begin{definition}[\colordefinition{Lebesgue integral}]
+    For measurable functions $f:X\rightarrow [0,+\infty]$, we define \begin{align*}
         \int_X fd\mu = \sup\left\{\int_xgd\mu \hspace{1mm}:\hspace{1mm} f\geq g\geq 0\hspace{1mm}:\hspace{1mm} g \text{ is simple}\right\}\in[0,+\infty].
     \end{align*}
 \end{definition}

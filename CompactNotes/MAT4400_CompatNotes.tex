@@ -37,6 +37,8 @@
 \usepackage{fancyhdr} % To get page number in the top right corner
 \usepackage{scalerel,lipsum}
 
+\usepackage{xcolor}
+
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[R]{\thepage}
@@ -134,10 +136,25 @@
 
 
 \newif\ifdetailed
+\newcommand{\colortheorem}[1]{%
+  \ifcolor
+    \color{red}\textbf{#1}\color{black}%
+  \else
+    #1%
+  \fi
+}
 \detailedtrue % DETAILED VERSION
 \detailedfalse % ONLY IMPORTANT STUFF (NO PROOFS)
 
 \newif\ifcolor
+
+\newcommand{\colordefinition}[1]{%
+  \ifcolor
+    \color{brown}\textbf{#1}\color{black}%
+  \else
+    #1%
+  \fi
+}
 \colortrue
 % \colorfalse
 
