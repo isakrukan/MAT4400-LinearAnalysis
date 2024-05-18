@@ -1,50 +1,51 @@
 \section{Hahn-Banach Theorem \tiny{ (4.2, \cite{Gerald_Teschl})}}
-\begin{theorem}[Hahn-Banach]
-    Assume \(V\) is a real vector space, \(V_0\subset V\) a subspace, \(e:V\rightarrow\mathbb{R}\) a convex function and 
-    \(f:V_0\rightarrow\mathbb{R}\) a linear functional s.t. \(f\leq e\) on \(V_0\). Then \(f\) can be extended to a linear functional 
-    \(F\) on \(V\) s.t. \(F\leq e\).
+\begin{theorem}[\ifcolor\color{red}\textbf{Hahn-Banach}\color{black}\else Hahn-Banach\fi]
+    Assume \(V\) is a real vector space, \(V_0\subset V\) a subspace, \(\phi:V\rightarrow\mathbb{R}\) a convex function (i.e., \(\phi(\lambda x + (1-\lambda)y)\leq \lambda\phi(x) + (1 -\lambda)\phi(y)\)) and 
+    \(f:V_0\rightarrow\mathbb{R}\) a linear functional s.t. \(f\leq \phi\) on \(V_0\). Then \(f\) can be extended to a linear functional 
+    \(F\) on \(V\) s.t. \(F\leq \phi\).
 \end{theorem}
 \ifdetailed
-Assume first that \(V = V_0 + \mathbb{R}x\) for some \(x\in V\backslash V_0\). To define \(F\) we need to specify \(F(x)\). The condition \(F\leq e\)
+\begin{proof}
+Assume first that \(V = V_0 + \mathbb{R}x\) for some \(x\in V\backslash V_0\). To define \(F\) we need to specify \(F(x)\). The condition \(F\leq \phi\)
 means that we need
 \begin{align*}
-    F(y\pm tx) \leq e(y\pm tx) \ \forall y\in V_0, t\geq 0,
+    F(y\pm tx) \leq \phi(y\pm tx) \ \forall y\in V_0, t\geq 0,
 \end{align*}
 that is 
 \begin{align*}
-    \pm t F(x) + f(y) \leq e(y\pm tx).
+    \pm t F(x) + f(y) \leq \phi(y\pm tx).
 \end{align*}
 Dividing by \(t\) this is equivalent to 
 \begin{align*}
     \begin{cases} 
-        F(x) \leq \frac{e(y+tx)-f(y)}{t}, \\
-        F(x) \geq \frac{f(y)-e(y-tx)}{t}, \\
+        F(x) \leq \frac{\phi(y+tx)-f(y)}{t}, \\
+        F(x) \geq \frac{f(y)-\phi(y-tx)}{t}, \\
      \end{cases}
 \end{align*}
 \(\forall y\in V_0, t\geq0\). To show that there is a number satisfying these inequalities, we need to check that
 \begin{align*}
-    \sup\limits_{\substack{y\in V_0 \\ t>0}} \frac{f(y)-e(y-tx)}{t} \leq \inf\limits_{\substack{y\in V_0 \\ t>0}} \frac{e(y+tx)-f(y)}{t}.
+    \sup\limits_{\substack{y\in V_0 \\ t>0}} \frac{f(y)-\phi(y-tx)}{t} \leq \inf\limits_{\substack{y\in V_0 \\ t>0}} \frac{\phi(y+tx)-f(y)}{t}.
 \end{align*}
 Then as \(F(x)\) we can take any number in the interval \([\sup,\inf]\). In other words, we need to check that
 \begin{align*}
-    \frac{f(y)-e(y-tx)}{t} \leq \frac{e(z+sx)-f(z)}{s},
+    \frac{f(y)-\phi(y-tx)}{t} \leq \frac{\phi(z+sx)-f(z)}{s},
 \end{align*}
 \(\forall y,z\in V_0, t,s\geq0\). Equivalently, 
 \begin{align*}
-    sf(y) + tf(z) \leq se(y-tx) + te(z+sx).
+    sf(y) + tf(z) \leq s\phi(y-tx) + t\phi(z+sx).
 \end{align*}
-We have
+Since \(f\) is a linear functional: \(f(\alpha x) = \alpha f(x), \ \alpha\in K\)(\(=\mathbb{R}\)) and \(x\in V_{0}\), we have
 \begin{align*}
     \frac{sf(y) +tf(z)}{s+t} &= f\left(\frac{s}{s+t}y + \frac{t}{s+t}z\right) \\
-    &\leq e\left(\frac{s}{s+t}y + \frac{t}{s+t}z\right) \\
-    &\leq e\left(\frac{s}{s+t}(y-tx) + \frac{t}{s+t}(z+sx)\right) \\
-    &\leq \frac{s}{s+t}e\left(y-tx\right) + \frac{t}{s+t}e\left(z+sx\right),
+    &\leq \phi\left(\frac{s}{s+t}y + \frac{t}{s+t}z\right) \\
+    &\leq \phi\left(\frac{s}{s+t}(y-tx) + \frac{t}{s+t}(z+sx)\right) \\
+    &\leq \frac{s}{s+t}\phi\left(y-tx\right) + \frac{t}{s+t}\phi\left(z+sx\right),
 \end{align*}
 which is what we need. 
 
 The general case is deduced from this using transitive induction (Zorn's lemma), as follows. Consider the set \(X\) of pairs \((W,F)\), 
 where \(w\subset V\) is a subspace, \(F:W\rightarrow \mathbb{R}\) a linear functional, \(V_0\subset W\) and \(F\vert_{v_0} = f\). Define
-a partial order on \(X\) by \(F\leq e\) on W. 
+a partial order on \(X\) by \(F\leq \phi\) on W. 
 \begin{align*}
     (W_1, F_1) \leq (W_2, F_2) \text{ iff } W_1\subset W_2\text{ and } F_1=F_2\vert_{W_1}.
 \end{align*}
@@ -54,8 +55,9 @@ If \(\mathcal{C}\) is a chain in \(X\), then it has an upper bound \((W,F)\) def
 \end{align*}
 Hence, \(X\) has a maximal element \((W,F)\) by Zorn's lemma. If \(W\neq V\), then we can take \(x\in V\backslash W\) and extend \(F\) to
 \(W+\mathbb{R}x\) preserving the inequality \(F\leq e\). This contradicts maximality of \(W,F\) in \(X\). Hence, \(W=V\).
+\end{proof}
 \fi 
-\begin{theorem}[Hahn-Banach]
+\begin{theorem}[\ifcolor\color{red}\textbf{Hahn-Banach}\color{black}\else Hahn-Banach\fi]
     Assume \(V\) is a real or complex vector space, \(p\) a seminorm on \(V_0\), \(V_0\subset\), and \(f\) a linear functional on \(V_0\) s.t.
     \begin{align*}
         |f(x)|\leq p(x) \ \forall x\in V_0.

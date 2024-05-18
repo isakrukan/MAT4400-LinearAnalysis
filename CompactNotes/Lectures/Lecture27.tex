@@ -14,7 +14,7 @@
 \begin{remark}
     Another possibility is to approximate \(f\) by its linear combinations of \(\vmathbb{1}_{[a_1, b_1] \times ...\times [a_n, b_n]}\). Note that for \(\vmathbb{1}_{[a,b]}\in L^1(\mathbb{R})\) we have \(\hat{\vmathbb{1}}_{a,b}(x) = 1/(2\pi) \int_{a}^{b}e^{-ixy}dy \underset{x\neq 0}{=} \frac{e^{-iax - e^{-ixb}}}{2\pi ix}\xrightarrow[x\rightarrow \infty]{ }0\).
 \end{remark}
-\begin{theorem}[Fourier Inversion Theorem]
+\begin{theorem}[\ifcolor\color{red}\textbf{Fourier Inversion Theorem}\color{black}\else Fourier Inversion Theorem \fi]
     Assume \(f\in L^1{\mathbb{R}^n}\) is s.t. \(\hat{f}\in L^1(\mathbb{R}^n)\). Then, for a.e. \(x\), we have
     \begin{align*}
         f(x) = \int_{\mathbb{R}^n}\hat{f}(y)e^{i\langle x,y\rangle} dy.
@@ -24,7 +24,7 @@
         \hat{\hat{f}}(x) = \frac{1}{(2\pi)^n}f(-x).
     \end{align*}
 \end{theorem}
-\begin{theorem}[convolution theorem]
+\begin{theorem}[\ifcolor\color{red}\textbf{convolution theorem}\color{black}\else convolution theorem \fi]
     If \(\mu,\nu\) are finite measures on (\(\mathbb{R}^n, \mathscr{B}(\mathbb{R}^n)\)), then
     \begin{align*}
         \widehat{\mu\ast \nu}(\xi) = (2\pi)^n \hat{\mu}(\xi)\hat{\nu}(\xi) \text{ and } \mathcal{F}^{-1} \mu\ast\nu(\xi) = \mathcal{F}^{-1}\mu(\xi)\mathcal{F}^{-1}\nu(\xi).

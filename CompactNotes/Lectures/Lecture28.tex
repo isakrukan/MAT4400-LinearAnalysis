@@ -39,7 +39,7 @@ Note that for every \(f\in C^{\infty}(\mathbb{R}^n)\) the following conditions a
 \end{example}
 
 Clearly, \(\mathcal{S}(\mathbb{R}^n)\subset L^{1}(\mathbb{R}^n)\) for all \(1\leq p\leq\infty\). From the Corollary above we conclude that if \(f\in\mathcal{S}(\mathbb{R}^n)\), then \(\hat{f}\in\mathcal{S}(\mathbb{R}^n)\). By the Fourier inversion theorem we then get:
-\begin{theorem}
+\begin{theorem}[\ifcolor\color{red}\textbf{Fourier map in Schwartz space}\color{black}\else Fourier map in Schwartz space \fi]
     The Fourier transform maps \(\mathcal{S}(\mathbb{R}^n)\) onto \(\mathcal{S}(\mathbb{R}^n)\).
 \end{theorem}
 \begin{remark}
@@ -48,10 +48,10 @@ Clearly, \(\mathcal{S}(\mathbb{R}^n)\subset L^{1}(\mathbb{R}^n)\) for all \(1\le
 \begin{remark}
     If \(f\in C^{\infty}_{c}(\mathbb{R}^n)\), \(f\neq 0\), then \(\hat{f}\in\mathcal{S}(\mathbb{R}^n)\), but \(\hat{f}\) is never compactly supported, since it extends to an analytic function on \(\mathbb{C}^n: \hat{f}(z)=\frac{1}{(2\pi)^n}\int_{\mathbb{R}^n}f(y)e^{-i\langle z,y\rangle}dy\).
 \end{remark}
-\begin{theorem}[Kolmogorov extension theorem]
+\begin{theorem}[\ifcolor\color{red}\textbf{Kolmogorov extension theorem}\color{black}\else Kolmogorov extension theorem \fi]
     Assume \(X\) is a set and \((\mathcal{B}_n)_{n\in\mathbb{N}}\) is an increasing sequence of \(\sigma\)-algebras of subsets of \(X\). Assume \(\mu_n\) if a measure on \((X,\mathcal{B}_n)\) and 
     \begin{align*}
-        \mu_{n+1} |vert_{\mathcal{B}_n} = \mu_n \ \forall n.
+        \mu_{n+1} \vert_{\mathcal{B}_n} = \mu_n \ \forall n.
     \end{align*}
 \end{theorem}
 Can we define a measure \(\mu\) on \((X,\mathcal{B})\), where \(\mathcal{B}=\sigma\left(\cup_{n\in\mathbb{N}}\mathcal{B}_n\right)\) s.t. \(\mu\vert_{\mathcal{B}_n}=\mu_n \ \forall n\)? - In general, no. But we have the following:

@@ -66,7 +66,7 @@ When considering \(\mathscr{A}\otimes\mathscr{B}\), the following lemma shows th
     so that \(\mathscr{A}\times\mathscr{B}\subset\sigma(\mathscr{F}\times\mathscr{G})\) and thus \(\mathscr{A}\otimes\mathscr{B}\subset\sigma(\mathscr{F}\times\mathscr{G})\).
 \end{proof}
 \fi 
-\begin{theorem}[uniqueness of product measures]
+\begin{theorem}[\ifcolor\color{red}\textbf{uniqueness of product measures}\color{black}\else uniqueness of product measures\fi]
     Assume that \(\mathscr{A}=\sigma(\mathscr{F})\) and \(\mathscr{B}=\sigma(\mathscr{G})\). If
     \begin{itemize}
         \item \(\mathscr{F}, \mathscr{G}\) is \(\cap\)-stable (stable under finite intersections),
@@ -113,7 +113,7 @@ We can now finally construct the \(n\)-dimensional Lebesgue measure:
 
 Great. The next step is to see how we can integrate w.r.t. to \(\mu\times\nu\). The following two results are often stated together as the Fubini or Fubini-Tonelli theorem. 
 
-\begin{theorem}[Tonelli]    \label{theorem:Tonelli}
+\begin{theorem}[\ifcolor\color{red}\textbf{Tonelli}\color{black}\else Tonelli\fi]    \label{theorem:Tonelli}
     Let \((X,\mathscr{A},\mu)\) \((Y,\mathscr{B},\nu)\) be \(\sigma\)-finite measure spaces and let \(u:X\times Y\rightarrow[0,\infty]\) be \(\mathscr{A}\otimes\mathscr{B}\)-measurable. Then
     \begin{enumerate}[label=(\roman*)]
         \item \(x\mapsto u(x,y), \ y\mapsto u(x,y)\) are \(\mathscr{A}\)-resp. \(\mathscr{B}\)-measurable for fixed \(y\) resp. \(x\);
@@ -122,7 +122,7 @@ Great. The next step is to see how we can integrate w.r.t. to \(\mu\times\nu\). 
     \end{enumerate}
 \end{theorem}
 The following corollary really extends Tonelli to not necessarily positive functions.
-\begin{corollary}[Fubini's theorem] \label{corollary:fubini_theorem}
+\begin{corollary}[\ifcolor\color{red}\textbf{Fubini's theorem}\color{black}\else  Fubini's theorem\fi] \label{corollary:fubini_theorem}
     Let \((X,\mathscr{A},\mu)\) \((Y,\mathscr{B},\nu)\) be \(\sigma\)-finite measure spaces and let \(u:X\times Y\rightarrow\bar{\mathbb{R}}\) be \(\mathscr{A}\otimes\mathscr{B}\)-measurable. If at least one of the three integrals
     \begin{align*}
         \int\limits_{X\times Y}|u|d(\mu\times\nu), \int_Y\int_X |u(x,y)|\mu(dx)\nu(dy), \int_X\int_Y |u(x,y)|\nu(dy)\mu(dx)
