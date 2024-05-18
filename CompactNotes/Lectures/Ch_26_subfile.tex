@@ -58,7 +58,7 @@ Recall that a subset \(\mathcal{C}\) of a vector space is called \emph{convex} i
     u,w\in\mathcal{C} \rightarrow tu + (1-t)w\in\mathcal{C} \ \forall t\in(0,1).
 \end{align*}
 The following is one of the key properties of the Hilbert space
-\begin{theorem}[projection theorem]
+\begin{theorem}[\ifcolor\color{red}\textbf{projection theorem}\color{black}\else projection theorem\fi]
     Assume \(\mathcal{H}\) is a Hilbert space and \(\mathcal{C}\subset H\) is a closed convex subset. Then for every \(u\in H\) there is a unique 
     \(u_0\in\mathcal{C}\) (\emph{minimizer}) s.t.
     \begin{align*}
@@ -155,7 +155,7 @@ and even more, we have:
     Therefor \(U\) is unitary.
 \end{corollary}
 \begin{corollary}
-    Up to a unitary isomorphism, there is only one infinite dimensional separable Hilbert space, namely, \(l^2\).
+    Up to a unitary isomorphism, there is only one infinite dimensional separable Hilbert space, namely, \(l^2\). Recall a unitary isomorphism is a bijective map between spaces, \(U:H_1\rightarrow H_2\) s.t. \(\langle Ux, Uy\rangle_{H_2} = \langle x,y\rangle_{H_1}\).
 \end{corollary}
 
 \section{Dual spaces \tiny{(26, \cite{schilling2017measures})}}
@@ -168,29 +168,29 @@ and using that the sets \(\{j:(u_i,v_j)\neq 0\}\) are countable proove the follo
 
 \emph{Claim}: Any two orthonormal bases in a Hilbert space have the same cardinality.
 \begin{example}[classical Fourier series]
-    Consider \(\mathcal{H} = L^2(0,2\bar{\mu}) = L^2((0,2\bar{\mu}), d\lambda)\). For \(n\in\mathbb{Z}\), define
-    \(e_n(t) = \frac{1}{\sqrt{2}\bar{\mu}}e^{int}\). By a version of Weierstrass' theorem it is known that 
+    Consider \(\mathcal{H} = L^2(0,2\pi) = L^2((0,2\pi), d\lambda)\). For \(n\in\mathbb{Z}\), define
+    \(e_n(t) = \frac{1}{\sqrt{2}\pi}e^{int}\). By a version of Weierstrass' theorem it is known that 
     \(\text{span}\{e_n\}_{n\in\mathbb{Z}}\) is dense in the supremum-norm in 
     \begin{align*}
-        \left\{f\in C[0,2\bar{\mu}]: f(0)=f(2\bar{\mu})\right\}.
+        \left\{f\in C[0,2\pi]: f(0)=f(2\pi)\right\}.
     \end{align*}
-    As \(C[0,2\bar{\mu}]\) is dense in \(L^2(0,2\bar{\mu})\), from this one can deduce that \(\text{span}\{e_n\}_{n\in\mathbb{Z}}\) is dense
-    in \(L^2(0,2\bar{\mu})\). We then see that \((e_n)_{n\in\mathbb{Z}}\) is an orthonormal basis in \(L^2(0,2\bar{\mu})\). We therefor
+    As \(C[0,2\pi]\) is dense in \(L^2(0,2\pi)\), from this one can deduce that \(\text{span}\{e_n\}_{n\in\mathbb{Z}}\) is dense
+    in \(L^2(0,2\pi)\). We then see that \((e_n)_{n\in\mathbb{Z}}\) is an orthonormal basis in \(L^2(0,2\pi)\). We therefor
     have a unitary isomorphism
     \begin{align*}
-        l^2(\mathbb{Z}) \xrightarrow[ ]{\sim}L^2(0,2\bar{\mu}), (c_n)_{n\in\mathbb{Z}} \mapsto \sum\limits_{n\in\mathbb{Z}}c_n e_n.
+        l^2(\mathbb{Z}) \xrightarrow[ ]{\sim}L^2(0,2\pi), (c_n)_{n\in\mathbb{Z}} \mapsto \sum\limits_{n\in\mathbb{Z}}c_n e_n.
     \end{align*}
-    The Fourier coefficients at \(f\in L^2(0,2\bar{\mu})\) are denoted by \(\hat{f}(n)\), so 
+    The Fourier coefficients at \(f\in L^2(0,2\pi)\) are denoted by \(\hat{f}(n)\), so 
     \begin{align*}
-        \hat{f}(n) = \frac{1}{\sqrt{2\bar{\mu}}}\int_{0}^{2\bar{\mu}} f(t) e^{-int}dt,
+        \hat{f}(n) = \frac{1}{\sqrt{2\pi}}\int_{0}^{2\pi} f(t) e^{-int}dt,
     \end{align*}
     more practically
     \begin{align*}
-        \hat{f}(n) = \frac{1}{\sqrt{2\bar{\mu}}}\int_{[0,2\bar{\mu})} f(t) e^{-int}d\lambda(t).
+        \hat{f}(n) = \frac{1}{\sqrt{2\pi}}\int_{[0,2\pi)} f(t) e^{-int}d\lambda(t).
     \end{align*}
-    Therefor we have \(f=\sum_{n\in\mathbb{Z}} \hat{f}(n)e_n\) in \(L^2(0,2\bar{\mu})\).
+    Therefor we have \(f=\sum_{n\in\mathbb{Z}} \hat{f}(n)e_n\) in \(L^2(0,2\pi)\).
 
-    \emph{Fact}: For every \(f\in L^2(0,2\bar{\mu})\), we have \(\frac{1}{\sqrt{2\bar{\mu}}} \sum_{n=-N}^{N} \hat{f}(n)e^{int}
+    \emph{Fact}: For every \(f\in L^2(0,2\pi)\), we have \(\frac{1}{\sqrt{2\pi}} \sum_{n=-N}^{N} \hat{f}(n)e^{int}
     \xrightarrow[N\rightarrow\infty]{ } f(t)\) for a.e. t.
 \end{example}
 \fi 
@@ -205,7 +205,7 @@ and using that the sets \(\{j:(u_i,v_j)\neq 0\}\) are countable proove the follo
 \end{lemma}
 
 If (i)-(iii) are satisfied, then \(f\) is called a \emph{bounded linear functional}. The constant \(c\) in (iii) is denoted by \(||f||\).
-We have \(||f||=\sup_{x\neq0} \frac{|f(x)|}{||x||} = \sup_{||x||=1} |f(x)| = \sup_{||x||\leq 1}|f(x)|\).
+We have \(||f||=\sup_{x\neq0} \frac{|f(x)|}{||x||} = \sup_{||x||=1} |f(x)| = \sup_{||x||\leq 1}|f(x)|\). A bounded linear functional is a generalization of a bounded linear operator: \(O:V\rightarrow V'\), where \(V'\) is \(\mathbb{R}\) or \(\mathbb{C}\). 
 
 \begin{proposition}
     For every normed vector space \(V\) over \(K=\mathbb{R}\) or \(K=\mathbb{C}\), the bounded linear functionals on \(V\) form a 
@@ -218,7 +218,7 @@ We have \(||f||=\sup_{x\neq0} \frac{|f(x)|}{||x||} = \sup_{||x||=1} |f(x)| = \su
     \end{align*}
     When we study/use normed spaces, it is often important to understand the dual spaces. For Hilbert spaces this is particularly easy:
 \end{remark}
-\begin{theorem}[Riesz]
+\begin{theorem}[\ifcolor\color{red}\textbf{Riesz}\color{black}\else Riesz\fi]
     Assume \(\mathcal{H}\) is a Hilbert space. Then every \(f\in\mathcal{H}^*\) has the form 
     \begin{align*}
         f(x) = (x,y),
@@ -232,6 +232,6 @@ the symbols \(\bar{x}\) for \(x\in\mathcal{H}\), with the linear structure and i
     \bar{x} + \bar{y} = \overline{x+y}, c\cdot \bar{x} = \overline{\bar{c}x}, (\bar{x}, \bar{y}) = \overline{(x,y)} = (y,x).
 \end{align*}
 \begin{corollary}
-    For every Hilbert space \(\mathcal{H}\), we have an isometric isomorphism \(\bar{\mathcal{H}} \xrightarrow[ ]{ \sim} \mathcal{H}^*\), 
+    For every Hilbert space \(\mathcal{H}\), we have an isometric isomorphism (unitary isomorphism/transformation) \(\bar{\mathcal{H}} \xrightarrow[ ]{ \sim} \mathcal{H}^*\), 
     \(\bar{x}\mapsto (\cdot, x)\).
 \end{corollary}
