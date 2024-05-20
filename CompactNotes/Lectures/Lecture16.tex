@@ -82,7 +82,7 @@ Hence, \(X\) has a maximal element \((W,F)\) by Zorn's lemma. If \(W\neq V\), th
     Assume \(V\) is a normed space and \(x\in V, x\neq0\). Then there is a \(F\in V^*\) s.t. \(||F||=1\) and \(F(x) = ||x||\).
 \end{corollary}
 
-Such an \(F\) is called a \emph{supporting functional at x}.
+Such an \(F\) is called a \colordefinition{supporting functional at x}.
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.4]{../Figs/hanah_banach1.png}
@@ -99,16 +99,16 @@ of \(V^{**}\).
     A normed space \(V\) is called reflexive if \(V^{**}=V\).
 \end{definition}
 \begin{remark}
-    This is stronger than requiring \(V\backsimeq V^{**}\).
-\end{remark}
-\begin{remark}
-    Every Hilbert space \(\mathcal{H}\) is reflexive. Indeed, \(\mathcal{H}^*=\bar{\mathcal{H}}\). By Riesz' theorem every bounded linear 
-    functional \(f\) on \(\bar{\mathcal{H}}\) has the form
+    This is stronger than requiring \(V\backsimeq V^{**}\). And:
+    \begin{enumerate}[label=(\roman*)]
+    \item Every finite dimensional normed vector space \(V\) is reflexive for dimension reasons: \(\dim V^{**} = \dim V^*=\dim V\).
+    \item Every Hilbert space \(\mathcal{H}\) is reflexive. Indeed, \(\mathcal{H}^*=\overline{\mathcal{H}}\). By Riesz' theorem every bounded linear 
+    functional \(f\) on \(\overline{\mathcal{H}}\) has the form
     \begin{align*}
-        f(\bar{x}) = (\bar{x}, \bar{y}) = (y,x),
+        f(\overline{x}) = (\overline{x}, \overline{y}) = (y,x),
     \end{align*}
     for some \(y\in\mathcal{H}\), which exactly means that \(f=y\) in \(\mathcal{H}^{**}\).
-
-    As we will see later, the spaces \(\mathcal{L}^{p}(X,d\mu)\), with \(\mu\) \(\sigma\)-finite and \(1<p<\infty\), are reflexive. The spaces
-    \(\mathcal{L}^{1}(X, d\mu)\) and \(\mathcal{L}^{\infty}(X,\mu)\) are usually not reflexive.
+    \end{enumerate}
 \end{remark}
+As we will see later, the spaces \(\mathcal{L}^{p}(X,d\mu)\), with \(\mu\) \(\sigma\)-finite and \(1<p<\infty\), are reflexive. The spaces
+\(\mathcal{L}^{1}(X, d\mu)\) and \(\mathcal{L}^{\infty}(X,\mu)\) are usually not reflexive.
