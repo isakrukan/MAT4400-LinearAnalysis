@@ -58,7 +58,7 @@ Hence, \(X\) has a maximal element \((W,F)\) by Zorn's lemma. If \(W\neq V\), th
 \end{proof}
 \fi 
 \begin{theorem}[\ifcolor\color{red}\textbf{Hahn-Banach}\color{black}\else Hahn-Banach\fi]
-    Assume \(V\) is a real or complex vector space, \(p\) a seminorm on \(V_0\), \(V_0\subset\), and \(f\) a linear functional on \(V_0\) s.t.
+    Assume \(V\) is a real or complex vector space, \(p\) a seminorm on \(V\), \(V_0\subset V\), and \(f\) a linear functional on \(V_0\) s.t.
     \begin{align*}
         |f(x)|\leq p(x) \ \forall x\in V_0.
     \end{align*}
@@ -75,6 +75,9 @@ Hence, \(X\) has a maximal element \((W,F)\) by Zorn's lemma. If \(W\neq V\), th
     We apply the previous theorem to \(p(x)=||f||\cdot ||x||\).
 \end{proof}
 \fi 
+\begin{theorem}[\colortheorem{Hahn-Banach (dense subsets)}]
+    Assume \(\mathcal{H}_0\) is a dense subset of a normed vector space \(\mathcal{H}\) and that \(T:\mathcal{H}_0\rightarrow Y\) is a bounded linear operator (where \(Y\) is a complete, normed vector space), then there is a unique extension of \(T\) to \(T':\mathcal{H}\rightarrow Y\).
+\end{theorem}
 \begin{corollary}
     Assume \(V\) is a normed space and \(x\in V, x\neq0\). Then there is a \(F\in V^*\) s.t. \(||F||=1\) and \(F(x) = ||x||\).
 \end{corollary}
@@ -107,5 +110,5 @@ of \(V^{**}\).
     for some \(y\in\mathcal{H}\), which exactly means that \(f=y\) in \(\mathcal{H}^{**}\).
 
     As we will see later, the spaces \(\mathcal{L}^{p}(X,d\mu)\), with \(\mu\) \(\sigma\)-finite and \(1<p<\infty\), are reflexive. The spaces
-    \(\mathcal{L}'(X, d\mu)\) and \(\mathcal{L}^{\infty}(X,\mu)\) are usually not reflexive.
+    \(\mathcal{L}^{1}(X, d\mu)\) and \(\mathcal{L}^{\infty}(X,\mu)\) are usually not reflexive.
 \end{remark}

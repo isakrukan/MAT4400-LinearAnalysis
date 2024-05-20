@@ -8,17 +8,17 @@ integrable functions is somewhat limited, see theorem \ref{theorem:12_9}
     \begin{enumerate}[label=(\roman*)]
         \item Let \((u_n)_{n\in\mathbb{N}}\subset \mathcal{L}^{1}(\mu)\) be s.t. \(u_1\leq u_2 \leq ...\) with limit 
         \(u\eqdef \sup_{n\in\mathbb{N}}u_n = \lim_{n\rightarrow\infty} u_n\). Then \(u\in\mathcal{L}^{1}(\mu)\) \textbf{iff} 
-        \begin{eqnarray*}
+        \begin{align*}
             \sup\limits_{n\in\mathbb{N}}\int u_nd\mu <+\infty,
-        \end{eqnarray*}
+        \end{align*}
         in which case
-        \begin{eqnarray*}
+        \begin{align*}
             \sup\limits_{n\in\mathbb{N}}\int u_n d\mu = \int\sup\limits_{n\in\mathbb{N}}u_n d\mu.
-        \end{eqnarray*}
+        \end{align*}
         \item Same thing only with a decreasing sequence ...\(>-\infty\) in which case
-        \begin{eqnarray*}
+        \begin{align*}
             \inf\limits_{n\in\mathbb{N}}\int u_n d\mu = \int\inf\limits_{n\in\mathbb{N}}u_n d\mu.
-        \end{eqnarray*}
+        \end{align*}
     \end{enumerate}
 \end{theorem}
 
@@ -88,13 +88,13 @@ Consider only \(\left(X,\mathscr{A},\mu\right) = \left(\mathbb{R},\mathscr{B}(\m
     coincide and are finite. Their common value is called the \textbf{Riemann integral} of \(u\) and denoted by 
     \((R)\int\limits_{a}^{b}u(x)dx\) or \(\int\limits_{a}^{b}u(x)dx\).
 \end{definition}
-\begin{theorem}
+\begin{theorem}[\colortheorem{Lebesque \(\rightarrow \) Riemann integrability}]
     Let \(u:[a,b]\rightarrow\mathbb{R}\) be a \textbf{measurable} and \textbf{Riemann integrable} function. Then
     \begin{align}
         u\in\mathcal{L}^{1}(\lambda) \text{ and } \int\limits_{[a,b]}ud\lambda = \int\limits_{a}^{b}u(x)dx.
     \end{align}
 \end{theorem}
-\begin{theorem} \label{theorem:12_9}
+\begin{theorem}[\colortheorem{Riemann integrability}] \label{theorem:12_9}
     Let \(u:[a,b] \rightarrow \mathbb{R}\) be a bounded function, it is Riemann integrable \textbf{iff} the points in \(\left(a,b\right)\) where
     \(u\) is discontinuous are a (subset of) Borel measurable null set.
 \end{theorem}

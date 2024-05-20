@@ -31,7 +31,7 @@ For the proof we need two auxiliary results.
     \begin{align*}
         0\leq \rho_i\leq 1, \ \text{supp}(\rho_i)\subset U_i, \ \sum\limits_{i=1}^{n}\rho_i(x)=1 \ \forall x.
     \end{align*}
-    Every such collection of functions is called \textbf{a partition of unity subordinate} to \(U\).
+    Every such collection of functions is called a \colordefinition{partition of unity subordinate } to \(U\).
 \end{lemma}
 \ifdetailed
 \begin{proof}
@@ -222,7 +222,11 @@ For the proof we need two auxiliary results.
 \end{proof}
 \fi
 \begin{remark}
-    Without separability, the uniqueness is not always true. It can be checked that the measure we constructed in the proof has the following properties:
+    Without separability, the uniqueness is not always true. It can be checked that the measure we constructed in the proof,
+    \begin{align*}
+        \mu(U) \eqdef \sup\left\{\phi(f): 0\leq f\leq 1, \text{supp}(f) \subset U\right\},
+    \end{align*}
+    has the following properties:
     \begin{enumerate}[label=(\roman*)]
         \item \(\mu(K)<\infty\) \(\forall\) compact \(K\subset X\);
         \item \(\mu\) is outer regular \((\mu(A)=\inf_{\substack{A\subset U\\ U\text{ open}}} \mu(U))\);
@@ -231,12 +235,12 @@ For the proof we need two auxiliary results.
             \mu(U) = \sup_{\substack{K\subset U \\ K \text{ compact}}} \ \forall \text{ open }U.
         \end{align*}
     \end{enumerate}
-    Such measures are called \textbf{Radon measures}. It can be shown that the uniqueness holds within the class of Radon measures.
+    Such measures are called \colordefinition{Radon measures}. It can be shown that the uniqueness holds within the class of Radon measures.
 \end{remark}
 \subsection*{Dual of \(\boldsymbol{C(X)}\)}
 As an application of the Riesz-Markow Theorem we will describe \(C(X)^*\) in terms of measures for compact metric spaces \((X,d)\).
 
-Denote by \(M(X)\) the space of complex Borel measures on \(X\). For every \(\nu\in M(X)\) we want to make sense of \(\int_Xfd\nu\) for \(f\in C(X)\). It is enough to consider finite signes measures, as then we can define
+Denote by \(M(X)\) the space of complex Borel measures on \(X\). For every \(\nu\in M(X)\) we want to make sense of \(\int_Xfd\nu\) for \(f\in C(X)\). It is enough to consider finite signed measures, as then we can define
 \begin{align*}
     \int_Xfd\nu = \int_Xfd(\text{Re}\nu) + i\int_X fd(\text{Im}\nu).
 \end{align*}
