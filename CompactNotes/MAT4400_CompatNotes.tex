@@ -155,6 +155,14 @@
     #1%
   \fi
 }
+
+\newcommand{\important}[1]{%
+  \ifcolor
+    \color{blue}\textbf{#1}\color{black}%
+  \else
+    #1%
+  \fi
+}
 \colortrue
 % \colorfalse
 
@@ -208,6 +216,8 @@
   \subfile{Lectures/Lecture26.tex}
   \subfile{Lectures/Lecture27.tex}
   \subfile{Lectures/Lecture28.tex}
+  \subfile{Lectures/Lecture29.tex}
+  \subfile{Lectures/Lecture30.tex}
   \subfile{TipsnTricks.tex}
   \subfile{Questions.tex}
 \end{multicols}

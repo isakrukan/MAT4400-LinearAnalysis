@@ -1,0 +1,57 @@
+\section{Random variables and stochastic processes}
+Assume \((X,\mathscr{B}, \mathbb{P})\) is a proability measure space. If \(Y,\mathscr{C}\) is a measurable space, a measurable map \(f:X\rightarrow Y\) is called a \colordefinition{random variable}. For \(A\in\mathscr{C}\), define 
+\begin{align*}
+    \mathbb{P}(f\in A) \overset{\text{def}}{=} \mathbb{P}(f^{-1}(A)) = (f_{*}\mathbb{P})(A), 
+\end{align*}
+the probability that \(f\) takes a value in A. The measure \(f_{*}\mathbb{P}\) on \((Y,\mathscr{C})\) is called the \colordefinition{probability distribution} of \(f\).
+\begin{definition}
+    A \colordefinition{stochastic process} is a collection \((f_t:X\rightarrow Y)_{t\in T}\) of random variables.
+\end{definition}
+\(T\) stands for "time" and is typically \(\mathbb{Z}, \mathbb{Z}_{+},\mathbb{R}\) or \(\mathbb{R}_{+}\). 
+
+Given a different \(t_1,..., t_n\in T\), we can consider the \(\textbf{joint distribution}\) of \(f_{t_1}, ..., f_{t_n}\), the measure
+\begin{align*}
+    \mu_{t_1, ..., t_n} = (f_{t_1}\times ...\times f_{t_n})_{*}\mathbb{P} \text{ on } (Y^n,\mathscr{C}^n).
+\end{align*}
+When is a collection of measures defined by a sochastic process?
+\begin{theorem}
+    Assume \(T\) is a set and for all different elements \(t_1, ..., t_n\in T\) we are given a Borel probability measure \(\mu_{t_1}, ..., \mu_{t_n}\) on \(\mathbb{R}^n\) s.t. 
+    \quad
+    \begin{enumerate}[label=(\roman*)]
+        \item If \(\sigma\in \delta_n\) and \(A_1, ..., A_n\in\mathscr{B}(\mathbb{R}^n)\), then 
+        \begin{align*}
+            \mu_{t_1, ..., t_n} (A_1\times ...\times A_n) = \mu_{t_{\sigma(a)}, ..., t_{\sigma(n)}}(A_{\sigma(1)}\times ...\times A_{\sigma(n)});
+        \end{align*}
+        \item \(\mu_{t_1}, ..., t_n, s_1, ..., s_m(A_1\times ...\times A_n\times\underbrace{\mathbb{R}\times ...\times\mathbb{R}}_{m\text{ times}}) = \mu_{t_1, ..., t_n}(A_1\times ...\times A_n)\).
+    \end{enumerate}
+    Then there is a probability measure space \((X,\mathscr{B},\mathbb{P})\) and a stochastic process \((f_t:X\rightarrow\mathbb{R})_{t\in T}\) s.t. \(\mu_{t_1, ..., t_n}\) is the joint distribution of \(f_{t_1}, ..., f_{t_n}\).
+\end{theorem}
+\begin{remark}
+    Instead of \(\mathbb{R}\) we could have taken any complete sperable metric space, as then the measure \(\mu_{t_1, ..., t_n}\) are regular. Or we could just require the measures \(\mu_{t_1, ..., t_n}\) to be regular. 
+\end{remark}
+
+Random varaibles \(f_1,...,f_n:X\rightarrow\mathbb{R}\) are called \colordefinition{independent} if 
+\begin{align*}
+    \mathbb{P}(f_1\in A_1, ..., f_n\in A_n) = \mathbb{P}(f_1\in A_i) ... \mathbb{P}(f_n\in A_n).
+\end{align*}
+For all \(A_1,...,A_n\in\mathscr{B}(\mathbb{R})\). In other words, if \(\mu_i\) is the probability distribution of \(f_i\), then the joint distribution of \(f_1,...,f_n\) is \(\mu_1\times ...\times\mu_n\).
+
+For such measures the above theorem gives the following result: if we are given a Borel probability measure \(\mu_t\) on \(\mathbb{R}\) for every \(t\in T\), then we get a unique measure \(\mu=\prod_{t\in T}\mu_t\) on \(\mathbb{R}^T\) s.t. \((\overline{\mu}_{T,F})_{*}\mu=\prod_{t\in F}\mu_t\) \(\forall\) finite \(F\subset T\).
+\begin{example}
+    Consider the process of tossing a coin. Write \(0\) for tail and \(1\) for head. We can model the process as follows
+    \begin{align*}
+        X=\prod\limits_{n=0}^{\infty}\{0,1\}, \ \mathbb{P}=\prod\limits_{n=0}^{\infty}\nu, 
+    \end{align*}
+    where \(\nu=\frac{1}{2}\int_0+\frac{1}{2}\int_1\),
+    \begin{align*}
+        f_n :X\rightarrow \{ 0,1 \}, \ f_n(\underline{x}) = x_n,
+    \end{align*}
+    \(f_n\) is the result of \(n\)-tosses.
+\end{example}
+While the Kolmogorov extension theorem requires some regularity, it turns out that infinite products of probability measures always exist:
+\begin{theorem}
+    Assume \(((X_i,\mathscr{B}_i,\mu_i))_{i\in I}\) is a collection of probability measure spaces. Consider \(X=\prod_{i\in I}X_i\), \(\mathscr{B}=\prod_{i\in I}\mathscr{B}_i\). Then there exists a unique measaure \(\mu\) on \((X,\mathscr{B})\) s.t. 
+    \begin{align*}
+        (\overline{\mu}_{I,F})_{*}\mu = \prod\limits_{i\in F}\mu_i \ \forall \text{ finite } F\subset I.
+    \end{align*}
+\end{theorem}

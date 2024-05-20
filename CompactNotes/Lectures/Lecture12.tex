@@ -9,6 +9,12 @@
         \text{supp}(f) \eqdef \left\{x\in X:f(x)\neq0\right\}.
     \end{align*}
 \end{definition}
+\ifcolor
+\color{blue}Dense subsets of \(\mathcal{L}^p\):\color{black}
+\fi
+\begin{theorem}
+    Let \(\mu\) be a finite measure on \(X,d,\mathscr{B}(X)\). Then \(C_b(X)\subset \mathcal{L}^p(\mu)\) is dense. 
+\end{theorem}
 \begin{theorem}
     Assume \(X,d\) is a metric space and \(\mu\) is a Borel measure that is finite on every ball \(1\leq p<\infty\). Then the space of 
     bounded continuous functions with bounded support is dense in \(\mathcal{L}^p(X,d\mu)\). Where bounded support means that \(f\) vanishes outside
@@ -94,7 +100,7 @@ quadratic mean.
 \begin{align*}
     \mu\left(\left\{x:\vert f_n(x)-f(x)\vert \geq \epsilon\right\}\right) \xrightarrow[n\rightarrow \infty]{ } 0.
 \end{align*}
-\begin{theorem}[Lemma 22.4 in the book?]
+\begin{theorem}
     Assume \(\left(X, \mathscr{B}, d\mu\right)\) is a measure space, \(1\leq p <\infty\), \(f_n,f:X\rightarrow \mathbb{C}\) are measurable 
     functions. Then
     \begin{enumerate}[label=(\roman*)]

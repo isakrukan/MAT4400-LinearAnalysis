@@ -14,11 +14,18 @@ Assume \(\mathcal{H}\) is a vector space over \(\mathbb{C}\).
     It is called an \textbf{inner product}, or a scalar product, if instead of (iii) the map is positive definite; \((u,v)>0\). This definition
     also works for \(\mathbb{R}\) instead of \(\mathbb{C}\).
 \end{definition}
-\textbf{Cauchy-Schwartz inequality} If \((\cdot, \cdot)\) is a pre-inner product, then \(\vert (u,v)\vert \leq (u,u)^{1/2}(v,v)^{1/2}\).
+\begin{definition}[\colordefinition{adjoint operator}]
+    Assume \(T:\mathcal{H}_1\rightarrow \mathcal{H}_2\) is a linear operator. The adjoint operator \(T^*\) is a linear operator \(T^*:\mathcal{H}_2\rightarrow \mathcal{H}_1\) s.t. for all \(h_1 \in\mathcal{H}_1\) and \(h_2\in\mathcal{H}_2\),
+    \begin{align*}
+        \langle Th_1,h_2\rangle_{\mathcal{H}_2} = \langle h_1, T^* h_2\rangle_{\mathcal{H}_1}.
+    \end{align*}
+\end{definition}
+\begin{lemma}[\important{Cauchy-Schwartz inequality}] If \((\cdot, \cdot)\) is a pre-inner product, then \(\vert (u,v)\vert \leq (u,u)^{1/2}(v,v)^{1/2}\).
+\end{lemma}
 \begin{corollary}
     Assume we have a seminorm \(||u||\eqdef (u,u)^{1/2}\). It is a norm iff \((\cdot,\cdot)\) is an inner product.
 \end{corollary}
-\begin{definition}[Hilbert space]
+\begin{definition}[\colordefinition{Hilbert space}]
     A Hilbert space is a complex vector space \(\mathcal{H}\) with an inner product \((\cdot,\cdot)\) s.t. \(\mathcal{H}\) is complete with respect to the norm
     \(||u|| = (u,u)^{1/2}\).
 \end{definition}
@@ -64,6 +71,7 @@ The following is one of the key properties of the Hilbert space
     \begin{align*}
         ||u-u_0|| = d(u,\mathcal{C})(=\inf\limits_{x\in\mathcal{C}} ||u-x||).
     \end{align*}
+    This minimizer \(u_0 = P_{\mathcal{C}}u\) is called the \colordefinition{orthogonal projection }of \(u\) onto \(\mathcal{C}\).
 \end{theorem}
 \ifdetailed 
 \begin{proof}
@@ -85,12 +93,12 @@ The following is one of the key properties of the Hilbert space
 \end{proof}
 \fi 
 \section{Orthogonal Projections \tiny{(26, \cite{schilling2017measures})}}
-For a Hilbert space \(\mathcal{H}\) and a subset \(A\subset H\), let
+For a Hilbert space \(\mathcal{H}\) and a subset \(A\subset H\), the following is the \colordefinition{orthogonal complement } of \(A\):
 \begin{align*}
     A^{\bot} \eqdef \left\{x\in H: x\bot y\ \forall y \in A\right\},
 \end{align*}
 where \(x\bot y\) means that \((x,y) = 0\). \(A^{\bot}\) is a closed subspace of \(\mathcal{H}\).
-\begin{proposition}
+\begin{proposition}[\important{decomposition of Hilbert spaces}]
     Assume \(\mathcal{H}_0\) is a closed subspace of a Hilbert space \(\mathcal{H}\). Then every \(u\in H\) uniquely decomposes as
     \begin{align*}
         u = u_0 + u_1, \text{ with } u_0\in H \text{ and } u_1 \in \mathcal{H}_{0}^{\bot}.
@@ -99,17 +107,17 @@ where \(x\bot y\) means that \((x,y) = 0\). \(A^{\bot}\) is a closed subspace of
 \end{proposition}
 
 For a closed subspace \(\mathcal{H}_0\subset \mathcal{H}\), consider the map \(P:H\rightarrow \mathcal{H}_0\) s.t.
-\(Pu\in \mathcal{H}_0\) is the unique element satisfying \(u-Pu = H_{0}^{\bot}\). The operator \(P\) is linear. It is also contractive, meaning that
-\(||Pu||\leq ||u||\), since \(||u||^2 = ||Pu||^2 + ||u-Pu||^2\). It is called the orthogonal projection onto \(\mathcal{H}_0\).
+\(Pu\in \mathcal{H}_0\) is the unique element satisfying \(u-Pu \in H_{0}^{\bot}\). The operator \(P\) is linear. It is also contractive, meaning that
+\(||Pu||\leq ||u||\), since \(||u||^2 = ||Pu||^2 + ||u-Pu||^2\). It is called the \colordefinition{orthogonal projection }onto \(\mathcal{H}_0\).
 
-If \(\mathcal{H}_0\) is finite dimensional with an orthonormal basis \(u_1, ..., u_n\) then 
+If \(\mathcal{H}_0\) is \important{finite dimensional with an orthonormal basis } \(u_1, ..., u_n\) then 
 \begin{align*}
     Pu = \sum\limits^{n}_{k=1} (u,u_k)u_k.
 \end{align*}
 Orthonormal bases can be defined for arbitrary Hilbert spaces. 
 
 \begin{definition}[\colordefinition{orthonormal system}]
-    An orthonormal system in \(\mathcal{H}\) is a collection of vectors \(u_i\in H \) (\(i\in I\))s.t.
+    An orthonormal system in \(\mathcal{H}\) is a collection of vectors \(u_i\in \mathcal{H} \) (\(i\in I\))s.t.
     \begin{align*}
         (u_i,u_j) = \delta_{ij} \ \forall i,j\in I.
     \end{align*}
@@ -121,13 +129,15 @@ Orthonormal bases can be defined for arbitrary Hilbert spaces.
     \(G\subset\mathcal{H}\).
 \end{definition}
 \begin{theorem}
-    Every Hilbert space \(\mathcal{H}\) has an orthonormal basis. If \(\mathcal{H}\) is separable, then there is a countable orthonormal basis.
+    \important{Every Hilbert space \(\mathcal{H}\) has an orthonormal basis}. If \(\mathcal{H}\) is separable, then there is a countable orthonormal basis.
 \end{theorem}
 \begin{proposition}
-    Assume \(\{u_i\}_{i\in I}\) is an orthonormal system in a Hilbert space H. Take \(u\in\mathcal{H}\). Then 
+    Assume \(\{u_i\}_{i\in I}\) is an orthonormal system in a Hilbert space \(\mathcal{H}\) and let \(u\in\mathcal{H}\). Then 
     \begin{enumerate}[label=(\roman*)]
         \item \emph{Bessel's inequality}: \(\sum_{i\in I} |(u,u_i)|^2\leq ||u||^2\), in particular, \(\{i:(u,u_i)\neq 0\}\) is countable.
-        \item \emph{Parseval's identity}: If \(\{u_i\}_{i\in I }\) is an orthonormal basis, then \\ \(\sum_{i\in I} |(u,u_i)|^2 = ||u||^2\).
+        \item \important{\emph{Parseval's identity}}: If \(\{u_i\}_{i\in I }\) is an orthonormal basis, then \\ \(\sum_{i\in I} |(u,u_i)|^2 = ||u||^2\).
+        \item \(\bigcup\limits_{N=1}^{\infty}E(N)\) is \important{dense } in \(\mathcal{H}\) where \(E(N) = \text{span}\{e_1, ..., e_N\}\)
+        \item \(g = \sum\limits_{n=1}^{\infty}\langle g, e_n\rangle e_n \ \forall g\in \mathcal{H}\). (\important{Fourier coefficients})
     \end{enumerate}
 \end{proposition}
 
@@ -155,7 +165,7 @@ and even more, we have:
     Therefor \(U\) is unitary.
 \end{corollary}
 \begin{corollary}
-    Up to a unitary isomorphism, there is only one infinite dimensional separable Hilbert space, namely, \(l^2\). Recall a unitary isomorphism is a bijective map between spaces, \(U:H_1\rightarrow H_2\) s.t. \(\langle Ux, Uy\rangle_{H_2} = \langle x,y\rangle_{H_1}\).
+    Up to a unitary isomorphism, there is \important{only one infinite dimensional separable Hilbert space}, namely, \(l^2\). Recall a unitary isomorphism is a bijective map between spaces, \(U:H_1\rightarrow H_2\) s.t. \(\langle Ux, Uy\rangle_{H_2} = \langle x,y\rangle_{H_1}\).
 \end{corollary}
 
 \section{Dual spaces \tiny{(26, \cite{schilling2017measures})}}
@@ -204,7 +214,7 @@ and using that the sets \(\{j:(u_i,v_j)\neq 0\}\) are countable proove the follo
     \end{enumerate}
 \end{lemma}
 
-If (i)-(iii) are satisfied, then \(f\) is called a \emph{bounded linear functional}. The constant \(c\) in (iii) is denoted by \(||f||\).
+If (i)-(iii) are satisfied, then \(f\) is called a \colordefinition{\emph{bounded linear functional}}. The constant \(c\) in (iii) is denoted by \(||f||\).
 We have \(||f||=\sup_{x\neq0} \frac{|f(x)|}{||x||} = \sup_{||x||=1} |f(x)| = \sup_{||x||\leq 1}|f(x)|\). A bounded linear functional is a generalization of a bounded linear operator: \(O:V\rightarrow V'\), where \(V'\) is \(\mathbb{R}\) or \(\mathbb{C}\). 
 
 \begin{proposition}
@@ -226,7 +236,7 @@ We have \(||f||=\sup_{x\neq0} \frac{|f(x)|}{||x||} = \sup_{||x||=1} |f(x)| = \su
     for a uniquely defined \(y\in\mathcal{H}\). Moreover, we have \(||f||=||y||\).
 \end{theorem}
 
-For every Hilbert space \(\mathcal{H}\) we can define the \emph{conjugate Hilbert space} \(\bar{\mathcal{H}}\), which has its elements as 
+For every Hilbert space \(\mathcal{H}\) we can define the \colordefinition{\emph{conjugate Hilbert space }} \(\overline{\mathcal{H}}\), which has its elements as 
 the symbols \(\bar{x}\) for \(x\in\mathcal{H}\), with the linear structure and inner product defined by 
 \begin{align*}
     \bar{x} + \bar{y} = \overline{x+y}, c\cdot \bar{x} = \overline{\bar{c}x}, (\bar{x}, \bar{y}) = \overline{(x,y)} = (y,x).

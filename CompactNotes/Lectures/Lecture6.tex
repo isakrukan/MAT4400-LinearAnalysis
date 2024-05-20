@@ -1,7 +1,7 @@
 \section{Integration of Measurable Functions \protect\\ \tiny{ (9, \cite{schilling2017measures})}}
 Through this chapter $(X,\A,\mu)$ will be some measure space. Recall that $\mathcal M^+(\A)$
 $[\mathcal M^+_{\bar\R}(\A)]$ are the
-$\A$-measurable positive functions and $\mathcal E(\A)$ $[\mathcal E^+_{\bar\R}(\A)]$ are the positive and simple functions.
+$\A$-\colordefinition{measurable positive functions} and $\mathcal E(\A)$ $[\mathcal E^+_{\bar\R}(\A)]$ are the \colordefinition{positive and simple functions}.
 
 The fundamental idea of \textit{Integration} is to measure the area between the graph
 of the function and the abscissa. For positive simple functions $f\in\mathcal E^+(\A)$ in standard 
@@ -74,7 +74,7 @@ sequence $f_n\uparrow u$ of simple functions $f_n\in\E^+(\A).$
     \begin{align}
         \int \sup_{n\in\N} u_nd\mu =\sup_{n\in\N} \int  u_nd\mu.
     \end{align}
-Note we can write $\lim_{n\rightarrow \infty}$ instead of $\sup_{n\in\N}$ as the supremum of an increasing sequence
+Note we can write \important{$\lim_{n\rightarrow \infty}$ instead of $\sup_{n\in\N}$} as the supremum of an increasing sequence
 is its limit. Moreover, this theorem holds in $[0,+\infty]$, so the case $+\infty = +\infty$ is possible. 
 \end{theorem}
 
@@ -97,7 +97,7 @@ is its limit. Moreover, this theorem holds in $[0,+\infty]$, so the case $+\inft
     \end{enumerate}
 \end{proposition}
 
-\begin{corollary}
+\begin{corollary}[\important{sum of positive functions}]
     Let $(u_n)_{n\in\N}\subset \M_{\bar\R}^+(\A).$ Then $\sum_{n=1}^\infty u_n$ is measurable and we have
     \begin{align*}
         \int \sum_{n=1}^\infty u_n d\mu = \sum_{n=1}^\infty \int u_nd\mu
