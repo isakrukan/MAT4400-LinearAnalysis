@@ -2,13 +2,13 @@
 \begin{proposition}
     Assume \(f\in L^1(\mathbb{R}^n)\) and \(x_j f\in L^{1}(\mathbb{R}^n)\) (\(x_j f\) means \(x\mapsto x_j f(x)\)) for some \(1\leq j\leq n\). Then 
     \begin{align*}
-        \partial_j \hat{f} = -i\widehat{x_j F}
+        \partial_j \hat{f} = -i\widehat{x_j f}
     \end{align*}
 \end{proposition}
 \begin{proposition}
     Assume \(f\in C(\mathbb{R}^n)\cap L^{1}(\mathbb{R}^n)\) is such that \(\partial_j f\in L^{1}(\mathbb{R}^n)\). Then 
     \begin{align*}
-        \widehat{\partial_j f} = i x_j f
+        \widehat{\partial_j f} = i x_j \hat{f}
     \end{align*}
 \end{proposition}
 \begin{corollary}
@@ -19,7 +19,7 @@
 \end{corollary}
 \begin{corollary}
     \begin{enumerate}
-        \item If \(x^{\alpha}f\in L^{1}(\mathbb{R}^n)\) for all \(|\alpha|\leq N\), then \(\hat{f}\in C^N(\mathbb{R}^n)\) and \(\partial^{\alpha}\hat{f} = (-i)^{|\alpha|} \widehat{x^{\alpha f}}\).
+        \item If \(x^{\alpha}f\in L^{1}(\mathbb{R}^n)\) for all \(|\alpha|\leq N\), then \(\hat{f}\in C^N(\mathbb{R}^n)\) and \(\partial^{\alpha}\hat{f} = (-i)^{|\alpha|} \widehat{x^{\alpha }}f\).
         \item If \(f\in C^N(\mathbb{R}^n)\) and \(\partial^{\alpha}f\in L^1(\mathbb{R}^n)\) for all \(|\alpha|\leq N\), then \(\widehat{\partial^{\alpha} f} = i^{|\alpha|}x^{\alpha}\hat{f}\) and hence \((1 + |x|)^N \hat{f}(x)\xrightarrow[x\rightarrow\infty]{ } 0.\)
     \end{enumerate}
     (here \(\alpha = (\alpha_1, ..., \alpha_n)\in \mathbb{N}_{0}^{n}\): n-dim positive integers, and \(|\alpha|= \alpha_1 + ...+ \alpha_n\), \(x^{\alpha} = x_{1}^{\alpha_1}\cdot ...\cdot x_{n}^{\alpha_n}\).)
