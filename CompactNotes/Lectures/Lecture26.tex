@@ -90,10 +90,9 @@ Denote by \(L^{1}_{\text{loc}}(\mathbb{R}^n)\) the space of Lebesgue measurable 
 \fi 
 By choosing suitable \(\phi\) we can make \(\phi\ast f\) close to \(f\), as we will see shortly.
 \begin{definition}
-    A positive `modifier' (?) is a function \(\phi\in C_c(\mathbb{R}^n)\) s.t. \(\phi\geq 0\) and \(\int_{\mathbb{R}^n}\phi(x)dx=1\).
+    A positive mollifier is a function \(\phi\in C_c(\mathbb{R}^n)\) s.t. \(\phi\geq 0\) and \(\int_{\mathbb{R}^n}\phi(x)dx=1\).
 \end{definition}
-For a function \(\phi\) on \(\mathbb{R}^n\) and \(\epsilon>0\), define \(\phi^{\epsilon}(x) \eqdef \epsilon^{-n}\phi(x/\epsilon)\). Note that if \(\phi\in L^1(\mathbb{R}^n)\), \(\int_{\mathbb{R}^n}\phi dx=1\), then \(\int_{\mathbb{R}^n}\phi^{\epsilon}=1\).
-\begin{example}[positive modifier]
+\begin{example}[positive mollifier]
     Consider the function \(h\) in \(\mathbb{R}\) defined by,
     \begin{align*}
         h(t) = \begin{cases}
@@ -101,8 +100,9 @@ For a function \(\phi\) on \(\mathbb{R}^n\) and \(\epsilon>0\), define \(\phi^{\
             0, \ |t|\geq 1
         \end{cases}.
     \end{align*}
-    Then \(g\in C^{\infty}_{c}(\mathbb{R}^n)\). Hence, \(\phi(x)= c_n h(|x|)\) is a modifier, where \(c_n = \left(\int_{\mathbb{R}^n}h(|x|)dx\right)^{-1}\).
+    Then \(h\in C^{\infty}_{c}(\mathbb{R}^n)\). Hence, \(\phi(x)= c_n h(|x|)\) is a mollifier, where \(c_n = \left(\int_{\mathbb{R}^n}h(|x|)dx\right)^{-1}\).
 \end{example}
+A mollifier also has the property that if we define \(\phi^{\epsilon}(x) \eqdef \epsilon^{-n}\phi(x/\epsilon)\), then \(\lim_{\epsilon\rightarrow} \phi^{\epsilon} = \delta(x)\). \important{Which has the usage: \(\phi^{\epsilon}f\xrightarrow[\epsilon\rightarrow \infty]{ } f\)}. Note that if \(\phi\in L^1(\mathbb{R}^n)\), \(\int_{\mathbb{R}^n}\phi dx=1\), then \(\int_{\mathbb{R}^n}\phi^{\epsilon}=1\).
 \begin{proposition}
     Let \(\phi\in L^1(\mathbb{R}^n)\) be s.t. \(\phi\geq 0\) and \(\int_{\mathbb{R}^n}\phi dx=1\). Then we have
     \begin{enumerate}[label=(\roman*)]
