@@ -77,3 +77,10 @@
     \(D(S) = \sigma(S)\)...\(\rightarrow\)...\(B=D_n\).
 \end{proof}
 \fi
+\begin{theorem}[\colortheorem{Carathéodory extension theorem}]
+    Assume \(X\) is a set and \(\mu^*: \mathcal{P}(X)\rightarrow [0,+\infty]\) is an outer measure. Let \(\mathcal{B}\subset\mathcal{P}(X)\) be the collection of sets \(A\) s.t.
+    \begin{align*}
+        \mu^*(B) = \mu^*(A\cap B) + \mu^*(A^c\cap B) \ \forall B\subset X,
+    \end{align*}
+    (such sets are called \colordefinition{Carathéodory measurable }with respect to \(\mu^*\).) then \(\mathcal{B}\) is a \(\sigma\)-algebra and \(\mu\eqdef \mu^*\vert_{\mathcal{B}}\) is a measure on \((X,\mathcal{B})\).
+\end{theorem}
