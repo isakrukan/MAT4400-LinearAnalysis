@@ -141,12 +141,16 @@ When can we discard the term \(\nu(A\cap N)\)?
     \end{align*}
     Equivalently, 
     \begin{align}  \label{eq:firfar}
-        \int_{c}^{d} g\circ g^{-1}dt = \int_{a}^{b}gf'(t)dt.
+        \int_{c}^{d} g\circ f^{-1}dt = \int_{a}^{b}gf'(t)dt.
     \end{align}
     Denote by \(\lambda_{[a,b]}\), \(\lambda_{[c,d]}\) the Lebesgue measure restricted to the Borel subsets of \([a,b]\) and 
     \([c,d]\), respectively. Then eq. \ref{eq:firfar} implies that 
     \begin{align*}
-        d\left((f^{-1})_{*}\lambda_{[c,d]}\right) = f'd\lambda_{[a,b]},
+        d\left((f^{-1})_{*}\lambda_{[c,d]}\right) = f'd\lambda_{[a,b]}
+    \end{align*}
+    \(\Biggl(\text{recall that}\)
+    \begin{align*}
+        (f^{-1})_{*}\lambda_{[c,d]} (A) \eqdef \lambda_{[c,d]}(f^{-1}(A))\eqdef \lambda_{[c,d]}\left(\left\{ x\in X : f(x) \in A\right\}\right) \Biggr),
     \end{align*}
     since the integration of \(g=\mathds{1}_{[\alpha,\beta]}\) gives the same results for any interval \([\alpha,\beta]\subset[a,b]\)
     and since a finite Borel measure on \([a,b]\) is determined by its values on such intervals. Thus, 

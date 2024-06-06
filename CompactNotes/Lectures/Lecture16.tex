@@ -65,9 +65,9 @@ Hence, \(X\) has a maximal element \((W,F)\) by Zorn's lemma. If \(W\neq V\), th
     Then \(f\) can be extended to a linear functional \(F\) on \(V\) s.t. \(|F(x)|\leq p(x) \ \forall x\in V\).
 \end{theorem}
 \begin{corollary}
-    Assume \(V\) is a normed real or complex vector space, \(V_0\subset V\) and \(f\in V_{0}^{*}\). Then there is a \(F\in V^*\) s.t. 
+    Assume \(V\) is a normed real or complex vector space, \(V_0\subset V\) is a subspace and \(f\in V_{0}^{*}\). Then there is a \(F\in V^*\) s.t. 
     \begin{align*}
-        F\vert_{V_0} f \text{ and } ||F|| = ||f||.
+        F\vert_{V_0} = f \text{ and } ||F|| = ||f||.
     \end{align*}
 \end{corollary}
 \ifdetailed
@@ -75,14 +75,18 @@ Hence, \(X\) has a maximal element \((W,F)\) by Zorn's lemma. If \(W\neq V\), th
     We apply the previous theorem to \(p(x)=||f||\cdot ||x||\).
 \end{proof}
 \fi 
-\begin{theorem}[\colortheorem{Hahn-Banach (dense subsets)}]
-    Assume \(\mathcal{H}_0\) is a dense subset of a normed vector space \(\mathcal{H}\) and that \(T:\mathcal{H}_0\rightarrow Y\) is a bounded linear operator (where \(Y\) is a complete, normed vector space), then there is a unique extension of \(T\) to \(T':\mathcal{H}\rightarrow Y\).
-\end{theorem}
+% \begin{theorem}[\colortheorem{Hahn-Banach (dense subsets)}]
+%     Assume \(\mathcal{H}_0\) is a dense subset of a normed vector space \(\mathcal{H}\) and that \(T:\mathcal{H}_0\rightarrow Y\) is a bounded linear operator (where \(Y\) is a complete, normed vector space), then there is a unique extension of \(T\) to \(T':\mathcal{H}\rightarrow Y\).
+% \end{theorem}
 \begin{corollary}
     Assume \(V\) is a normed space and \(x\in V, x\neq0\). Then there is a \(F\in V^*\) s.t. \(||F||=1\) and \(F(x) = ||x||\).
 \end{corollary}
-
-Such an \(F\) is called a \colordefinition{supporting functional at x}.
+\ifdetailed
+\begin{proof}
+We apply the previous corollary to \(V_0 = \mathbb{K}x\) (\(\mathbb{K}=\mathbb{R},\mathbb{C}\)) and \(f:V_0\rightarrow \mathbb{K}\) defined by \(f(cx) = c||x||\).
+\end{proof}
+\fi
+Such an \(F\) is called a \colordefinition{supporting functional at x}. 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.4]{../Figs/hanah_banach1.png}

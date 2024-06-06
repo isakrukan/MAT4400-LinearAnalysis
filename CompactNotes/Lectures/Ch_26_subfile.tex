@@ -169,14 +169,13 @@ and even more, we have:
 \end{corollary}
 
 \section{Dual spaces \tiny{(26, \cite{schilling2017measures})}}
-\ifdetailed 
 Given two orthonormal bases \((u_i)_{i\in I}\) and \((v_i)_{i\in I}\) in a Hilbert space \(\mathcal{H}\), we can decompose
 \begin{align*}
     u_i = \sum\limits_{j\in I} (u_i,v_j)v_j
 \end{align*}
 and using that the sets \(\{j:(u_i,v_j)\neq 0\}\) are countable proove the following:
 
-\emph{Claim}: Any two orthonormal bases in a Hilbert space have the same cardinality.
+\emph{Fact}: Any two orthonormal bases in a Hilbert space have the same cardinality.
 \begin{example}[classical Fourier series]
     Consider \(\mathcal{H} = L^2(0,2\pi) = L^2((0,2\pi), d\lambda)\). For \(n\in\mathbb{Z}\), define
     \(e_n(t) = \frac{1}{\sqrt{2}\pi}e^{int}\). By a version of Weierstrass' theorem it is known that 
@@ -203,7 +202,7 @@ and using that the sets \(\{j:(u_i,v_j)\neq 0\}\) are countable proove the follo
     \emph{Fact}: For every \(f\in L^2(0,2\pi)\), we have \(\frac{1}{\sqrt{2\pi}} \sum_{n=-N}^{N} \hat{f}(n)e^{int}
     \xrightarrow[N\rightarrow\infty]{ } f(t)\) for a.e. t.
 \end{example}
-\fi 
+
 \begin{lemma}
     Assume V is a normed space over \(K=\mathbb{R}\) or \(K=\mathbb{C}\). Consider a linear functional \(f:V\rightarrow K\). The following
     are equivalent (TFAE):
